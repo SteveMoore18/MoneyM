@@ -9,24 +9,36 @@
 /* Begin PBXBuildFile section */
 		E2A8DC9E278C6190006BD05B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9D278C6190006BD05B /* AppDelegate.swift */; };
 		E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */; };
-		E2A8DCA2278C6190006BD05B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCA1278C6190006BD05B /* ViewController.swift */; };
 		E2A8DCA5278C6190006BD05B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A8DCA3278C6190006BD05B /* Main.storyboard */; };
 		E2A8DCA8278C6190006BD05B /* MoneyM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCA6278C6190006BD05B /* MoneyM.xcdatamodeld */; };
 		E2A8DCAA278C6192006BD05B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2A8DCA9278C6192006BD05B /* Assets.xcassets */; };
 		E2A8DCAD278C6192006BD05B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A8DCAB278C6192006BD05B /* LaunchScreen.storyboard */; };
+		E2A8DCD5278CA27F006BD05B /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCD4278CA27F006BD05B /* AccountsViewController.swift */; };
+		E2A8DCD8278CA52B006BD05B /* AccountsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCD7278CA52B006BD05B /* AccountsInteractor.swift */; };
+		E2A8DCDA278CA6A1006BD05B /* AccountsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCD9278CA6A1006BD05B /* AccountsModel.swift */; };
+		E2A8DCDC278CA7EA006BD05B /* AccountsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCDB278CA7EA006BD05B /* AccountsPresenter.swift */; };
+		E2A8DCDE278CAFF0006BD05B /* AccountsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCDD278CAFF0006BD05B /* AccountsWorker.swift */; };
+		E2A8DCE2278CBD60006BD05B /* UIAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCE0278CBD60006BD05B /* UIAccountTableViewCell.swift */; };
+		E2A8DCE6278D6471006BD05B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCE5278D6471006BD05B /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E2A8DC9A278C6190006BD05B /* MoneyM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A8DC9D278C6190006BD05B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E2A8DCA1278C6190006BD05B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2A8DCA4278C6190006BD05B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2A8DCA7278C6190006BD05B /* MoneyM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyM.xcdatamodel; sourceTree = "<group>"; };
 		E2A8DCA9278C6192006BD05B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2A8DCAC278C6192006BD05B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2A8DCAE278C6192006BD05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2A8DCB5278C62C8006BD05B /* MoneyM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoneyM.entitlements; sourceTree = "<group>"; };
+		E2A8DCD4278CA27F006BD05B /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
+		E2A8DCD7278CA52B006BD05B /* AccountsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsInteractor.swift; sourceTree = "<group>"; };
+		E2A8DCD9278CA6A1006BD05B /* AccountsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsModel.swift; sourceTree = "<group>"; };
+		E2A8DCDB278CA7EA006BD05B /* AccountsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsPresenter.swift; sourceTree = "<group>"; };
+		E2A8DCDD278CAFF0006BD05B /* AccountsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsWorker.swift; sourceTree = "<group>"; };
+		E2A8DCE0278CBD60006BD05B /* UIAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAccountTableViewCell.swift; sourceTree = "<group>"; };
+		E2A8DCE5278D6471006BD05B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +71,12 @@
 		E2A8DC9C278C6190006BD05B /* MoneyM */ = {
 			isa = PBXGroup;
 			children = (
+				E2A8DCE4278D6456006BD05B /* Extensions */,
+				E2A8DCDF278CBD31006BD05B /* Views */,
+				E2A8DCB6278C9DC4006BD05B /* Scenes */,
 				E2A8DCB5278C62C8006BD05B /* MoneyM.entitlements */,
 				E2A8DC9D278C6190006BD05B /* AppDelegate.swift */,
 				E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */,
-				E2A8DCA1278C6190006BD05B /* ViewController.swift */,
 				E2A8DCA3278C6190006BD05B /* Main.storyboard */,
 				E2A8DCA9278C6192006BD05B /* Assets.xcassets */,
 				E2A8DCAB278C6192006BD05B /* LaunchScreen.storyboard */,
@@ -70,6 +84,50 @@
 				E2A8DCA6278C6190006BD05B /* MoneyM.xcdatamodeld */,
 			);
 			path = MoneyM;
+			sourceTree = "<group>";
+		};
+		E2A8DCB6278C9DC4006BD05B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E2A8DCB7278C9DCD006BD05B /* Accounts */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E2A8DCB7278C9DCD006BD05B /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				E2A8DCD6278CA3E8006BD05B /* TableView */,
+			);
+			path = Accounts;
+			sourceTree = "<group>";
+		};
+		E2A8DCD6278CA3E8006BD05B /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				E2A8DCD9278CA6A1006BD05B /* AccountsModel.swift */,
+				E2A8DCD4278CA27F006BD05B /* AccountsViewController.swift */,
+				E2A8DCD7278CA52B006BD05B /* AccountsInteractor.swift */,
+				E2A8DCDB278CA7EA006BD05B /* AccountsPresenter.swift */,
+				E2A8DCDD278CAFF0006BD05B /* AccountsWorker.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		E2A8DCDF278CBD31006BD05B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E2A8DCE0278CBD60006BD05B /* UIAccountTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E2A8DCE4278D6456006BD05B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E2A8DCE5278D6471006BD05B /* UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,8 +201,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2A8DCE6278D6471006BD05B /* UIView.swift in Sources */,
+				E2A8DCD8278CA52B006BD05B /* AccountsInteractor.swift in Sources */,
+				E2A8DCDA278CA6A1006BD05B /* AccountsModel.swift in Sources */,
+				E2A8DCDC278CA7EA006BD05B /* AccountsPresenter.swift in Sources */,
+				E2A8DCE2278CBD60006BD05B /* UIAccountTableViewCell.swift in Sources */,
+				E2A8DCD5278CA27F006BD05B /* AccountsViewController.swift in Sources */,
 				E2A8DCA8278C6190006BD05B /* MoneyM.xcdatamodeld in Sources */,
-				E2A8DCA2278C6190006BD05B /* ViewController.swift in Sources */,
+				E2A8DCDE278CAFF0006BD05B /* AccountsWorker.swift in Sources */,
 				E2A8DC9E278C6190006BD05B /* AppDelegate.swift in Sources */,
 				E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */,
 			);
