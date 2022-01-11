@@ -20,6 +20,10 @@
 		E2A8DCDE278CAFF0006BD05B /* AccountsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCDD278CAFF0006BD05B /* AccountsWorker.swift */; };
 		E2A8DCE2278CBD60006BD05B /* UIAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCE0278CBD60006BD05B /* UIAccountTableViewCell.swift */; };
 		E2A8DCE6278D6471006BD05B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCE5278D6471006BD05B /* UIView.swift */; };
+		E2A8DCE9278D7127006BD05B /* NewAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A8DCE8278D7127006BD05B /* NewAccount.storyboard */; };
+		E2A8DCEC278D71B9006BD05B /* AccountsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCEB278D71B9006BD05B /* AccountsRouter.swift */; };
+		E2A8DCEE278D7342006BD05B /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCED278D7342006BD05B /* NewAccountViewController.swift */; };
+		E2F3B82B278D812B00220A7B /* SF-Pro-Rounded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2F3B82A278D812A00220A7B /* SF-Pro-Rounded-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,10 @@
 		E2A8DCDD278CAFF0006BD05B /* AccountsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsWorker.swift; sourceTree = "<group>"; };
 		E2A8DCE0278CBD60006BD05B /* UIAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAccountTableViewCell.swift; sourceTree = "<group>"; };
 		E2A8DCE5278D6471006BD05B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		E2A8DCE8278D7127006BD05B /* NewAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewAccount.storyboard; sourceTree = "<group>"; };
+		E2A8DCEB278D71B9006BD05B /* AccountsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsRouter.swift; sourceTree = "<group>"; };
+		E2A8DCED278D7342006BD05B /* NewAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
+		E2F3B82A278D812A00220A7B /* SF-Pro-Rounded-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,13 +79,14 @@
 		E2A8DC9C278C6190006BD05B /* MoneyM */ = {
 			isa = PBXGroup;
 			children = (
+				E2F3B829278D80DE00220A7B /* Fonts */,
+				E2A8DCE7278D710B006BD05B /* Storyboards */,
 				E2A8DCE4278D6456006BD05B /* Extensions */,
 				E2A8DCDF278CBD31006BD05B /* Views */,
 				E2A8DCB6278C9DC4006BD05B /* Scenes */,
 				E2A8DCB5278C62C8006BD05B /* MoneyM.entitlements */,
 				E2A8DC9D278C6190006BD05B /* AppDelegate.swift */,
 				E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */,
-				E2A8DCA3278C6190006BD05B /* Main.storyboard */,
 				E2A8DCA9278C6192006BD05B /* Assets.xcassets */,
 				E2A8DCAB278C6192006BD05B /* LaunchScreen.storyboard */,
 				E2A8DCAE278C6192006BD05B /* Info.plist */,
@@ -90,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				E2A8DCB7278C9DCD006BD05B /* Accounts */,
+				E2A8DCEA278D71A0006BD05B /* New account */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -97,21 +107,14 @@
 		E2A8DCB7278C9DCD006BD05B /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
-				E2A8DCD6278CA3E8006BD05B /* TableView */,
-			);
-			path = Accounts;
-			sourceTree = "<group>";
-		};
-		E2A8DCD6278CA3E8006BD05B /* TableView */ = {
-			isa = PBXGroup;
-			children = (
 				E2A8DCD9278CA6A1006BD05B /* AccountsModel.swift */,
 				E2A8DCD4278CA27F006BD05B /* AccountsViewController.swift */,
 				E2A8DCD7278CA52B006BD05B /* AccountsInteractor.swift */,
 				E2A8DCDB278CA7EA006BD05B /* AccountsPresenter.swift */,
 				E2A8DCDD278CAFF0006BD05B /* AccountsWorker.swift */,
+				E2A8DCEB278D71B9006BD05B /* AccountsRouter.swift */,
 			);
-			path = TableView;
+			path = Accounts;
 			sourceTree = "<group>";
 		};
 		E2A8DCDF278CBD31006BD05B /* Views */ = {
@@ -128,6 +131,31 @@
 				E2A8DCE5278D6471006BD05B /* UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E2A8DCE7278D710B006BD05B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E2A8DCA3278C6190006BD05B /* Main.storyboard */,
+				E2A8DCE8278D7127006BD05B /* NewAccount.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E2A8DCEA278D71A0006BD05B /* New account */ = {
+			isa = PBXGroup;
+			children = (
+				E2A8DCED278D7342006BD05B /* NewAccountViewController.swift */,
+			);
+			path = "New account";
+			sourceTree = "<group>";
+		};
+		E2F3B829278D80DE00220A7B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E2F3B82A278D812A00220A7B /* SF-Pro-Rounded-Medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,8 +217,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2A8DCAD278C6192006BD05B /* LaunchScreen.storyboard in Resources */,
+				E2F3B82B278D812B00220A7B /* SF-Pro-Rounded-Medium.ttf in Resources */,
 				E2A8DCAA278C6192006BD05B /* Assets.xcassets in Resources */,
 				E2A8DCA5278C6190006BD05B /* Main.storyboard in Resources */,
+				E2A8DCE9278D7127006BD05B /* NewAccount.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,9 +238,11 @@
 				E2A8DCE2278CBD60006BD05B /* UIAccountTableViewCell.swift in Sources */,
 				E2A8DCD5278CA27F006BD05B /* AccountsViewController.swift in Sources */,
 				E2A8DCA8278C6190006BD05B /* MoneyM.xcdatamodeld in Sources */,
+				E2A8DCEC278D71B9006BD05B /* AccountsRouter.swift in Sources */,
 				E2A8DCDE278CAFF0006BD05B /* AccountsWorker.swift in Sources */,
 				E2A8DC9E278C6190006BD05B /* AppDelegate.swift in Sources */,
 				E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */,
+				E2A8DCEE278D7342006BD05B /* NewAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
