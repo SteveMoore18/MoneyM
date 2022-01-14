@@ -35,6 +35,7 @@ class NewAccountViewController: UIViewController {
 	
 	// MARK: - Other variables
 	var interactor: NewAccountBusinesslogic?
+	var router: NewAccountNavigate?
 	
 	private var colorsViewModel: NewAccountModel.Colors.ViewModel?
 	private var iconsViewModel: NewAccountModel.Icons.ViewModel?
@@ -55,12 +56,14 @@ class NewAccountViewController: UIViewController {
 		let viewController = self
 		let newAccountInteractor = NewAccountInteractor()
 		let newAccountPresenter = NewAccountPresenter()
+		let newAccountRouter = NewAccountRouter()
 		
 		newAccountInteractor.presenter = newAccountPresenter
 		newAccountPresenter.viewControlller = viewController
+		newAccountRouter.viewController = viewController
 		
 		interactor = newAccountInteractor
-		
+		router = newAccountRouter
 	}
 	
 	private func otherInit() {
@@ -74,6 +77,7 @@ class NewAccountViewController: UIViewController {
 		
 		dropShadow(iconBackgroundView)
 		
+		settingCurrencyButton()
 	}
 	
 	private func initCollectionViews() {
@@ -95,6 +99,10 @@ class NewAccountViewController: UIViewController {
 		view.layer.shadowOpacity = 0.4
 		view.layer.shadowOffset = .zero
 		view.layer.shadowRadius = 15
+	}
+	
+	private func settingCurrencyButton() {
+		currencyButton.setTitle(constants.defaultCurrency().all, for: .normal)
 	}
 	
 	private func selectIcon(_ indexPath: IndexPath) {
@@ -133,6 +141,10 @@ class NewAccountViewController: UIViewController {
 	
 	@IBAction func createButtonClicked(_ sender: Any) {
 		
+	}
+	
+	@IBAction func currencyButtonClicked(_ sender: Any) {
+		router?.navigateToCurrency()
 	}
 	
 }
@@ -211,6 +223,15 @@ extension NewAccountViewController: NewAccountDisplayData {
 	
 	func displayIcons(viewModel: NewAccountModel.Icons.ViewModel) {
 		self.iconsViewModel = viewModel
+	}
+	
+}
+
+// MARK: - Currency delegate
+extension NewAccountViewController: CurrencyDelegate {
+	
+	func currencySelected(currency: CurrencyModel.Model) {
+		currencyButton.setTitle(currency.all, for: .normal)
 	}
 	
 }

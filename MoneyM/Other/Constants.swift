@@ -15,4 +15,10 @@ class Constants {
 		return font!
 	}
 	
+	public lazy var defaultCurrency = { () -> CurrencyModel.Model in
+		let currencyModel = CurrencyModel()
+		let currency = currencyModel.currencies[0]
+		return currency
+	}
+	
 }

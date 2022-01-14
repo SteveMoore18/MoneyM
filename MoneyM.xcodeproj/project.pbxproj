@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		E2291664279149C40025FB44 /* UIColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */; };
 		E22916672791660B0025FB44 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22916662791660B0025FB44 /* Constants.swift */; };
+		E229166A2791AC820025FB44 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22916692791AC820025FB44 /* CurrencyViewController.swift */; };
+		E2367A452791AF5F002E8ECE /* NewAccountsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A442791AF5F002E8ECE /* NewAccountsRouter.swift */; };
+		E2367A472791C275002E8ECE /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A462791C275002E8ECE /* CurrencyModel.swift */; };
 		E2A8DC9E278C6190006BD05B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9D278C6190006BD05B /* AppDelegate.swift */; };
 		E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */; };
 		E2A8DCA5278C6190006BD05B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A8DCA3278C6190006BD05B /* Main.storyboard */; };
@@ -36,6 +39,9 @@
 /* Begin PBXFileReference section */
 		E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		E22916662791660B0025FB44 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E22916692791AC820025FB44 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		E2367A442791AF5F002E8ECE /* NewAccountsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountsRouter.swift; sourceTree = "<group>"; };
+		E2367A462791C275002E8ECE /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		E2A8DC9A278C6190006BD05B /* MoneyM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A8DC9D278C6190006BD05B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +86,15 @@
 				E22916662791660B0025FB44 /* Constants.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		E22916682791AC640025FB44 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				E22916692791AC820025FB44 /* CurrencyViewController.swift */,
+				E2367A462791C275002E8ECE /* CurrencyModel.swift */,
+			);
+			path = Currency;
 			sourceTree = "<group>";
 		};
 		E2A8DC91278C6190006BD05B = {
@@ -170,11 +185,13 @@
 		E2A8DCEA278D71A0006BD05B /* New account */ = {
 			isa = PBXGroup;
 			children = (
+				E22916682791AC640025FB44 /* Currency */,
 				E2F3B82E278DA86400220A7B /* NewAccountModel.swift */,
 				E2A8DCED278D7342006BD05B /* NewAccountViewController.swift */,
 				E2F3B82C278DA7F900220A7B /* NewAccountInteractor.swift */,
 				E2F3B830278DA89C00220A7B /* NewAccountPresenter.swift */,
 				E2F3B832278DA8AA00220A7B /* NewAccountWorker.swift */,
+				E2367A442791AF5F002E8ECE /* NewAccountsRouter.swift */,
 			);
 			path = "New account";
 			sourceTree = "<group>";
@@ -269,6 +286,7 @@
 				E2F3B835278DC36F00220A7B /* UIIconsCollectionViewCell.swift in Sources */,
 				E2A8DCDC278CA7EA006BD05B /* AccountsPresenter.swift in Sources */,
 				E22916672791660B0025FB44 /* Constants.swift in Sources */,
+				E229166A2791AC820025FB44 /* CurrencyViewController.swift in Sources */,
 				E2A8DCE2278CBD60006BD05B /* UIAccountTableViewCell.swift in Sources */,
 				E2A8DCD5278CA27F006BD05B /* AccountsViewController.swift in Sources */,
 				E2291664279149C40025FB44 /* UIColorCollectionViewCell.swift in Sources */,
@@ -277,8 +295,10 @@
 				E2A8DCEC278D71B9006BD05B /* AccountsRouter.swift in Sources */,
 				E2A8DCDE278CAFF0006BD05B /* AccountsWorker.swift in Sources */,
 				E2A8DC9E278C6190006BD05B /* AppDelegate.swift in Sources */,
+				E2367A472791C275002E8ECE /* CurrencyModel.swift in Sources */,
 				E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */,
 				E2A8DCEE278D7342006BD05B /* NewAccountViewController.swift in Sources */,
+				E2367A452791AF5F002E8ECE /* NewAccountsRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
