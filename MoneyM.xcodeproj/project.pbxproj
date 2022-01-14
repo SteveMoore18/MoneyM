@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2291664279149C40025FB44 /* UIColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */; };
+		E22916672791660B0025FB44 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22916662791660B0025FB44 /* Constants.swift */; };
 		E2A8DC9E278C6190006BD05B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9D278C6190006BD05B /* AppDelegate.swift */; };
 		E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */; };
 		E2A8DCA5278C6190006BD05B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A8DCA3278C6190006BD05B /* Main.storyboard */; };
@@ -24,9 +26,16 @@
 		E2A8DCEC278D71B9006BD05B /* AccountsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCEB278D71B9006BD05B /* AccountsRouter.swift */; };
 		E2A8DCEE278D7342006BD05B /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DCED278D7342006BD05B /* NewAccountViewController.swift */; };
 		E2F3B82B278D812B00220A7B /* SF-Pro-Rounded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2F3B82A278D812A00220A7B /* SF-Pro-Rounded-Medium.ttf */; };
+		E2F3B82D278DA7F900220A7B /* NewAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3B82C278DA7F900220A7B /* NewAccountInteractor.swift */; };
+		E2F3B82F278DA86400220A7B /* NewAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3B82E278DA86400220A7B /* NewAccountModel.swift */; };
+		E2F3B831278DA89C00220A7B /* NewAccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3B830278DA89C00220A7B /* NewAccountPresenter.swift */; };
+		E2F3B833278DA8AB00220A7B /* NewAccountWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3B832278DA8AA00220A7B /* NewAccountWorker.swift */; };
+		E2F3B835278DC36F00220A7B /* UIIconsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3B834278DC36F00220A7B /* UIIconsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		E22916662791660B0025FB44 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E2A8DC9A278C6190006BD05B /* MoneyM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A8DC9D278C6190006BD05B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +56,11 @@
 		E2A8DCEB278D71B9006BD05B /* AccountsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsRouter.swift; sourceTree = "<group>"; };
 		E2A8DCED278D7342006BD05B /* NewAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
 		E2F3B82A278D812A00220A7B /* SF-Pro-Rounded-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.ttf"; sourceTree = "<group>"; };
+		E2F3B82C278DA7F900220A7B /* NewAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountInteractor.swift; sourceTree = "<group>"; };
+		E2F3B82E278DA86400220A7B /* NewAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountModel.swift; sourceTree = "<group>"; };
+		E2F3B830278DA89C00220A7B /* NewAccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountPresenter.swift; sourceTree = "<group>"; };
+		E2F3B832278DA8AA00220A7B /* NewAccountWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountWorker.swift; sourceTree = "<group>"; };
+		E2F3B834278DC36F00220A7B /* UIIconsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIconsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2291665279165FC0025FB44 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E22916662791660B0025FB44 /* Constants.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		E2A8DC91278C6190006BD05B = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +101,7 @@
 		E2A8DC9C278C6190006BD05B /* MoneyM */ = {
 			isa = PBXGroup;
 			children = (
+				E2291665279165FC0025FB44 /* Other */,
 				E2F3B829278D80DE00220A7B /* Fonts */,
 				E2A8DCE7278D710B006BD05B /* Storyboards */,
 				E2A8DCE4278D6456006BD05B /* Extensions */,
@@ -121,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				E2A8DCE0278CBD60006BD05B /* UIAccountTableViewCell.swift */,
+				E2F3B834278DC36F00220A7B /* UIIconsCollectionViewCell.swift */,
+				E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,7 +170,11 @@
 		E2A8DCEA278D71A0006BD05B /* New account */ = {
 			isa = PBXGroup;
 			children = (
+				E2F3B82E278DA86400220A7B /* NewAccountModel.swift */,
 				E2A8DCED278D7342006BD05B /* NewAccountViewController.swift */,
+				E2F3B82C278DA7F900220A7B /* NewAccountInteractor.swift */,
+				E2F3B830278DA89C00220A7B /* NewAccountPresenter.swift */,
+				E2F3B832278DA8AA00220A7B /* NewAccountWorker.swift */,
 			);
 			path = "New account";
 			sourceTree = "<group>";
@@ -231,13 +260,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F3B82D278DA7F900220A7B /* NewAccountInteractor.swift in Sources */,
 				E2A8DCE6278D6471006BD05B /* UIView.swift in Sources */,
+				E2F3B833278DA8AB00220A7B /* NewAccountWorker.swift in Sources */,
 				E2A8DCD8278CA52B006BD05B /* AccountsInteractor.swift in Sources */,
+				E2F3B831278DA89C00220A7B /* NewAccountPresenter.swift in Sources */,
 				E2A8DCDA278CA6A1006BD05B /* AccountsModel.swift in Sources */,
+				E2F3B835278DC36F00220A7B /* UIIconsCollectionViewCell.swift in Sources */,
 				E2A8DCDC278CA7EA006BD05B /* AccountsPresenter.swift in Sources */,
+				E22916672791660B0025FB44 /* Constants.swift in Sources */,
 				E2A8DCE2278CBD60006BD05B /* UIAccountTableViewCell.swift in Sources */,
 				E2A8DCD5278CA27F006BD05B /* AccountsViewController.swift in Sources */,
+				E2291664279149C40025FB44 /* UIColorCollectionViewCell.swift in Sources */,
 				E2A8DCA8278C6190006BD05B /* MoneyM.xcdatamodeld in Sources */,
+				E2F3B82F278DA86400220A7B /* NewAccountModel.swift in Sources */,
 				E2A8DCEC278D71B9006BD05B /* AccountsRouter.swift in Sources */,
 				E2A8DCDE278CAFF0006BD05B /* AccountsWorker.swift in Sources */,
 				E2A8DC9E278C6190006BD05B /* AppDelegate.swift in Sources */,
