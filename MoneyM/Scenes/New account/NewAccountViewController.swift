@@ -14,6 +14,10 @@ protocol NewAccountDisplayData {
 	
 }
 
+protocol NewAccountDelegate {
+	func accountDidCreate()
+}
+
 class NewAccountViewController: UIViewController {
 
 	// MARK: - Outlets
@@ -41,6 +45,8 @@ class NewAccountViewController: UIViewController {
 	private var iconsViewModel: NewAccountModel.Icons.ViewModel?
 	
 	private var constants = Constants()
+	
+	public var delegate: NewAccountDelegate?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,7 +146,19 @@ class NewAccountViewController: UIViewController {
 	}
 	
 	@IBAction func createButtonClicked(_ sender: Any) {
+		let title = titleTextField.text!
+		let balance = Int(balanceTextField.text!) ?? 0
+		let iconID = iconsCollectionView.indexPathsForSelectedItems?.first?.row ?? 0
+		let colorID = colorsCollectionView.indexPathsForSelectedItems?.first?.row ?? 0
 		
+		let request = NewAccountModel.CreateAccount.Request(title: title,
+															balance: balance,
+															iconID: iconID,
+															colorID: colorID)
+		
+		interactor?.createAccount(request: request)
+		delegate?.accountDidCreate()
+		dismiss(animated: true)
 	}
 	
 	@IBAction func currencyButtonClicked(_ sender: Any) {

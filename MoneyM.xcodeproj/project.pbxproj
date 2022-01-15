@@ -12,6 +12,8 @@
 		E229166A2791AC820025FB44 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22916692791AC820025FB44 /* CurrencyViewController.swift */; };
 		E2367A452791AF5F002E8ECE /* NewAccountsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A442791AF5F002E8ECE /* NewAccountsRouter.swift */; };
 		E2367A472791C275002E8ECE /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A462791C275002E8ECE /* CurrencyModel.swift */; };
+		E2367A492792A63D002E8ECE /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A482792A63D002E8ECE /* Icons.swift */; };
+		E2367A4B2792A68A002E8ECE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A4A2792A68A002E8ECE /* Colors.swift */; };
 		E2A8DC9E278C6190006BD05B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9D278C6190006BD05B /* AppDelegate.swift */; };
 		E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */; };
 		E2A8DCA5278C6190006BD05B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A8DCA3278C6190006BD05B /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 		E22916692791AC820025FB44 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		E2367A442791AF5F002E8ECE /* NewAccountsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountsRouter.swift; sourceTree = "<group>"; };
 		E2367A462791C275002E8ECE /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
+		E2367A482792A63D002E8ECE /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		E2367A4A2792A68A002E8ECE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E2A8DC9A278C6190006BD05B /* MoneyM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A8DC9D278C6190006BD05B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				E22916662791660B0025FB44 /* Constants.swift */,
+				E2367A482792A63D002E8ECE /* Icons.swift */,
+				E2367A4A2792A68A002E8ECE /* Colors.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2F3B82D278DA7F900220A7B /* NewAccountInteractor.swift in Sources */,
+				E2367A4B2792A68A002E8ECE /* Colors.swift in Sources */,
 				E2A8DCE6278D6471006BD05B /* UIView.swift in Sources */,
 				E2F3B833278DA8AB00220A7B /* NewAccountWorker.swift in Sources */,
 				E2A8DCD8278CA52B006BD05B /* AccountsInteractor.swift in Sources */,
@@ -299,6 +306,7 @@
 				E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */,
 				E2A8DCEE278D7342006BD05B /* NewAccountViewController.swift in Sources */,
 				E2367A452791AF5F002E8ECE /* NewAccountsRouter.swift in Sources */,
+				E2367A492792A63D002E8ECE /* Icons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

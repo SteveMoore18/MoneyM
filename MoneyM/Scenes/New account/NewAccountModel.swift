@@ -40,4 +40,23 @@ class NewAccountModel {
 		}
 	}
 	
+	struct CreateAccount {
+		
+		struct Request {
+			var title: String
+			var balance: Int
+			var iconID: Int
+			var colorID: Int
+		}
+		
+		struct Response {
+			
+		}
+		
+		struct ViewModel {
+			
+		}
+		
+	}
+	
 }

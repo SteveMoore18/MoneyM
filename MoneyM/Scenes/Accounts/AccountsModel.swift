@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AccountsModel {
 	
@@ -20,11 +21,14 @@ class AccountsModel {
 	}
 	
 	struct Response {
-		var accounts: [Account]
+		var accounts: [AccountEntity]
 	}
 	
 	struct ViewModel {
-		var accounts: [Account]
+		var colors: [UIColor]
+		var icons: [UIImage]
+		var dateOfCreations: [String]
+		var accounts: [AccountEntity]
 	}
 	
 }

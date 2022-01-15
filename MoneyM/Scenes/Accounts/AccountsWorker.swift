@@ -6,15 +6,24 @@
 //
 
 import Foundation
+import UIKit
 
 class AccountsWorker {
 	
-	public var accounts: [AccountsModel.Account] = []
+	public var accounts: [AccountEntity] = []
+	
+	private var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 	
 	init() {
-		accounts.append(.init(title: "Test 1", dateOfCreation: "01.01.2000", balance: "1000 $"))
-		accounts.append(.init(title: "Test 2", dateOfCreation: "09.12.2015", balance: "1500 $"))
-		
+		fetchRequest()
+	}
+	
+	private func fetchRequest() {
+		do {
+			try accounts = context.fetch(AccountEntity.fetchRequest())
+		} catch {
+			print ("Error. Can't fetch accounts!")
+		}
 	}
 	
 }

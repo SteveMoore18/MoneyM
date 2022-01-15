@@ -25,6 +25,8 @@ extension AccountsRouter: AccountsNavigate {
 		let storyboard = UIStoryboard(name: "NewAccount", bundle: nil)
 		let newAccountViewController = storyboard.instantiateViewController(withIdentifier: "NewAccountID") as? NewAccountViewController
 		
+		newAccountViewController?.delegate = viewController
+		
 		viewController?.present(newAccountViewController!, animated: true)
 	}
 	

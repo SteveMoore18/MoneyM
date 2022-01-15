@@ -80,10 +80,13 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
 		accountsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? UIAccountTableViewCell
 		
 		let account = viewModel?.accounts[indexPath.row]
+		let index = indexPath.row
 		
 		accountsTableViewCell?.titleLabel.text = account?.title
-		accountsTableViewCell?.dateOfCreationLabel.text = account?.dateOfCreation
-		accountsTableViewCell?.balanceLabel.text = account?.balance
+		accountsTableViewCell?.dateOfCreationLabel.text = viewModel?.dateOfCreations[index]
+		accountsTableViewCell?.balanceLabel.text = "\(Int(account?.balance ?? 0))"
+		accountsTableViewCell?.iconImage.image = viewModel?.icons[index]
+		accountsTableViewCell?.iconView.backgroundColor = viewModel?.colors[index]
 		
 		return accountsTableViewCell!
 	}
@@ -102,5 +105,13 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
 extension AccountsViewController: DisplayAccounts {
 	func displayAccounts(viewModel: AccountsModel.ViewModel) {
 		self.viewModel = viewModel
+	}
+}
+
+// MARK: - NewAccount delegate
+extension AccountsViewController: NewAccountDelegate {
+	func accountDidCreate() {
+		interactor?.requestAccounts()
+		accountsTableView.reloadData()
 	}
 }
