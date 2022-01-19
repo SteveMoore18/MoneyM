@@ -419,7 +419,7 @@
                                 <items>
                                     <navigationItem title="Currency" id="uVv-1g-gBJ">
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="AXG-OZ-stB">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FBa-dw-GbD">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FBa-dw-GbD">
                                                 <rect key="frame" x="364" y="7" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemGray4Color"/>

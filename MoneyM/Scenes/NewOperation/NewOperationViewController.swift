@@ -1,0 +1,155 @@
+//
+//  NewOperationViewController.swift
+//  MoneyM
+//
+//  Created by Савелий Никулин on 18.01.2022.
+//
+
+import UIKit
+
+protocol NewOperationDelegate {
+	func operationCreated()
+}
+
+protocol NewOperationDisplay {
+	func displayResult(viewModel: NewOperationModel.CreateOperation.ViewModel)
+}
+
+class NewOperationViewController: UIViewController {
+
+	public var account: AccountEntity?
+	
+	public var delegate: NewOperationDelegate?
+	
+	// MARK: - Outlets
+	@IBOutlet weak var amountTextField: UITextField!
+	
+	@IBOutlet weak var expenseButton: UIButton!
+	
+	@IBOutlet weak var incomeButton: UIButton!
+	
+	@IBOutlet weak var categoryButton: UIButton!
+	
+	@IBOutlet weak var noteTextField: UITextField!
+	
+	@IBOutlet weak var datePicker: UIDatePicker!
+	
+	@IBOutlet weak var createButton: UIButton!
+	
+	// MARK: - Private variables
+	private var isCreateButtonEnabled = false
+	
+	private(set) var operationMode = NewOperationModel.OperationMode.Expense
+	
+	private let mainBackgroundColor = UIColor(named: "Main Background Color")
+	
+	private(set) var interactor: NewOperationBusinessLogic?
+	
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+		// CleanSwift setup
+		setup()
+		
+    }
+    
+	// MARK: - Actions
+	@IBAction func closeButtonClicked(_ sender: Any) {
+		dismiss(animated: true)
+	}
+	
+	@IBAction func expenseButtonClicked(_ sender: Any) {
+		operationMode = .Expense
+		
+		selectExpenseButton()
+		deselectIncomeButton()
+		
+	}
+	
+	@IBAction func incomeButtonClicked(_ sender: Any) {
+		operationMode = .Income
+		
+		selectIncomeButton()
+		deselectExpenseButton()
+	}
+	
+	@IBAction func categoryButtonClicked(_ sender: Any) {
+		
+	}
+	
+	@IBAction func createButtonClicked(_ sender: Any) {
+		guard let account = account else {
+			return
+		}
+		
+		let amount = Int(amountTextField.text!) ?? 0
+		let note = noteTextField.text!
+		let dateOfCreation = datePicker.date
+		
+		let request = NewOperationModel.CreateOperation.Request(account: account,
+																amount: amount,
+																mode: operationMode,
+																category: "",
+																note: note,
+																dateOfCreation: dateOfCreation)
+		
+		interactor?.createOperation(request: request)
+	}
+	
+	
+	@IBAction func amountTextFieldEditingChanged(_ sender: Any) {
+		let isEmpty = !(amountTextField.text ?? "").isEmpty
+		createButtonEnable(value: isEmpty)
+	}
+	
+	// MARK: - Private functions
+	private func setup() {
+		let viewController = self
+		let newOperationInteractor = NewOperationInteractor()
+		let newOperationPresenter = NewOperationPresenter()
+		
+		newOperationInteractor.presenter = newOperationPresenter
+		newOperationPresenter.viewController = viewController
+		
+		interactor = newOperationInteractor
+		
+	}
+	
+	private func createButtonEnable(value: Bool) {
+		isCreateButtonEnabled = value
+		createButton.backgroundColor = value ? .systemBlue : .systemGray3
+	}
+	
+	private func selectExpenseButton() {
+		expenseButton.backgroundColor = .systemBlue
+		expenseButton.tintColor = .white
+	}
+	
+	private func deselectExpenseButton() {
+		expenseButton.backgroundColor = mainBackgroundColor
+		expenseButton.tintColor = .systemBlue
+	}
+	
+	private func selectIncomeButton() {
+		incomeButton.backgroundColor = .systemBlue
+		incomeButton.tintColor = .white
+	}
+	
+	private func deselectIncomeButton() {
+		incomeButton.backgroundColor = mainBackgroundColor
+		incomeButton.tintColor = .systemBlue
+	}
+	
+}
+
+// MARK: - NewOperation Display
+extension NewOperationViewController: NewOperationDisplay {
+	func displayResult(viewModel: NewOperationModel.CreateOperation.ViewModel) {
+		
+		if viewModel.success {
+			delegate?.operationCreated()
+			dismiss(animated: true)
+		}
+		
+	}
+}

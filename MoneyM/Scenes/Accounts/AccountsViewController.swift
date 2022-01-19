@@ -96,7 +96,8 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
+		let account = (viewModel?.accounts[indexPath.row])!
+		router?.showOperations(account: account)
 	}
 	
 }

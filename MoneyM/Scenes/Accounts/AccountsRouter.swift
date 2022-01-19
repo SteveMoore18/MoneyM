@@ -10,6 +10,7 @@ import UIKit
 
 protocol AccountsNavigate: AnyObject {
 	func navigateToNewAccount()
+	func showOperations(account: AccountEntity)
 }
 
 class AccountsRouter {
@@ -19,6 +20,17 @@ class AccountsRouter {
 }
 
 extension AccountsRouter: AccountsNavigate {
+	
+	func showOperations(account: AccountEntity) {
+		let storyboard = UIStoryboard(name: "Operations", bundle: nil)
+		let operationsViewController = storyboard.instantiateViewController(withIdentifier: "Operations") as? OperationsViewController
+		
+		operationsViewController?.account = account
+		
+		let navigationVC = UINavigationController(rootViewController: operationsViewController!)
+		
+		viewController?.splitViewController?.showDetailViewController(navigationVC, sender: nil)
+	}
 	
 	func navigateToNewAccount() {
 		
