@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol OperationsPresenterLogic {
 	func presentOperations(response: OperationsModel.Operations.Response)
@@ -21,7 +22,22 @@ class OperationsPresenter {
 extension OperationsPresenter: OperationsPresenterLogic {
 	
 	func presentOperations(response: OperationsModel.Operations.Response) {
-		let viewModel = OperationsModel.Operations.ViewModel(operations: response.operations)
+		
+		var operations: [OperationsModel.OperationPresent] = []
+		
+		response.operations.forEach { operation in
+			let mode = NewOperationModel.OperationMode.init(rawValue: Int(operation.mode))
+			let amount = operation.amount
+			
+			let amountColor = (mode == .Expense) ? UIColor.systemRed : UIColor.systemBlue
+			let amountValue = (mode == .Expense) ? "-\(amount)" : "+\(amount)"
+			
+			operations.append(OperationsModel.OperationPresent(operation: operation,
+															   amountColor: amountColor,
+															   amountValue: amountValue))
+		}
+		
+		let viewModel = OperationsModel.Operations.ViewModel(operations: operations)
 		viewController?.displayOperation(viewModel: viewModel)
 	}
 	

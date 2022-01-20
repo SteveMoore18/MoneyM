@@ -42,6 +42,8 @@ class OperationsViewController: UIViewController {
 	
 	private let bottomMargin: CGFloat = 16
 	
+	private(set) var categoryModel: CategoryModel!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,6 +69,8 @@ class OperationsViewController: UIViewController {
 	}
 	
 	private func otherInit() {
+		
+		categoryModel = CategoryModel()
 		
 		operationsTableView.delegate = self
 		operationsTableView.dataSource = self
@@ -101,7 +105,14 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		let operation = viewModel?.operations[indexPath.row]
 		
-		cell.categoryLabel.text = operation?.category
+		let categoryID = Int((operation?.operation.categoryID)!)
+		let category = categoryModel.categoryBy(id: categoryID) ?? categoryModel.categoryUncategorized
+
+		cell.categoryLabel.text = category?.title
+		cell.iconLabel.text = category?.emojiIcon
+		cell.amountLabel.text = operation?.amountValue
+		cell.amountLabel.textColor = operation?.amountColor
+		cell.noteLabel.text = operation?.operation.note
 		
 		let tableViewContentHeight = operationsTableView.contentSize.height
 		scrollViewHeightConstraint.constant = tableViewContentHeight + statusStackViewHeightConstraint.constant + bottomMargin

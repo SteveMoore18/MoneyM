@@ -28,6 +28,7 @@ extension OperationsRouter: OperationNavigate {
 		
 		newOperationViewController?.account = viewController?.account
 		newOperationViewController?.delegate = viewController
+		newOperationViewController?.categoryModel = viewController?.categoryModel
 		
 		viewController?.present(newOperationViewController!, animated: true)
 	}

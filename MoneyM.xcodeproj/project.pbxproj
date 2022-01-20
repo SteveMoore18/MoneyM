@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2064E49279833C100EF4917 /* NewOperationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2064E48279833C100EF4917 /* NewOperationRouter.swift */; };
 		E2291664279149C40025FB44 /* UIColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */; };
 		E22916672791660B0025FB44 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22916662791660B0025FB44 /* Constants.swift */; };
 		E229166A2791AC820025FB44 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22916692791AC820025FB44 /* CurrencyViewController.swift */; };
@@ -44,6 +45,9 @@
 		E2E7A53E2797FD60000BFC03 /* NewOperationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7A53D2797FD60000BFC03 /* NewOperationPresenter.swift */; };
 		E2E7A5402797FD6A000BFC03 /* NewOperationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7A53F2797FD6A000BFC03 /* NewOperationModel.swift */; };
 		E2E7A5422797FFF0000BFC03 /* NewOperationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7A5412797FFEF000BFC03 /* NewOperationWorker.swift */; };
+		E2E7A5452798292D000BFC03 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7A5442798292D000BFC03 /* CategoryViewController.swift */; };
+		E2E7A54727982941000BFC03 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7A54627982941000BFC03 /* CategoryModel.swift */; };
+		E2E7A549279829F5000BFC03 /* UICategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7A548279829F5000BFC03 /* UICategoryTableViewCell.swift */; };
 		E2F3B82B278D812B00220A7B /* SF-Pro-Rounded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2F3B82A278D812A00220A7B /* SF-Pro-Rounded-Medium.ttf */; };
 		E2F3B82D278DA7F900220A7B /* NewAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3B82C278DA7F900220A7B /* NewAccountInteractor.swift */; };
 		E2F3B82F278DA86400220A7B /* NewAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3B82E278DA86400220A7B /* NewAccountModel.swift */; };
@@ -53,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E2064E48279833C100EF4917 /* NewOperationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOperationRouter.swift; sourceTree = "<group>"; };
 		E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		E22916662791660B0025FB44 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E22916692791AC820025FB44 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +98,9 @@
 		E2E7A53D2797FD60000BFC03 /* NewOperationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOperationPresenter.swift; sourceTree = "<group>"; };
 		E2E7A53F2797FD6A000BFC03 /* NewOperationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOperationModel.swift; sourceTree = "<group>"; };
 		E2E7A5412797FFEF000BFC03 /* NewOperationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOperationWorker.swift; sourceTree = "<group>"; };
+		E2E7A5442798292D000BFC03 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		E2E7A54627982941000BFC03 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		E2E7A548279829F5000BFC03 /* UICategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICategoryTableViewCell.swift; sourceTree = "<group>"; };
 		E2F3B82A278D812A00220A7B /* SF-Pro-Rounded-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.ttf"; sourceTree = "<group>"; };
 		E2F3B82C278DA7F900220A7B /* NewAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountInteractor.swift; sourceTree = "<group>"; };
 		E2F3B82E278DA86400220A7B /* NewAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountModel.swift; sourceTree = "<group>"; };
@@ -147,11 +155,13 @@
 		E2367A622796F737002E8ECE /* NewOperation */ = {
 			isa = PBXGroup;
 			children = (
+				E2E7A54327982748000BFC03 /* Category */,
 				E2E7A53F2797FD6A000BFC03 /* NewOperationModel.swift */,
 				E2E7A53927974D3A000BFC03 /* NewOperationViewController.swift */,
 				E2E7A53B2797FCB7000BFC03 /* NewOperationInteractor.swift */,
 				E2E7A53D2797FD60000BFC03 /* NewOperationPresenter.swift */,
 				E2E7A5412797FFEF000BFC03 /* NewOperationWorker.swift */,
+				E2064E48279833C100EF4917 /* NewOperationRouter.swift */,
 			);
 			path = NewOperation;
 			sourceTree = "<group>";
@@ -223,6 +233,7 @@
 				E2F3B834278DC36F00220A7B /* UIIconsCollectionViewCell.swift */,
 				E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */,
 				E2367A4E2792F405002E8ECE /* UIOperationTableViewCell.swift */,
+				E2E7A548279829F5000BFC03 /* UICategoryTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +269,15 @@
 				E2367A442791AF5F002E8ECE /* NewAccountsRouter.swift */,
 			);
 			path = "New account";
+			sourceTree = "<group>";
+		};
+		E2E7A54327982748000BFC03 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E2E7A5442798292D000BFC03 /* CategoryViewController.swift */,
+				E2E7A54627982941000BFC03 /* CategoryModel.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		E2F3B829278D80DE00220A7B /* Fonts */ = {
@@ -367,6 +387,7 @@
 				E2291664279149C40025FB44 /* UIColorCollectionViewCell.swift in Sources */,
 				E2A8DCA8278C6190006BD05B /* MoneyM.xcdatamodeld in Sources */,
 				E2F3B82F278DA86400220A7B /* NewAccountModel.swift in Sources */,
+				E2E7A549279829F5000BFC03 /* UICategoryTableViewCell.swift in Sources */,
 				E2A8DCEC278D71B9006BD05B /* AccountsRouter.swift in Sources */,
 				E2E7A53E2797FD60000BFC03 /* NewOperationPresenter.swift in Sources */,
 				E2E7A53C2797FCB7000BFC03 /* NewOperationInteractor.swift in Sources */,
@@ -376,9 +397,12 @@
 				E2A8DC9E278C6190006BD05B /* AppDelegate.swift in Sources */,
 				E2367A472791C275002E8ECE /* CurrencyModel.swift in Sources */,
 				E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */,
+				E2E7A5452798292D000BFC03 /* CategoryViewController.swift in Sources */,
 				E2A8DCEE278D7342006BD05B /* NewAccountViewController.swift in Sources */,
+				E2E7A54727982941000BFC03 /* CategoryModel.swift in Sources */,
 				E2367A452791AF5F002E8ECE /* NewAccountsRouter.swift in Sources */,
 				E2367A492792A63D002E8ECE /* Icons.swift in Sources */,
+				E2064E49279833C100EF4917 /* NewOperationRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

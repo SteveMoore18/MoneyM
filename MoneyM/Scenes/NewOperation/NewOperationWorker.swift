@@ -19,6 +19,7 @@ class NewOperationWorker {
 		newOperation.mode = Int64(request.mode.rawValue)
 		newOperation.note = request.note
 		newOperation.dateOfCreation = request.dateOfCreation
+		newOperation.categoryID = Int64(request.categoryID)
 		
 		request.account.addToOperations(newOperation)
 		

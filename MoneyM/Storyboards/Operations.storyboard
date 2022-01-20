@@ -123,9 +123,10 @@
                                                     <constraint firstAttribute="height" constant="216" id="u6K-6k-uGN"/>
                                                 </constraints>
                                             </stackView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xwp-XU-Ngi">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="insetGrouped" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xwp-XU-Ngi">
                                                 <rect key="frame" x="0.0" y="248" width="375" height="331"/>
                                                 <color key="backgroundColor" name="Main Background Color"/>
+                                                <inset key="separatorInset" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="60" id="tzd-DX-bHl" customClass="UIOperationTableViewCell" customModule="MoneyM" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="49.5" width="343" height="60"/>
@@ -137,16 +138,17 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7U7-DK-pGD">
                                                                     <rect key="frame" x="16" y="10" width="40" height="40"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1C7-eY-2ig">
-                                                                            <rect key="frame" x="18" y="10" width="4.5" height="20.5"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1C7-eY-2ig">
+                                                                            <rect key="frame" x="16.5" y="2" width="7.5" height="36"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                                    <color key="backgroundColor" name="Table View Cell Background"/>
                                                                     <constraints>
+                                                                        <constraint firstItem="1C7-eY-2ig" firstAttribute="centerY" secondItem="7U7-DK-pGD" secondAttribute="centerY" id="3ez-lJ-MsS"/>
+                                                                        <constraint firstItem="1C7-eY-2ig" firstAttribute="centerX" secondItem="7U7-DK-pGD" secondAttribute="centerX" id="J3t-en-dPn"/>
                                                                         <constraint firstAttribute="width" constant="40" id="ggq-9B-1Yg"/>
                                                                         <constraint firstAttribute="height" constant="40" id="kyM-1a-4IY"/>
                                                                     </constraints>
@@ -157,20 +159,20 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCJ-cT-zZL">
-                                                                    <rect key="frame" x="72" y="11" width="67" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                    <rect key="frame" x="72" y="11" width="74" height="21.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMW-Fe-haY">
-                                                                    <rect key="frame" x="72" y="36" width="27.5" height="14.5"/>
+                                                                    <rect key="frame" x="72" y="38" width="27.5" height="14.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiH-Y9-qRe">
-                                                                    <rect key="frame" x="263" y="19.5" width="64" height="21.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                    <rect key="frame" x="244" y="15.5" width="83" height="29"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -189,7 +191,7 @@
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <outlet property="balanceLabel" destination="hiH-Y9-qRe" id="UTJ-9V-iZ4"/>
+                                                            <outlet property="amountLabel" destination="hiH-Y9-qRe" id="UTJ-9V-iZ4"/>
                                                             <outlet property="categoryLabel" destination="lCJ-cT-zZL" id="4zo-tj-HK0"/>
                                                             <outlet property="iconBackgrundView" destination="7U7-DK-pGD" id="6pg-0b-GRP"/>
                                                             <outlet property="iconLabel" destination="1C7-eY-2ig" id="hMa-fC-RPi"/>
@@ -297,14 +299,14 @@
         <namedColor name="Main Background Color">
             <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Table View Cell Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="UIView Background Color">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

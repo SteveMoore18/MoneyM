@@ -6,8 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 class OperationsModel {
+	
+	struct OperationPresent {
+		var operation: OperationEntity
+		var amountColor: UIColor
+		var amountValue: String
+	}
 	
 	struct Operations {
 		struct Request {
@@ -19,7 +26,7 @@ class OperationsModel {
 		}
 		
 		struct ViewModel {
-			var operations: [OperationEntity]
+			var operations: [OperationPresent]
 		}
 		
 	}

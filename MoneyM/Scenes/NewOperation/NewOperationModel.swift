@@ -20,7 +20,7 @@ class NewOperationModel {
 			var account: AccountEntity
 			var amount: Int
 			var mode: OperationMode
-			var category: String
+			var categoryID: Int
 			var note: String
 			var dateOfCreation: Date
 		}

@@ -21,6 +21,8 @@ class NewOperationViewController: UIViewController {
 	
 	public var delegate: NewOperationDelegate?
 	
+	public var categoryModel: CategoryModel?
+	
 	// MARK: - Outlets
 	@IBOutlet weak var amountTextField: UITextField!
 	
@@ -43,7 +45,10 @@ class NewOperationViewController: UIViewController {
 	
 	private let mainBackgroundColor = UIColor(named: "Main Background Color")
 	
+	private var selectedCategory: CategoryModel.Model!
+	
 	private(set) var interactor: NewOperationBusinessLogic?
+	private var router: NewOperationNavigate?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +56,7 @@ class NewOperationViewController: UIViewController {
 		// CleanSwift setup
 		setup()
 		
+		otherInit()
     }
     
 	// MARK: - Actions
@@ -74,7 +80,7 @@ class NewOperationViewController: UIViewController {
 	}
 	
 	@IBAction func categoryButtonClicked(_ sender: Any) {
-		
+		router?.navigateToCategory(mode: operationMode)
 	}
 	
 	@IBAction func createButtonClicked(_ sender: Any) {
@@ -89,7 +95,7 @@ class NewOperationViewController: UIViewController {
 		let request = NewOperationModel.CreateOperation.Request(account: account,
 																amount: amount,
 																mode: operationMode,
-																category: "",
+																categoryID: selectedCategory.id,
 																note: note,
 																dateOfCreation: dateOfCreation)
 		
@@ -107,11 +113,21 @@ class NewOperationViewController: UIViewController {
 		let viewController = self
 		let newOperationInteractor = NewOperationInteractor()
 		let newOperationPresenter = NewOperationPresenter()
+		let newOperationRouter = NewOperationRouter()
 		
 		newOperationInteractor.presenter = newOperationPresenter
 		newOperationPresenter.viewController = viewController
+		newOperationRouter.viewController = viewController
 		
 		interactor = newOperationInteractor
+		router = newOperationRouter
+	}
+	
+	private func otherInit() {
+		if categoryModel == nil {
+			categoryModel = CategoryModel()
+		}
+		selectedCategory = categoryModel?.categoryUncategorized
 		
 	}
 	
@@ -152,4 +168,14 @@ extension NewOperationViewController: NewOperationDisplay {
 		}
 		
 	}
+}
+
+// MARK: - Category delegate
+extension NewOperationViewController: CategoryDelegate {
+	
+	func categorySelected(category: CategoryModel.Model) {
+		categoryButton.setTitle("\(category.emojiIcon) \(category.title)", for: .normal)
+		selectedCategory = category
+	}
+	
 }

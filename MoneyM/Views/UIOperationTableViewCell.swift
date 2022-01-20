@@ -17,7 +17,7 @@ class UIOperationTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var noteLabel: UILabel!
 	
-	@IBOutlet weak var balanceLabel: UILabel!
+	@IBOutlet weak var amountLabel: UILabel!
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
