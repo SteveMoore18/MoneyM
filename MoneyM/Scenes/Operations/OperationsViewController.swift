@@ -115,7 +115,7 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 		cell.noteLabel.text = operation?.operation.note
 		
 		let tableViewContentHeight = operationsTableView.contentSize.height
-		scrollViewHeightConstraint.constant = tableViewContentHeight + statusStackViewHeightConstraint.constant + bottomMargin
+		scrollViewHeightConstraint.constant = tableViewContentHeight + statusStackViewHeightConstraint.constant + bottomMargin + 32
 		
 		return cell
 	}
