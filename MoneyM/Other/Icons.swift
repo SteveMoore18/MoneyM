@@ -23,7 +23,6 @@ class Icons {
 		icons.append(UIImage(systemName: "doc")!)
 		icons.append(UIImage(systemName: "note")!)
 		icons.append(UIImage(systemName: "book")!)
-		icons.append(UIImage(systemName: "magazine")!)
 		icons.append(UIImage(systemName: "bookmark")!)
 		icons.append(UIImage(systemName: "graduationcap")!)
 		icons.append(UIImage(systemName: "umbrella")!)
@@ -40,7 +39,6 @@ class Icons {
 		icons.append(UIImage(systemName: "lock.open")!)
 		icons.append(UIImage(systemName: "cpu")!)
 		icons.append(UIImage(systemName: "headphones")!)
-		icons.append(UIImage(systemName: "fuelpump")!)
 		icons.append(UIImage(systemName: "film")!)
 		icons.append(UIImage(systemName: "crown")!)
 		icons.append(UIImage(systemName: "shield")!)
@@ -50,10 +48,16 @@ class Icons {
 		icons.append(UIImage(systemName: "lightbulb")!)
 		icons.append(UIImage(systemName: "eye")!)
 		icons.append(UIImage(systemName: "folder")!)
-		icons.append(UIImage(systemName: "globe.americas")!)
 		icons.append(UIImage(systemName: "bolt")!)
 		icons.append(UIImage(systemName: "sum")!)
 		icons.append(UIImage(systemName: "x.squareroot")!)
+        
+        if #available(iOS 15, *)
+        {
+            icons.append(UIImage(systemName: "magazine")!)
+            icons.append(UIImage(systemName: "globe.americas")!)
+            icons.append(UIImage(systemName: "fuelpump")!)
+        }
 		
 	}
 	

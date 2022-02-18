@@ -9,6 +9,7 @@ import Foundation
 
 protocol OperationsBusinessLogic {
 	func requestOperations(request: OperationsModel.Operations.Request)
+	func requestStatistics(request: OperationsModel.Statistics.Request)
 }
 
 class OperationsInteractor {
@@ -19,6 +20,21 @@ class OperationsInteractor {
 
 // MARK: - Operations business logic
 extension OperationsInteractor: OperationsBusinessLogic {
+	
+	func requestStatistics(request: OperationsModel.Statistics.Request) {
+		let worker = OperationsWorker()
+		let (balance, expense, income) = worker.getStatistics(account: request.account)
+		
+//        let currencySymbol = request.account.cu
+        
+        let response = OperationsModel.Statistics.Response(currencySymbol: "",
+                                                           balance: balance,
+														   expense: expense,
+														   income: income)
+		
+		presenter?.presentStatistics(response: response)
+	}
+	
 	
 	func requestOperations(request: OperationsModel.Operations.Request) {
 		let worker = OperationsWorker()

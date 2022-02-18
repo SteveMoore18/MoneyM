@@ -31,5 +31,28 @@ class OperationsModel {
 		
 	}
 	
+	struct Statistics
+	{
+		struct Request {
+			var account: AccountEntity
+		}
+		
+		struct Response
+		{
+            var currencySymbol: String
+			var balance: Int
+			var expense: Int
+			var income: Int
+		}
+		
+		struct ViewModel
+		{
+			var balanceColor: UIColor
+			var balance: String
+			var expense: String
+			var income: String
+		}
+		
+	}
 	
 }

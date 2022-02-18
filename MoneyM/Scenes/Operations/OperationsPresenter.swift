@@ -10,6 +10,7 @@ import UIKit
 
 protocol OperationsPresenterLogic {
 	func presentOperations(response: OperationsModel.Operations.Response)
+	func presentStatistics(response: OperationsModel.Statistics.Response)
 }
 
 class OperationsPresenter {
@@ -20,6 +21,21 @@ class OperationsPresenter {
 
 // MARK: - Operations presenter logic
 extension OperationsPresenter: OperationsPresenterLogic {
+	
+	func presentStatistics(response: OperationsModel.Statistics.Response) {
+		
+		let balance = response.balance
+		let balanceColor: UIColor = balance < 0 ? .systemRed : .systemBlue
+        let strBalance = String(balance) + ""
+		
+		let viewModel = OperationsModel.Statistics.ViewModel(balanceColor: balanceColor,
+															 balance: strBalance,
+															 expense: String(response.expense),
+															 income: String(response.income))
+		
+		viewController?.displayStatistics(viewModel: viewModel)
+	}
+	
 	
 	func presentOperations(response: OperationsModel.Operations.Response) {
 		

@@ -9,6 +9,7 @@ import UIKit
 
 protocol DisplayOperations {
 	func displayOperation(viewModel: OperationsModel.Operations.ViewModel)
+	func displayStatistics(viewModel: OperationsModel.Statistics.ViewModel)
 }
 
 class OperationsViewController: UIViewController {
@@ -51,6 +52,7 @@ class OperationsViewController: UIViewController {
 		setup()
 		
 		otherInit()
+		updateStatistics()
     }
     
 	// MARK: - Private functions
@@ -83,6 +85,14 @@ class OperationsViewController: UIViewController {
 		if let account = account {
 			let request = OperationsModel.Operations.Request(account: account)
 			interactor?.requestOperations(request: request)
+		}
+	}
+	
+	private func updateStatistics()
+	{
+		if let account = account {
+			let request = OperationsModel.Statistics.Request(account: account)
+			interactor?.requestStatistics(request: request)
 		}
 	}
 	
@@ -125,6 +135,16 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Display Operations
 extension OperationsViewController: DisplayOperations {
+	
+	func displayStatistics(viewModel: OperationsModel.Statistics.ViewModel) {
+		
+		balanceValueLabel.text = viewModel.balance
+		balanceValueLabel.textColor = viewModel.balanceColor
+		expenseValueLabel.text = viewModel.expense
+		incomeValueLabel.text = viewModel.income
+		
+	}
+	
 	func displayOperation(viewModel: OperationsModel.Operations.ViewModel) {
 		
 		DispatchQueue.main.async {
@@ -142,6 +162,7 @@ extension OperationsViewController: NewOperationDelegate {
 	func operationCreated() {
 		fetchOperations()
 		operationsTableView.reloadData()
+        updateStatistics()
 	}
 	
 }
