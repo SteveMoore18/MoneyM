@@ -22,9 +22,11 @@ class AccountsModel {
 	
 	struct Response {
 		var accounts: [AccountEntity]
+        var accountsBalance: [Int]
 	}
 	
 	struct ViewModel {
+        var accountsBalance: [String]
 		var colors: [UIColor]
 		var icons: [UIImage]
 		var dateOfCreations: [String]

@@ -35,6 +35,7 @@ class OperationsViewController: UIViewController {
 	
 	var interactor: OperationsBusinessLogic?
 	var router: OperationNavigate?
+    var accountViewController: AccountsViewController?
 	
 	public var account: AccountEntity?
 	
@@ -163,6 +164,7 @@ extension OperationsViewController: NewOperationDelegate {
 		fetchOperations()
 		operationsTableView.reloadData()
         updateStatistics()
+        accountViewController?.updateAccountsBalance()
 	}
 	
 }

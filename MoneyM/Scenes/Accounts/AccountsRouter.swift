@@ -26,6 +26,7 @@ extension AccountsRouter: AccountsNavigate {
 		let operationsViewController = storyboard.instantiateViewController(withIdentifier: "Operations") as? OperationsViewController
 		
 		operationsViewController?.account = account
+        operationsViewController?.accountViewController = viewController
 		
 		let navigationVC = UINavigationController(rootViewController: operationsViewController!)
 		

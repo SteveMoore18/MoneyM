@@ -41,8 +41,10 @@ extension AccountsPresenter: AccountsPresentLogic {
 		let colorsArr: [UIColor] = accounts.map { colors.colors[Int($0.colorID)] }
 		let iconsArr: [UIImage] = accounts.map { icons.icons[Int($0.iconID)] }
 		let dateOfCreations: [String] = accounts.map { dateFormatter.string(from: $0.dateOfCreation!) }
-		
-		let viewModel = AccountsModel.ViewModel(colors: colorsArr,
+        let accountsBalance = response.accountsBalance.map { String($0) }
+        
+        let viewModel = AccountsModel.ViewModel(accountsBalance: accountsBalance,
+                                                colors: colorsArr,
 												icons: iconsArr,
 												dateOfCreations: dateOfCreations,
 											    accounts: accounts)

@@ -30,6 +30,12 @@ class AccountsViewController: UIViewController {
 		
 		otherInit()
 	}
+    
+    public func updateAccountsBalance()
+    {
+        interactor?.requestAccounts()
+        accountsTableView.reloadData()
+    }
 	
 	// MARK: - private functions
 	private func setup() {
@@ -91,7 +97,7 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		accountsTableViewCell?.titleLabel.text = account?.title
 		accountsTableViewCell?.dateOfCreationLabel.text = viewModel?.dateOfCreations[index]
-		accountsTableViewCell?.balanceLabel.text = "\(Int(account?.balance ?? 0))"
+        accountsTableViewCell?.balanceLabel.text = viewModel?.accountsBalance[index]
 		accountsTableViewCell?.iconImage.image = viewModel?.icons[index]
 		accountsTableViewCell?.iconView.backgroundColor = viewModel?.colors[index]
 		
