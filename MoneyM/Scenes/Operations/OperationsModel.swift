@@ -54,5 +54,22 @@ class OperationsModel {
 		}
 		
 	}
+    
+    struct DeleteOperation
+    {
+        struct Request
+        {
+            var account: AccountEntity
+            var index: Int
+        }
+        
+        struct Response {
+            var operations: [OperationEntity]
+        }
+        
+        struct ViewModel {
+            var operations: [OperationPresent]
+        }
+    }
 	
 }

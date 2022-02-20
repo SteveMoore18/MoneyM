@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class OperationsWorker {
 	
@@ -14,20 +15,25 @@ class OperationsWorker {
 	
 	private(set) var operations: [OperationEntity] = []
 	
-	init() {
-		
+    init(account: AccountEntity) {
+        operations = fetchOperations(account: account)
 	}
-	
-	public func operationsBy(account: AccountEntity) -> [OperationEntity] {
-		
-		operations = account.operations?.allObjects as! [OperationEntity]
-		
-		return operations
-	}
+    
+    public func deleteOperation(index: Int)
+    {
+        do
+        {
+            context.delete(operations[index])
+            operations.remove(at: index)
+            try context.save()
+            
+        } catch {
+            print ("Error with saving deleted operation")
+        }
+    }
 	
 	public func getStatistics(account: AccountEntity) -> (balance: Int, expense: Int, income: Int)
 	{
-		operations = account.operations?.allObjects as! [OperationEntity]
 		
 		var expense: Int = 0
 		var income: Int = 0
@@ -52,4 +58,10 @@ class OperationsWorker {
 		return (balance, expense, income)
 	}
 	
+    public func fetchOperations(account: AccountEntity) -> [OperationEntity]
+    {
+        operations = account.operations?.allObjects as! [OperationEntity]
+        return operations
+    }
+    
 }

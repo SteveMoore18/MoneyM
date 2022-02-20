@@ -33,5 +33,17 @@ class AccountsModel {
 		var dateOfCreations: [String]
 		var accounts: [AccountEntity]
 	}
+    
+    struct DeleteAccount
+    {
+        struct Request
+        {
+            var index: Int
+        }
+        
+        struct Response { }
+        
+        struct ViewModel { }
+    }
 	
 }

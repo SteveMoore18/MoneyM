@@ -10,6 +10,7 @@ import UIKit
 protocol DisplayOperations {
 	func displayOperation(viewModel: OperationsModel.Operations.ViewModel)
 	func displayStatistics(viewModel: OperationsModel.Statistics.ViewModel)
+    func deletedOperation(viewModel: OperationsModel.DeleteOperation.ViewModel)
 }
 
 class OperationsViewController: UIViewController {
@@ -63,7 +64,7 @@ class OperationsViewController: UIViewController {
 	// MARK: - Private functions
 	private func setup() {
 		let viewController = self
-		let operationsInteractor = OperationsInteractor()
+		let operationsInteractor = OperationsInteractor(account: account!)
 		let operationsPresenter = OperationsPresenter()
 		let operationRouter = OperationsRouter()
 		
@@ -143,12 +144,39 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 		return cell
 	}
 	
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive,
+                                              title: "Delete")
+        { (action, view, complitionHandler) in
+            if let account = self.account
+            {
+                
+                let request = OperationsModel.DeleteOperation.Request(account: account,
+                                                                      index: indexPath.row)
+                self.interactor?.deleteOperation(request: request)
+                
+                self.operationsTableView.deleteRows(at: [indexPath], with: .automatic)
+                self.updateStatistics()
+            }
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 	
 }
 
 // MARK: - Display Operations
 extension OperationsViewController: DisplayOperations {
-	
+    
+    func deletedOperation(viewModel: OperationsModel.DeleteOperation.ViewModel) {
+        self.viewModel?.operations = viewModel.operations
+    }
+    
 	func displayStatistics(viewModel: OperationsModel.Statistics.ViewModel) {
 		
 		balanceValueLabel.text = viewModel.balance

@@ -9,6 +9,7 @@ import Foundation
 
 protocol AccountsBusinessLogic {
 	func requestAccounts()
+    func deleteAccount(request: AccountsModel.DeleteAccount.Request)
 }
 
 class AccountsInteractor {
@@ -19,6 +20,13 @@ class AccountsInteractor {
 }
 
 extension AccountsInteractor: AccountsBusinessLogic {
+    
+    func deleteAccount(request: AccountsModel.DeleteAccount.Request) {
+        let worker = AccountsWorker()
+        worker.deleteAccount(index: request.index)
+        
+        presenter?.deletedAccount(response: AccountsModel.DeleteAccount.Response())
+    }
 	
 	func requestAccounts() {
 		let worker = AccountsWorker()

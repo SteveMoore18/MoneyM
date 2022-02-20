@@ -10,19 +10,33 @@ import Foundation
 protocol OperationsBusinessLogic {
 	func requestOperations(request: OperationsModel.Operations.Request)
 	func requestStatistics(request: OperationsModel.Statistics.Request)
+    func deleteOperation(request: OperationsModel.DeleteOperation.Request)
 }
 
 class OperationsInteractor {
 	
 	var presenter: OperationsPresenter?
+    
+    private var worker: OperationsWorker!
 	
+    init(account: AccountEntity)
+    {
+        worker = OperationsWorker(account: account)
+    }
 }
 
 // MARK: - Operations business logic
 extension OperationsInteractor: OperationsBusinessLogic {
+    
+    func deleteOperation(request: OperationsModel.DeleteOperation.Request) {
+        worker.deleteOperation(index: request.index)
+
+        let response = OperationsModel.DeleteOperation.Response(operations: worker.operations)
+        presenter?.deletedOperation(response: response)
+    }
 	
 	func requestStatistics(request: OperationsModel.Statistics.Request) {
-		let worker = OperationsWorker()
+        let worker = OperationsWorker(account: request.account)
 		let (balance, expense, income) = worker.getStatistics(account: request.account)
 		
 //        let currencySymbol = request.account.cu
@@ -37,9 +51,8 @@ extension OperationsInteractor: OperationsBusinessLogic {
 	
 	
 	func requestOperations(request: OperationsModel.Operations.Request) {
-		let worker = OperationsWorker()
-		let operations = worker.operationsBy(account: request.account)
-		let response = OperationsModel.Operations.Response(operations: operations)
+        let operations = worker.fetchOperations(account: request.account)
+        let response = OperationsModel.Operations.Response(operations: operations)
 		
 		presenter?.presentOperations(response: response)
 	}

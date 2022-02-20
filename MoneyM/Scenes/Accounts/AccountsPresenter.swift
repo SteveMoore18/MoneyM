@@ -10,6 +10,7 @@ import UIKit
 
 protocol AccountsPresentLogic: AnyObject {
 	func presentData(response: AccountsModel.Response)
+    func deletedAccount(response: AccountsModel.DeleteAccount.Response)
 }
 
 class AccountsPresenter {
@@ -34,7 +35,11 @@ class AccountsPresenter {
 }
 
 extension AccountsPresenter: AccountsPresentLogic {
-	
+    
+    func deletedAccount(response: AccountsModel.DeleteAccount.Response) {
+        viewController?.deletedAccount(viewModel: AccountsModel.DeleteAccount.ViewModel())
+    }
+    
 	func presentData(response: AccountsModel.Response) {
 		
 		let accounts = response.accounts

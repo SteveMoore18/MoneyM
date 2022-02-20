@@ -9,6 +9,7 @@ import UIKit
 
 protocol DisplayAccounts: AnyObject {
 	func displayAccounts(viewModel: AccountsModel.ViewModel)
+    func deletedAccount(viewModel: AccountsModel.DeleteAccount.ViewModel)
 }
 
 class AccountsViewController: UIViewController {
@@ -121,11 +122,32 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
 		let account = (viewModel?.accounts[indexPath.row])!
 		router?.showOperations(account: account)
 	}
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive,
+                                              title: "Delete")
+        { (action, view, complitionHandler) in
+            self.interactor?.deleteAccount(request: AccountsModel.DeleteAccount.Request(index: indexPath.row))
+            self.accountsTableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 	
 }
 
 // MARK: - Display accounts protocol
 extension AccountsViewController: DisplayAccounts {
+    
+    func deletedAccount(viewModel: AccountsModel.DeleteAccount.ViewModel) {
+        interactor?.requestAccounts()
+    }
+    
 	func displayAccounts(viewModel: AccountsModel.ViewModel) {
 		self.viewModel = viewModel
 	}

@@ -17,7 +17,18 @@ class AccountsWorker {
 	init() {
 		fetchRequest()
 	}
+    
+    public func deleteAccount(index: Int)
+    {
+        do
+        {
+            context.delete(accounts[index])
+            try context.save()
+        } catch { }
+        
+    }
 	
+    // Private functions
 	private func fetchRequest() {
 		do {
 			try accounts = context.fetch(AccountEntity.fetchRequest())
