@@ -84,6 +84,7 @@ class NewAccountViewController: UIViewController {
 		dropShadow(iconBackgroundView)
 		
 		settingCurrencyButton()
+        currencyButton.titleLabel?.font = constants.roundedFont(20)
 	}
 	
 	private func initCollectionViews() {

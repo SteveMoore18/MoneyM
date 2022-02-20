@@ -27,6 +27,7 @@ class AccountsModel {
 	
 	struct ViewModel {
         var accountsBalance: [String]
+        var accountsBalanceColor: [UIColor]
 		var colors: [UIColor]
 		var icons: [UIImage]
 		var dateOfCreations: [String]

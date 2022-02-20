@@ -33,7 +33,9 @@ class OperationsViewController: UIViewController {
 	
 	@IBOutlet weak var statusStackViewHeightConstraint: NSLayoutConstraint!
 	
-	var interactor: OperationsBusinessLogic?
+    @IBOutlet weak var newOperationButton: UIButton!
+    
+    var interactor: OperationsBusinessLogic?
 	var router: OperationNavigate?
     var accountViewController: AccountsViewController?
 	
@@ -45,6 +47,8 @@ class OperationsViewController: UIViewController {
 	private let bottomMargin: CGFloat = 16
 	
 	private(set) var categoryModel: CategoryModel!
+    
+    private var constants: Constants!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +76,7 @@ class OperationsViewController: UIViewController {
 	}
 	
 	private func otherInit() {
+        constants = Constants()
 		
 		categoryModel = CategoryModel()
 		
@@ -80,6 +85,12 @@ class OperationsViewController: UIViewController {
 		
 		fetchOperations()
 		
+        balanceValueLabel.font = constants.roundedFont(34)
+        expenseValueLabel.font = constants.roundedFont(26)
+        incomeValueLabel.font = constants.roundedFont(26)
+        
+        newOperationButton.titleLabel?.font = constants.roundedFont(20)
+        
 	}
 	
 	private func fetchOperations() {
@@ -124,6 +135,7 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 		cell.amountLabel.text = operation?.amountValue
 		cell.amountLabel.textColor = operation?.amountColor
 		cell.noteLabel.text = operation?.operation.note
+        cell.amountLabel.font = constants.roundedFont(24)
 		
 		let tableViewContentHeight = operationsTableView.contentSize.height
 		scrollViewHeightConstraint.constant = tableViewContentHeight + statusStackViewHeightConstraint.constant + bottomMargin + 32

@@ -233,10 +233,13 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Tck-2a-SdW"/>
                                     <barButtonItem style="plain" id="tc9-uM-iJh">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="umL-xx-qy2">
-                                            <rect key="frame" x="190" y="5" width="169" height="34.5"/>
+                                            <rect key="frame" x="182.5" y="4.5" width="176.5" height="35.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system" title="New operation" imagePadding="6"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="6" maxY="0.0"/>
+                                            <state key="normal" title="New operation" image="plus.circle" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="medium"/>
+                                            </state>
                                             <connections>
                                                 <action selector="newOperationButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yaB-HV-LmF"/>
                                             </connections>
@@ -266,6 +269,7 @@
                         <outlet property="expenseValueLabel" destination="PDF-mq-rwL" id="gSJ-xV-zvJ"/>
                         <outlet property="incomeTitleLabel" destination="Rp9-TP-8L4" id="pcb-Xq-o0w"/>
                         <outlet property="incomeValueLabel" destination="wam-N1-res" id="qsg-Ky-777"/>
+                        <outlet property="newOperationButton" destination="umL-xx-qy2" id="NaF-KZ-YlT"/>
                         <outlet property="operationsTableView" destination="xwp-XU-Ngi" id="ObH-Xb-btl"/>
                         <outlet property="scrollViewHeightConstraint" destination="8RL-Nz-9nl" id="x4I-ya-sip"/>
                         <outlet property="statusStackViewHeightConstraint" destination="u6K-6k-uGN" id="XRO-3e-m10"/>

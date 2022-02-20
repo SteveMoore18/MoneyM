@@ -50,6 +50,8 @@ class NewOperationViewController: UIViewController {
 	private(set) var interactor: NewOperationBusinessLogic?
 	private var router: NewOperationNavigate?
 	
+    private var constants: Constants!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -129,6 +131,9 @@ class NewOperationViewController: UIViewController {
 		}
 		selectedCategory = categoryModel?.categoryUncategorized
 		
+        constants = Constants()
+        amountTextField.font = constants.roundedFont(24)
+        noteTextField.font = constants.roundedFont(24)
 	}
 	
 	private func createButtonEnable(value: Bool) {

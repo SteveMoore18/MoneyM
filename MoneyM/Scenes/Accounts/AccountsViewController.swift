@@ -16,11 +16,15 @@ class AccountsViewController: UIViewController {
 	// MARK: - IBOutlets
 	@IBOutlet weak var accountsTableView: UITableView!
 	
-	var interactor: AccountsBusinessLogic?
+    @IBOutlet weak var newAccountButton: UIButton!
+    
+    var interactor: AccountsBusinessLogic?
 	var router: AccountsNavigate?
 	var viewModel: AccountsModel.ViewModel?
 	
 	private var accountsTableViewCell: UIAccountTableViewCell?
+    
+    private var constants: Constants!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +72,9 @@ class AccountsViewController: UIViewController {
 			let account = (viewModel?.accounts[0])!
 			router?.showOperations(account: account)
 		}
+        
+        constants = Constants()
+        newAccountButton.titleLabel?.font = constants.roundedFont(20)
 	}
     
 	// MARK: - Actions
@@ -100,6 +107,8 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
         accountsTableViewCell?.balanceLabel.text = viewModel?.accountsBalance[index]
 		accountsTableViewCell?.iconImage.image = viewModel?.icons[index]
 		accountsTableViewCell?.iconView.backgroundColor = viewModel?.colors[index]
+        accountsTableViewCell?.balanceLabel.font = constants.roundedFont(20)
+        accountsTableViewCell?.balanceLabel.textColor = viewModel?.accountsBalanceColor[index]
 		
 		return accountsTableViewCell!
 	}
