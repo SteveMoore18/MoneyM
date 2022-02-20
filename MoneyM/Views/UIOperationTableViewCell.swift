@@ -21,7 +21,7 @@ class UIOperationTableViewCell: UITableViewCell {
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
-        
+        selectedBackgroundView?.backgroundColor = UIColor(named: "Table View Cell Background")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

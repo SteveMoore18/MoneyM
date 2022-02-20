@@ -24,6 +24,8 @@ class UIAccountTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 		UIAccountTableViewCell.height = frame.height
+        selectedBackgroundView = UIView()
+        selectedBackgroundView?.backgroundColor = UIColor(named: "Table View Cell Background")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
