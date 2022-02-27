@@ -67,13 +67,12 @@ class AccountsViewController: UIViewController {
 		
 		splitViewController?.minimumPrimaryColumnWidth = accountsTableView.frame.width
 		
-//		if !viewModel!.accounts.isEmpty {
-//			accountsTableView.selectRow(at: IndexPath(row: 0, section: 0),
-//										animated: true, scrollPosition: .none)
-//			let account = (viewModel?.accounts[0])!
-//			router?.showOperations(account: account)
-//		}
-        
+		if !viewModel!.accounts.isEmpty {
+			accountsTableView.selectRow(at: IndexPath(row: 0, section: 0),
+										animated: true, scrollPosition: .none)
+			let account = (viewModel?.accounts[0])!
+			router?.showOperations(account: account)
+		}
         constants = Constants()
         newAccountButton.titleLabel?.font = constants.roundedFont(20)
 	}

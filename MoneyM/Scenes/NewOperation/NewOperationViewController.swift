@@ -147,7 +147,7 @@ class NewOperationViewController: UIViewController {
 	}
 	
 	private func deselectExpenseButton() {
-		expenseButton.backgroundColor = mainBackgroundColor
+        expenseButton.backgroundColor = .systemGray5
 		expenseButton.tintColor = .systemBlue
 	}
 	
@@ -157,7 +157,7 @@ class NewOperationViewController: UIViewController {
 	}
 	
 	private func deselectIncomeButton() {
-		incomeButton.backgroundColor = mainBackgroundColor
+		incomeButton.backgroundColor = .systemGray5
 		incomeButton.tintColor = .systemBlue
 	}
 	

@@ -37,7 +37,9 @@ class NewAccountViewController: UIViewController {
 	
 	@IBOutlet weak var iconsCollectionViewConstraintHeight: NSLayoutConstraint!
 	
-	// MARK: - Other variables
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    // MARK: - Other variables
 	var interactor: NewAccountBusinesslogic?
 	var router: NewAccountNavigate?
 	
@@ -85,6 +87,8 @@ class NewAccountViewController: UIViewController {
 		
 		settingCurrencyButton()
         currencyButton.titleLabel?.font = constants.roundedFont(20)
+        
+        navigationBar.shadowImage = UIImage()
 	}
 	
 	private func initCollectionViews() {

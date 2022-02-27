@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait" appearance="light">
+    <device id="retina5_5" orientation="portrait" appearance="dark">
         <simulatedSceneSize key="mac" width="800" height="600"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -52,7 +53,7 @@
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZ5-jF-krf">
                                                         <rect key="frame" x="16" y="130" width="350" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <color key="backgroundColor" name="UITextField Background Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="HKJ-kV-brJ"/>
                                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="aQE-Oe-HuF"/>
@@ -67,7 +68,7 @@
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Balance" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pdu-4W-Eto">
                                                         <rect key="frame" x="16" y="200" width="350" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <color key="backgroundColor" name="UITextField Background Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="6WN-Ns-3hb"/>
                                                             <constraint firstAttribute="height" constant="50" id="YCk-Jv-96N"/>
@@ -82,7 +83,7 @@
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVb-fc-1dp">
                                                         <rect key="frame" x="16" y="270" width="350" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="LCi-w4-9rK"/>
                                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="sa5-oH-Cjy"/>
@@ -102,7 +103,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="UIView Background Color"/>
                                                 <constraints>
                                                     <constraint firstItem="gVb-fc-1dp" firstAttribute="centerX" secondItem="c3F-Qd-pWZ" secondAttribute="centerX" id="48P-wd-vTh"/>
                                                     <constraint firstItem="NZ5-jF-krf" firstAttribute="leading" secondItem="c3F-Qd-pWZ" secondAttribute="leading" priority="750" constant="16" id="7Az-C2-pVV"/>
@@ -131,7 +132,7 @@
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DBO-qi-AFh">
                                                         <rect key="frame" x="20" y="20" width="334" height="110"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="UIView Background Color"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RqP-9h-lzu">
                                                             <size key="itemSize" width="60" height="60"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -165,7 +166,6 @@
                                                                         <constraint firstItem="m7P-bh-yfR" firstAttribute="centerX" secondItem="0TW-cl-MtW" secondAttribute="centerX" id="dYq-xT-rOs"/>
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
-                                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                 <size key="customSize" width="60" height="60"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
@@ -179,7 +179,7 @@
                                                         </cells>
                                                     </collectionView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="UIView Background Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="DBO-qi-AFh" secondAttribute="trailing" constant="20" id="6hL-kv-JSr"/>
                                                     <constraint firstAttribute="height" constant="150" id="BNc-sv-QDG"/>
@@ -198,7 +198,7 @@
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2gl-5r-fij">
                                                         <rect key="frame" x="20" y="20" width="334" height="260"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="UIView Background Color"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hFp-bD-pkI">
                                                             <size key="itemSize" width="70" height="66"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -259,7 +259,7 @@
                                                         </cells>
                                                     </collectionView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="UIView Background Color"/>
                                                 <constraints>
                                                     <constraint firstItem="2gl-5r-fij" firstAttribute="leading" secondItem="nLu-KE-142" secondAttribute="leading" constant="20" id="5cJ-hh-ZkK"/>
                                                     <constraint firstItem="2gl-5r-fij" firstAttribute="top" secondItem="nLu-KE-142" secondAttribute="top" constant="20" id="FUK-oA-Vnc"/>
@@ -382,6 +382,7 @@
                         <outlet property="iconImage" destination="iMY-Nn-Lha" id="CfX-4O-wCE"/>
                         <outlet property="iconsCollectionView" destination="2gl-5r-fij" id="nvA-dD-Uxl"/>
                         <outlet property="iconsCollectionViewConstraintHeight" destination="NKt-s8-kQe" id="jlm-Pu-d2Y"/>
+                        <outlet property="navigationBar" destination="VQ8-qS-UQY" id="NdS-3y-cc5"/>
                         <outlet property="titleTextField" destination="NZ5-jF-krf" id="22H-To-vOn"/>
                     </connections>
                 </viewController>
@@ -481,6 +482,12 @@
         <namedColor name="Table View Cell Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="UITextField Background Color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="UIView Background Color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -495,9 +502,6 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
