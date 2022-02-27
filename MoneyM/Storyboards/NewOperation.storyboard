@@ -164,7 +164,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jsp-Kv-7a0">
-                                                <rect key="frame" x="16" y="316" width="343" height="276"/>
+                                                <rect key="frame" x="16" y="316" width="343" height="156"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Note" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="usz-qs-CRL">
                                                         <rect key="frame" x="16" y="20" width="311" height="50"/>
@@ -181,17 +181,17 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <datePicker contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="dAm-bO-3Xh">
-                                                        <rect key="frame" x="16" y="86" width="311" height="170"/>
+                                                    <datePicker contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="dAm-bO-3Xh">
+                                                        <rect key="frame" x="16" y="86" width="311" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="RH7-wU-vql"/>
-                                                            <constraint firstAttribute="height" constant="170" id="Urg-1B-SKQ"/>
+                                                            <constraint firstAttribute="height" constant="50" id="Urg-1B-SKQ"/>
                                                         </constraints>
                                                     </datePicker>
                                                 </subviews>
                                                 <color key="backgroundColor" name="UIView Background Color"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="276" id="43I-Bf-tCK"/>
+                                                    <constraint firstAttribute="height" constant="156" id="43I-Bf-tCK"/>
                                                     <constraint firstItem="usz-qs-CRL" firstAttribute="centerX" secondItem="Jsp-Kv-7a0" secondAttribute="centerX" id="7nC-qK-vC3"/>
                                                     <constraint firstItem="dAm-bO-3Xh" firstAttribute="top" secondItem="usz-qs-CRL" secondAttribute="bottom" constant="16" id="CZN-5y-4s4"/>
                                                     <constraint firstItem="dAm-bO-3Xh" firstAttribute="leading" secondItem="Jsp-Kv-7a0" secondAttribute="leading" priority="750" constant="16" id="Mvh-5O-7XR"/>
