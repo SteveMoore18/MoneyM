@@ -36,6 +36,12 @@ class OperationsViewController: UIViewController {
 	
     @IBOutlet weak var newOperationButton: UIButton!
     
+    @IBOutlet weak var expenseView: UIView!
+    
+    @IBOutlet weak var incomeView: UIView!
+    
+    @IBOutlet weak var balanceView: UIView!
+    
     var interactor: OperationsBusinessLogic?
 	var router: OperationNavigate?
     var accountViewController: AccountsViewController?
@@ -95,7 +101,20 @@ class OperationsViewController: UIViewController {
         
         newOperationButton.titleLabel?.font = constants.roundedFont(20)
         
+        dropShadowOf(view: expenseView)
+        dropShadowOf(view: incomeView)
+        dropShadowOf(view: balanceView)
+        
 	}
+    
+    private func dropShadowOf(view: UIView)
+    {
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.systemGray3.cgColor
+        view.layer.shadowOpacity = 0.8
+        view.layer.shadowRadius = 9
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+    }
 	
 	private func fetchOperations() {
 		if let account = account {

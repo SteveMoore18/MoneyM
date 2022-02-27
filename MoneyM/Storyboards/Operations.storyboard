@@ -65,17 +65,16 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDF-mq-rwL">
                                                                         <rect key="frame" x="19" y="38" width="126" height="24"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="textColor" systemColor="systemRedColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLP-VT-pVS">
                                                                         <rect key="frame" x="54.5" y="8" width="55" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                                <color key="backgroundColor" name="UIView Background Color"/>
                                                                 <constraints>
                                                                     <constraint firstItem="LLP-VT-pVS" firstAttribute="top" secondItem="IUS-Lm-cq6" secondAttribute="top" constant="8" id="QcE-qZ-Xg8"/>
                                                                     <constraint firstItem="LLP-VT-pVS" firstAttribute="centerX" secondItem="IUS-Lm-cq6" secondAttribute="centerX" id="fjd-zx-gYu"/>
@@ -94,17 +93,16 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Income value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wam-N1-res">
                                                                         <rect key="frame" x="24" y="38" width="115.5" height="24"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="textColor" systemColor="systemBlueColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Income" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rp9-TP-8L4">
                                                                         <rect key="frame" x="58" y="8" width="47.5" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                                <color key="backgroundColor" name="UIView Background Color"/>
                                                                 <constraints>
                                                                     <constraint firstItem="Rp9-TP-8L4" firstAttribute="top" secondItem="vGG-US-V2V" secondAttribute="top" constant="8" id="Cdn-Oe-7Kh"/>
                                                                     <constraint firstItem="wam-N1-res" firstAttribute="centerY" secondItem="vGG-US-V2V" secondAttribute="centerY" id="VC7-sa-bM8"/>
@@ -125,7 +123,7 @@
                                                 </constraints>
                                             </stackView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xwp-XU-Ngi">
-                                                <rect key="frame" x="0.0" y="248" width="375" height="331"/>
+                                                <rect key="frame" x="0.0" y="264" width="375" height="315"/>
                                                 <color key="backgroundColor" name="Main Background Color"/>
                                                 <inset key="separatorInset" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <prototypes>
@@ -206,7 +204,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="579" id="8RL-Nz-9nl"/>
                                             <constraint firstItem="QX4-bo-Xb9" firstAttribute="top" secondItem="GSH-if-eNg" secondAttribute="top" constant="16" id="9Pg-Fz-Gn9"/>
-                                            <constraint firstItem="xwp-XU-Ngi" firstAttribute="top" secondItem="QX4-bo-Xb9" secondAttribute="bottom" constant="16" id="Ec7-Sm-ly7"/>
+                                            <constraint firstItem="xwp-XU-Ngi" firstAttribute="top" secondItem="QX4-bo-Xb9" secondAttribute="bottom" constant="32" id="Ec7-Sm-ly7"/>
                                             <constraint firstAttribute="trailing" secondItem="QX4-bo-Xb9" secondAttribute="trailing" constant="16" id="FUC-iW-nTI"/>
                                             <constraint firstItem="xwp-XU-Ngi" firstAttribute="leading" secondItem="GSH-if-eNg" secondAttribute="leading" id="TxQ-Gi-qaA"/>
                                             <constraint firstItem="QX4-bo-Xb9" firstAttribute="leading" secondItem="GSH-if-eNg" secondAttribute="leading" constant="16" id="qYC-Vx-iiK"/>
@@ -265,10 +263,13 @@
                     <connections>
                         <outlet property="balanceTitleLabel" destination="3AH-4F-gCE" id="kKE-xm-D9C"/>
                         <outlet property="balanceValueLabel" destination="ieY-DY-vN3" id="fWE-c3-9tf"/>
+                        <outlet property="balanceView" destination="Vqq-KV-zum" id="UZ7-NF-Ryb"/>
                         <outlet property="expenseTitleLabel" destination="LLP-VT-pVS" id="tvS-Ff-4wl"/>
                         <outlet property="expenseValueLabel" destination="PDF-mq-rwL" id="gSJ-xV-zvJ"/>
+                        <outlet property="expenseView" destination="IUS-Lm-cq6" id="m41-tO-esV"/>
                         <outlet property="incomeTitleLabel" destination="Rp9-TP-8L4" id="pcb-Xq-o0w"/>
                         <outlet property="incomeValueLabel" destination="wam-N1-res" id="qsg-Ky-777"/>
+                        <outlet property="incomeView" destination="vGG-US-V2V" id="lAI-K7-5HJ"/>
                         <outlet property="newOperationButton" destination="umL-xx-qy2" id="NaF-KZ-YlT"/>
                         <outlet property="operationsTableView" destination="xwp-XU-Ngi" id="ObH-Xb-btl"/>
                         <outlet property="scrollViewHeightConstraint" destination="8RL-Nz-9nl" id="x4I-ya-sip"/>
