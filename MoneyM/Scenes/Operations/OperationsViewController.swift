@@ -63,8 +63,11 @@ class OperationsViewController: UIViewController {
     
 	// MARK: - Private functions
 	private func setup() {
+        guard let account = account else {
+            return
+        }
 		let viewController = self
-		let operationsInteractor = OperationsInteractor(account: account!)
+		let operationsInteractor = OperationsInteractor(account: account)
 		let operationsPresenter = OperationsPresenter()
 		let operationRouter = OperationsRouter()
 		
