@@ -45,6 +45,9 @@ class NewAccountViewController: UIViewController {
 	
 	private var colorsViewModel: NewAccountModel.Colors.ViewModel?
 	private var iconsViewModel: NewAccountModel.Icons.ViewModel?
+    
+    private var selectedColorIndex = IndexPath(row: 0, section: 0)
+    private var selectedIconIndex = IndexPath(row: 0, section: 0)
 	
 	private var constants = Constants()
 	
@@ -89,6 +92,10 @@ class NewAccountViewController: UIViewController {
         currencyButton.titleLabel?.font = constants.roundedFont(20)
         
         navigationBar.shadowImage = UIImage()
+        
+        selectColor(selectedColorIndex)
+        selectIcon(selectedIconIndex)
+        
 	}
 	
 	private func initCollectionViews() {
@@ -97,6 +104,9 @@ class NewAccountViewController: UIViewController {
 		
 		iconsCollectionView.delegate = self
 		iconsCollectionView.dataSource = self
+        
+        colorsCollectionView.allowsMultipleSelection = false
+        iconsCollectionView.allowsMultipleSelection = false
 	}
 	
 	private func settingFonts() {
@@ -118,9 +128,10 @@ class NewAccountViewController: UIViewController {
 	
 	private func selectIcon(_ indexPath: IndexPath) {
 		if let cell = iconsCollectionView.cellForItem(at: indexPath) as? UIIconsCollectionViewCell {
-			deselectIcon(IndexPath(row: 0, section: 0))
+            iconsCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
 			cell.selectCell()
 			iconImage.image = cell.iconImage.image
+            selectedIconIndex = indexPath
 		}
 	}
 	
@@ -132,10 +143,11 @@ class NewAccountViewController: UIViewController {
 	
 	private func selectColor(_ indexPath: IndexPath) {
 		if let cell = colorsCollectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell {
-			deselectColor(IndexPath(row: 0, section: 0))
+            colorsCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
 			iconBackgroundView.backgroundColor = cell.contentView.backgroundColor
 			dropShadow(iconBackgroundView)
 			cell.selectCell()
+            selectedColorIndex = indexPath
 		}
 	}
 	
@@ -144,6 +156,24 @@ class NewAccountViewController: UIViewController {
 			cell.deselectCell()
 		}
 	}
+    
+    private func randomIndexPathRow(range: Range<Int>) -> IndexPath
+    {
+        let r = Int.random(in: range)
+        return IndexPath(row: r, section: 0)
+    }
+    
+    private func selectRandomColor()
+    {
+        let indexPath = randomIndexPathRow(range: 0..<colorsViewModel!.colors.count - 1)
+        selectColor(indexPath)
+    }
+    
+    private func selectRandomIcon()
+    {
+        let indexPath = randomIndexPathRow(range: 0..<iconsViewModel!.icons.count - 1)
+        selectIcon(indexPath)
+    }
 
 	// MARK: - Actions
 	@IBAction func closeButtonClicked(_ sender: Any) {
@@ -153,8 +183,8 @@ class NewAccountViewController: UIViewController {
 	@IBAction func createButtonClicked(_ sender: Any) {
 		let title = titleTextField.text!
 		let balance = Int(balanceTextField.text!) ?? 0
-		let iconID = iconsCollectionView.indexPathsForSelectedItems?.first?.row ?? 0
-		let colorID = colorsCollectionView.indexPathsForSelectedItems?.first?.row ?? 0
+        let iconID = selectedIconIndex.row
+        let colorID = selectedColorIndex.row
 		
 		let request = NewAccountModel.CreateAccount.Request(title: title,
 															balance: balance,
@@ -195,9 +225,12 @@ extension NewAccountViewController: UICollectionViewDelegate, UICollectionViewDa
 			
 			cell.contentView.backgroundColor = color
 			cell.selectedColorView.backgroundColor = color
-			
-			selectColor(IndexPath(row: 0, section: 0))
-			
+            
+            if indexPath.row == (colorsViewModel?.colors.count)! - 1
+            {
+                selectRandomColor()
+            }
+            
 			return cell
 			
 		} else if collectionView == iconsCollectionView {
@@ -207,7 +240,10 @@ extension NewAccountViewController: UICollectionViewDelegate, UICollectionViewDa
 			cell.iconImage.image = image
 			iconsCollectionViewConstraintHeight.constant = iconsCollectionView.contentSize.height + 40
 			
-			selectIcon(IndexPath(row: 0, section: 0))
+            if indexPath.row == (iconsViewModel?.icons.count)! - 1
+            {
+                selectRandomIcon()
+            }
 			
 			return cell
 		}
