@@ -440,6 +440,9 @@
                                                         <real key="value" value="14"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnCloseClicked:" destination="WcF-qo-0q8" eventType="touchUpInside" id="TXG-TF-2cS"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>

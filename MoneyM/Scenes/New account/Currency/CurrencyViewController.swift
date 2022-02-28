@@ -40,6 +40,9 @@ class CurrencyViewController: UIViewController {
 		currenciesTableView.dataSource = self
 	}
     
+    @IBAction func btnCloseClicked(_ sender: Any) {
+        dismiss(animated: true)
+    }
 }
 
 // MARK: - TableView delegate
