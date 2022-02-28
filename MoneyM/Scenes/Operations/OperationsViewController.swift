@@ -56,6 +56,8 @@ class OperationsViewController: UIViewController {
 	private(set) var categoryModel: CategoryModel!
     
     private var constants: Constants!
+    
+    private var currency: CurrencyModel.Model!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +107,18 @@ class OperationsViewController: UIViewController {
         dropShadowOf(view: incomeView)
         dropShadowOf(view: balanceView)
         
+        currency = getCurrency()
 	}
+    
+    private func getCurrency() -> CurrencyModel.Model?
+    {
+        guard let account = account else {
+            return nil
+        }
+        let currencyModel = CurrencyModel()
+        let result = currencyModel.currencyBy(id: Int(account.currencyID))
+        return result
+    }
     
     private func dropShadowOf(view: UIView)
     {
@@ -155,7 +168,7 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 
 		cell.categoryLabel.text = category?.title
 		cell.iconLabel.text = category?.emojiIcon
-		cell.amountLabel.text = operation?.amountValue
+        cell.amountLabel.text = (operation?.amountValue ?? "0") + " " + currency.symbol
 		cell.amountLabel.textColor = operation?.amountColor
 		cell.noteLabel.text = operation?.operation.note
         cell.amountLabel.font = constants.roundedFont(24)
@@ -201,10 +214,10 @@ extension OperationsViewController: DisplayOperations {
     
 	func displayStatistics(viewModel: OperationsModel.Statistics.ViewModel) {
 		
-		balanceValueLabel.text = viewModel.balance
+        balanceValueLabel.text = viewModel.balance + " " + currency.symbol
 		balanceValueLabel.textColor = viewModel.balanceColor
-		expenseValueLabel.text = viewModel.expense
-		incomeValueLabel.text = viewModel.income
+		expenseValueLabel.text = viewModel.expense + " " + currency.symbol
+		incomeValueLabel.text = viewModel.income + " " + currency.symbol
 		
 	}
 	

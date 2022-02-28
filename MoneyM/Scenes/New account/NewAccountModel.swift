@@ -47,6 +47,7 @@ class NewAccountModel {
 			var balance: Int
 			var iconID: Int
 			var colorID: Int
+            var currencyID: Int
 		}
 		
 		struct Response {

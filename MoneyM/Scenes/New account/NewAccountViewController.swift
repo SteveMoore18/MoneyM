@@ -48,6 +48,7 @@ class NewAccountViewController: UIViewController {
     
     private var selectedColorIndex = IndexPath(row: 0, section: 0)
     private var selectedIconIndex = IndexPath(row: 0, section: 0)
+    private var selectedCurrencyID = 0
 	
 	private var constants = Constants()
 	
@@ -189,7 +190,8 @@ class NewAccountViewController: UIViewController {
 		let request = NewAccountModel.CreateAccount.Request(title: title,
 															balance: balance,
 															iconID: iconID,
-															colorID: colorID)
+                                                            colorID: colorID,
+                                                            currencyID: selectedCurrencyID)
 		
 		interactor?.createAccount(request: request)
 		delegate?.accountDidCreate()
@@ -291,6 +293,7 @@ extension NewAccountViewController: CurrencyDelegate {
 	
 	func currencySelected(currency: CurrencyModel.Model) {
 		currencyButton.setTitle(currency.all, for: .normal)
+        selectedCurrencyID = currency.id
 	}
 	
 }

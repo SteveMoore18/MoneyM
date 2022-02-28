@@ -104,11 +104,13 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		accountsTableViewCell?.titleLabel.text = account?.title
 		accountsTableViewCell?.dateOfCreationLabel.text = viewModel?.dateOfCreations[index]
-        accountsTableViewCell?.balanceLabel.text = viewModel?.accountsBalance[index]
 		accountsTableViewCell?.iconImage.image = viewModel?.icons[index]
 		accountsTableViewCell?.iconView.backgroundColor = viewModel?.colors[index]
         accountsTableViewCell?.balanceLabel.font = constants.roundedFont(20)
         accountsTableViewCell?.balanceLabel.textColor = viewModel?.accountsBalanceColor[index]
+        
+        let balanceStr = (viewModel?.accountsBalance[index] ?? "0") + " " + (viewModel?.currencies[index].symbol ?? "$")
+        accountsTableViewCell?.balanceLabel.text = balanceStr
 		
 		return accountsTableViewCell!
 	}

@@ -31,6 +31,7 @@ class AccountsModel {
 		var colors: [UIColor]
 		var icons: [UIImage]
 		var dateOfCreations: [String]
+        var currencies: [CurrencyModel.Model]
 		var accounts: [AccountEntity]
 	}
     

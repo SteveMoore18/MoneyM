@@ -23,6 +23,7 @@ class NewAccountWorker {
 		newAccount.colorID = Int64(request.colorID)
 		newAccount.iconID = Int64(request.iconID)
 		newAccount.dateOfCreation = Date()
+        newAccount.currencyID = Int64(request.currencyID)
 		
 		save()
 	}

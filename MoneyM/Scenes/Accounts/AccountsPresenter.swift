@@ -42,6 +42,8 @@ extension AccountsPresenter: AccountsPresentLogic {
     
 	func presentData(response: AccountsModel.Response) {
 		
+        let currencyModel = CurrencyModel()
+        
 		let accounts = response.accounts
 		let colorsArr: [UIColor] = accounts.map { colors.colors[Int($0.colorID)] }
 		let iconsArr: [UIImage] = accounts.map { icons.icons[Int($0.iconID)] }
@@ -50,12 +52,14 @@ extension AccountsPresenter: AccountsPresentLogic {
         let accountsBalanceColor = response.accountsBalance.map {
             Int($0) < 0 ? UIColor.systemRed : UIColor.systemBlue
         }
+        let currencies = response.accounts.map { currencyModel.currencyBy(id: Int($0.currencyID))! }
         
         let viewModel = AccountsModel.ViewModel(accountsBalance: accountsBalance,
                                                 accountsBalanceColor: accountsBalanceColor,
                                                 colors: colorsArr,
 												icons: iconsArr,
-												dateOfCreations: dateOfCreations,
+                                                dateOfCreations: dateOfCreations,
+                                                currencies: currencies,
 											    accounts: accounts)
 		
 		viewController?.displayAccounts(viewModel: viewModel)
