@@ -97,9 +97,9 @@ class OperationsViewController: UIViewController {
 		
 		fetchOperations()
 		
-        balanceValueLabel.font = constants.roundedFont(34)
-        expenseValueLabel.font = constants.roundedFont(26)
-        incomeValueLabel.font = constants.roundedFont(26)
+        balanceValueLabel.font = constants.roundedFont(28)
+        expenseValueLabel.font = constants.roundedFont(24)
+        incomeValueLabel.font = constants.roundedFont(24)
         
         newOperationButton.titleLabel?.font = constants.roundedFont(20)
         
@@ -108,6 +108,10 @@ class OperationsViewController: UIViewController {
         dropShadowOf(view: balanceView)
         
         currency = getCurrency()
+        
+        balanceValueLabel.text = "0 $"
+        incomeValueLabel.text = "0 $"
+        expenseValueLabel.text = "0 $"
 	}
     
     private func getCurrency() -> CurrencyModel.Model?
@@ -171,7 +175,7 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.amountLabel.text = (operation?.amountValue ?? "0") + " " + currency.symbol
 		cell.amountLabel.textColor = operation?.amountColor
 		cell.noteLabel.text = operation?.operation.note
-        cell.amountLabel.font = constants.roundedFont(24)
+        cell.amountLabel.font = constants.roundedFont(20)
 		
 		let tableViewContentHeight = operationsTableView.contentSize.height
 		scrollViewHeightConstraint.constant = tableViewContentHeight + statusStackViewHeightConstraint.constant + bottomMargin + 32
