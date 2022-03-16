@@ -27,14 +27,35 @@ class AccountsWorker {
         } catch { }
         
     }
+    
+    public func swapAccount(request: AccountsModel.SwapAccount.Request)
+    {
+        accounts.swapAt(request.source.row, request.destination.row)
+        for (index, acc) in accounts.enumerated() {
+            acc.index = Int64(index)
+        }
+        save()
+    }
 	
     // Private functions
 	private func fetchRequest() {
 		do {
 			try accounts = context.fetch(AccountEntity.fetchRequest())
+            
+            accounts = accounts.sorted { $0.index < $1.index }
+            
 		} catch {
 			print ("Error. Can't fetch accounts!")
 		}
 	}
 	
+    private func save()
+    {
+        do
+        {
+            try context.save()
+        } catch {
+            print ("Error. Can't save accounts!")
+        }
+    }
 }

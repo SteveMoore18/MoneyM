@@ -10,6 +10,7 @@ import UIKit
 protocol DisplayAccounts: AnyObject {
 	func displayAccounts(viewModel: AccountsModel.ViewModel)
     func deletedAccount(viewModel: AccountsModel.DeleteAccount.ViewModel)
+    func displayEditAccounts(viewModel: AccountsModel.EditAccounts.ViewModel)
 }
 
 class AccountsViewController: UIViewController {
@@ -18,6 +19,10 @@ class AccountsViewController: UIViewController {
 	@IBOutlet weak var accountsTableView: UITableView!
 	
     @IBOutlet weak var newAccountButton: UIButton!
+    
+    @IBOutlet weak var btnEdit: UIButton!
+    
+    @IBOutlet weak var btnNewAccount: UIButton!
     
     var interactor: AccountsBusinessLogic?
 	var router: AccountsNavigate?
@@ -77,13 +82,35 @@ class AccountsViewController: UIViewController {
         newAccountButton.titleLabel?.font = constants.roundedFont(20)
 	}
     
+    private func editAccounts()
+    {
+        accountsTableView.setEditing(!accountsTableView.isEditing, animated: true)
+        
+        let request = AccountsModel.EditAccounts.Request(isEditing: accountsTableView.isEditing)
+        interactor?.editAccounts(request: request)
+    }
+    
 	// MARK: - Actions
 	@IBAction func newAccountButtonClicked(_ sender: Any) {
-		router?.navigateToNewAccount()
+        if !accountsTableView.isEditing
+        {
+            router?.navigateToNewAccount()
+        }
+		else
+        {
+            if let selectedRows = accountsTableView.indexPathsForSelectedRows
+            {
+                let request = AccountsModel.DeleteAccount.Request(indexPaths: selectedRows)
+                interactor?.deleteAccount(request: request)
+                accountsTableView.deleteRows(at: selectedRows, with: .automatic)
+                self.editAccounts()
+            }
+            
+        }
 	}
 	
 	@IBAction func editButtonClicked(_ sender: Any) {
-		
+        editAccounts()
 	}
 	
 }
@@ -133,17 +160,38 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
         let deleteAction = UIContextualAction(style: .destructive,
                                               title: "Delete")
         { (action, view, complitionHandler) in
-            self.interactor?.deleteAccount(request: AccountsModel.DeleteAccount.Request(index: indexPath.row))
-            self.accountsTableView.deleteRows(at: [indexPath], with: .automatic)
+            let indexPaths = [indexPath]
+            self.interactor?.deleteAccount(request: AccountsModel.DeleteAccount.Request(indexPaths: indexPaths))
+            self.accountsTableView.deleteRows(at: indexPaths, with: .automatic)
         }
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 	
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let request = AccountsModel.SwapAccount.Request(source: sourceIndexPath, destination: destinationIndexPath)
+        interactor?.swapAccount(request: request)
+    }
+    
+    func tableView(_ tableView: UITableView, shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
 }
 
 // MARK: - Display accounts protocol
 extension AccountsViewController: DisplayAccounts {
+    
+    func displayEditAccounts(viewModel: AccountsModel.EditAccounts.ViewModel) {
+        btnEdit.setTitle(viewModel.editButtonTitle, for: .normal)
+        btnNewAccount.setTitle(viewModel.newAccountButtonTitle, for: .normal)
+        btnNewAccount.tintColor = viewModel.newAccountButtonColor
+        btnNewAccount.setImage(viewModel.newAccountButtonImage, for: .normal)
+    }
     
     func deletedAccount(viewModel: AccountsModel.DeleteAccount.ViewModel) {
         interactor?.requestAccounts()

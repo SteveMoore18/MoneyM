@@ -24,6 +24,12 @@ class NewAccountWorker {
 		newAccount.iconID = Int64(request.iconID)
 		newAccount.dateOfCreation = Date()
         newAccount.currencyID = Int64(request.currencyID)
+        
+        if let accountsCount = try? context.fetch(AccountEntity.fetchRequest()).count
+        {
+            newAccount.index = Int64(accountsCount)
+        }
+        
 		
 		save()
 	}

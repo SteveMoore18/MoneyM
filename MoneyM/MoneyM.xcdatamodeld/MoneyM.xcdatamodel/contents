@@ -6,6 +6,7 @@
         <attribute name="currencyID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="dateOfCreation" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="iconID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
         <relationship name="operations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OperationEntity" inverseName="account" inverseEntity="OperationEntity"/>
     </entity>
@@ -18,7 +19,7 @@
         <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountEntity" inverseName="operations" inverseEntity="AccountEntity"/>
     </entity>
     <elements>
-        <element name="AccountEntity" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="AccountEntity" positionX="-63" positionY="-18" width="128" height="149"/>
         <element name="OperationEntity" positionX="-54" positionY="27" width="128" height="119"/>
     </elements>
 </model>

@@ -11,6 +11,7 @@ import UIKit
 protocol AccountsPresentLogic: AnyObject {
 	func presentData(response: AccountsModel.Response)
     func deletedAccount(response: AccountsModel.DeleteAccount.Response)
+    func presentEditAccounts(response: AccountsModel.EditAccounts.Response)
 }
 
 class AccountsPresenter {
@@ -35,6 +36,22 @@ class AccountsPresenter {
 }
 
 extension AccountsPresenter: AccountsPresentLogic {
+    
+    func presentEditAccounts(response: AccountsModel.EditAccounts.Response)
+    {
+        let editButtonTitle = response.editButtonTitle
+        let newAccountButtonTitle = response.newAccountButtonTitle
+        let newAccountButtonColor: UIColor = response.isEditing ? .systemRed : .systemBlue
+        let newAccountButtonImage = UIImage(systemName: response.isEditing ? "trash" : "plus.circle")
+        
+        let viewModel = AccountsModel.EditAccounts.ViewModel(isEditing: response.isEditing,
+                                                             editButtonTitle: editButtonTitle,
+                                                             newAccountButtonTitle: newAccountButtonTitle,
+                                                             newAccountButtonColor: newAccountButtonColor,
+                                                             newAccountButtonImage: newAccountButtonImage!)
+        
+        viewController?.displayEditAccounts(viewModel: viewModel)
+    }
     
     func deletedAccount(response: AccountsModel.DeleteAccount.Response) {
         viewController?.deletedAccount(viewModel: AccountsModel.DeleteAccount.ViewModel())

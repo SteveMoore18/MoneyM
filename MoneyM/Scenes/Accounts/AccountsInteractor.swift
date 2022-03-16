@@ -10,20 +10,49 @@ import Foundation
 protocol AccountsBusinessLogic {
 	func requestAccounts()
     func deleteAccount(request: AccountsModel.DeleteAccount.Request)
+    func swapAccount(request: AccountsModel.SwapAccount.Request)
+    func editAccounts(request: AccountsModel.EditAccounts.Request)
 }
 
 class AccountsInteractor {
 	
 	var presenter: AccountsPresentLogic?
 	
-	
+    
+    
+	init()
+    {
+        
+    }
+    
 }
 
 extension AccountsInteractor: AccountsBusinessLogic {
     
+    func editAccounts(request: AccountsModel.EditAccounts.Request)
+    {
+        let editButtonTitle = request.isEditing ? "Done" : "Edit"
+        let newAccountButtonTitle = request.isEditing ? "Delete" : "New account"
+        
+        let response = AccountsModel.EditAccounts.Response(isEditing: request.isEditing,
+                                                           editButtonTitle: editButtonTitle,
+                                                           newAccountButtonTitle: newAccountButtonTitle)
+        
+        presenter?.presentEditAccounts(response: response)
+    }
+    
+    func swapAccount(request: AccountsModel.SwapAccount.Request) {
+        let worker = AccountsWorker()
+        worker.swapAccount(request: request)
+    }
+    
     func deleteAccount(request: AccountsModel.DeleteAccount.Request) {
         let worker = AccountsWorker()
-        worker.deleteAccount(index: request.index)
+        for indexPath in request.indexPaths
+        {
+            worker.deleteAccount(index: indexPath.row)
+        }
+        
         
         presenter?.deletedAccount(response: AccountsModel.DeleteAccount.Response())
     }

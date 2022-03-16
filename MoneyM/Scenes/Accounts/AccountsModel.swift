@@ -39,7 +39,7 @@ class AccountsModel {
     {
         struct Request
         {
-            var index: Int
+            var indexPaths: [IndexPath]
         }
         
         struct Response { }
@@ -47,4 +47,38 @@ class AccountsModel {
         struct ViewModel { }
     }
 	
+    struct SwapAccount
+    {
+        struct Request
+        {
+            var source: IndexPath
+            var destination: IndexPath
+        }
+        
+        struct Response { }
+        
+        struct ViewModel { }
+    }
+    
+    struct EditAccounts
+    {
+        struct Request
+        {
+            var isEditing: Bool
+        }
+        struct Response
+        {
+            var isEditing: Bool
+            var editButtonTitle: String
+            var newAccountButtonTitle: String
+        }
+        struct ViewModel
+        {
+            var isEditing: Bool
+            var editButtonTitle: String
+            var newAccountButtonTitle: String
+            var newAccountButtonColor: UIColor
+            var newAccountButtonImage: UIImage
+        }
+    }
 }
