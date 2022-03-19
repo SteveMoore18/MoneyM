@@ -31,6 +31,8 @@ class AccountsViewController: UIViewController {
 	private var accountsTableViewCell: UIAccountTableViewCell?
     
     private var constants: Constants!
+    
+    private var selectedAccountIndexPath: IndexPath!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +75,8 @@ class AccountsViewController: UIViewController {
 		splitViewController?.minimumPrimaryColumnWidth = accountsTableView.frame.width
 		
 		if !viewModel!.accounts.isEmpty {
-			accountsTableView.selectRow(at: IndexPath(row: 0, section: 0),
+            selectedAccountIndexPath = IndexPath(row: 0, section: 0)
+			accountsTableView.selectRow(at: selectedAccountIndexPath,
 										animated: true, scrollPosition: .none)
 			let account = (viewModel?.accounts[0])!
 			router?.showOperations(account: account)
@@ -147,6 +150,8 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard !accountsTableView.isEditing else { return }
+        selectedAccountIndexPath = indexPath
 		let account = (viewModel?.accounts[indexPath.row])!
 		router?.showOperations(account: account)
 	}
@@ -163,6 +168,10 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
             let indexPaths = [indexPath]
             self.interactor?.deleteAccount(request: AccountsModel.DeleteAccount.Request(indexPaths: indexPaths))
             self.accountsTableView.deleteRows(at: indexPaths, with: .automatic)
+            if self.selectedAccountIndexPath == indexPath && !self.splitViewController!.isCollapsed
+            {
+                self.router?.showOperations(account: nil)
+            }
         }
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
@@ -207,5 +216,10 @@ extension AccountsViewController: NewAccountDelegate {
 	func accountDidCreate() {
 		interactor?.requestAccounts()
 		accountsTableView.reloadData()
+        selectedAccountIndexPath = IndexPath(row: accountsTableView.numberOfRows(inSection: 0) - 1, section: 0)
+        if !self.splitViewController!.isCollapsed
+        {
+            tableView(accountsTableView, didSelectRowAt: selectedAccountIndexPath)
+        }
 	}
 }

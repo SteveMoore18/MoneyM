@@ -112,6 +112,8 @@ class OperationsViewController: UIViewController {
         balanceValueLabel.text = "0 $"
         incomeValueLabel.text = "0 $"
         expenseValueLabel.text = "0 $"
+        
+        newOperationButton.isEnabled = account != nil
 	}
     
     private func getCurrency() -> CurrencyModel.Model?
