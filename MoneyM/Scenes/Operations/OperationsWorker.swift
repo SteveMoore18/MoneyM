@@ -61,6 +61,7 @@ class OperationsWorker {
     public func fetchOperations(account: AccountEntity) -> [OperationEntity]
     {
         operations = account.operations?.allObjects as! [OperationEntity]
+        operations = operations.sorted { $0.dateOfCreation! > $1.dateOfCreation! }
         return operations
     }
     

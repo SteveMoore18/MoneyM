@@ -51,7 +51,7 @@ class OperationsViewController: UIViewController {
 	// MARK: - Private variables
 	private var viewModel: OperationsModel.Operations.ViewModel?
 	
-	private let bottomMargin: CGFloat = 16
+	private let bottomMargin: CGFloat = 48
 	
 	private(set) var categoryModel: CategoryModel!
     
@@ -114,6 +114,7 @@ class OperationsViewController: UIViewController {
         expenseValueLabel.text = "0 $"
         
         newOperationButton.isEnabled = account != nil
+        
 	}
     
     private func getCurrency() -> CurrencyModel.Model?
@@ -149,6 +150,14 @@ class OperationsViewController: UIViewController {
 			interactor?.requestStatistics(request: request)
 		}
 	}
+    
+    private func updateScrollViewHeight()
+    {
+        let tableViewContentHeight = operationsTableView.contentSize.height
+        let height = tableViewContentHeight + statusStackViewHeightConstraint.constant + bottomMargin
+        let viewHeight = view.frame.height - statusStackViewHeightConstraint.constant
+        scrollViewHeightConstraint.constant = (scrollViewHeightConstraint.constant < viewHeight) ? view.frame.height - 80 : height
+    }
 	
 	// MARK: - Actions
 	@IBAction func newOperationButtonClicked(_ sender: Any) {
@@ -179,9 +188,8 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 		cell.noteLabel.text = operation?.operation.note
         cell.amountLabel.font = constants.roundedFont(20)
 		
-		let tableViewContentHeight = operationsTableView.contentSize.height
-		scrollViewHeightConstraint.constant = tableViewContentHeight + statusStackViewHeightConstraint.constant + bottomMargin + 32
-		
+		updateScrollViewHeight()
+        
 		return cell
 	}
 	
