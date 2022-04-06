@@ -169,15 +169,23 @@ class OperationsViewController: UIViewController {
 // MARK: - TableView delegate
 extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 	
+    func numberOfSections(in tableView: UITableView) -> Int {
+        viewModel?.dates.count ?? 0
+    }
+    
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		viewModel?.operations.count ?? 0
+        viewModel?.operations[section].count ?? 0
 	}
 	
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        viewModel?.dates[section]
+    }
+    
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = operationsTableView.dequeueReusableCell(withIdentifier: "cell") as! UIOperationTableViewCell
 		
-		let operation = viewModel?.operations[indexPath.row]
-		
+        let operation = viewModel?.operations[indexPath.section][indexPath.row]
+        
 		let categoryID = Int((operation?.operation.categoryID)!)
 		let category = categoryModel.categoryBy(id: categoryID) ?? categoryModel.categoryUncategorized
 
@@ -223,7 +231,9 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 extension OperationsViewController: DisplayOperations {
     
     func deletedOperation(viewModel: OperationsModel.DeleteOperation.ViewModel) {
-        self.viewModel?.operations = viewModel.operations
+//        self.viewModel?.operations = viewModel.operations
+//        fetchOperations()
+//        operationsTableView.reloadData()
     }
     
 	func displayStatistics(viewModel: OperationsModel.Statistics.ViewModel) {

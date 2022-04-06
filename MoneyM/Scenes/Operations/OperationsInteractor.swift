@@ -31,7 +31,7 @@ extension OperationsInteractor: OperationsBusinessLogic {
     func deleteOperation(request: OperationsModel.DeleteOperation.Request) {
         worker.deleteOperation(index: request.index)
 
-        let response = OperationsModel.DeleteOperation.Response(operations: worker.operations)
+        let response = OperationsModel.DeleteOperation.Response()
         presenter?.deletedOperation(response: response)
     }
 	
@@ -52,8 +52,25 @@ extension OperationsInteractor: OperationsBusinessLogic {
 	
 	func requestOperations(request: OperationsModel.Operations.Request) {
         let operations = worker.fetchOperations(account: request.account)
-        let response = OperationsModel.Operations.Response(operations: operations)
-		
+        
+        // Grouping array by "dd MM yyyy"
+        let groupedOperations = Dictionary(grouping: operations, by: { operation -> DateComponents in
+            let date = Calendar.current.dateComponents([.day, .month, .year], from: operation.dateOfCreation!)
+            return date
+        })
+        
+        // Create array and sort by date
+        var sortedGroupedOperations: [OperationsModel.OperationsGroupedByDateModel] = []
+        groupedOperations.keys.forEach { key in
+            let o = OperationsModel.OperationsGroupedByDateModel(date: key, operations: groupedOperations[key]!)
+            sortedGroupedOperations.append(o)
+        }
+        
+        sortedGroupedOperations = sortedGroupedOperations.sorted { i0, i1 in
+            Calendar.current.date(from: i0.date)! > Calendar.current.date(from: i1.date)!
+        }
+
+        let response = OperationsModel.Operations.Response(operationsGroupedByDate: sortedGroupedOperations)
 		presenter?.presentOperations(response: response)
 	}
 	

@@ -10,6 +10,12 @@ import UIKit
 
 class OperationsModel {
 	
+    struct OperationsGroupedByDateModel
+    {
+        var date: DateComponents
+        var operations: [OperationEntity]
+    }
+    
 	struct OperationPresent {
 		var operation: OperationEntity
 		var amountColor: UIColor
@@ -22,11 +28,12 @@ class OperationsModel {
 		}
 		
 		struct Response {
-			var operations: [OperationEntity]
+            var operationsGroupedByDate: [OperationsGroupedByDateModel]
 		}
 		
 		struct ViewModel {
-			var operations: [OperationPresent]
+            var dates: [String]
+			var operations: [[OperationPresent]]
 		}
 		
 	}
@@ -64,11 +71,13 @@ class OperationsModel {
         }
         
         struct Response {
-            var operations: [OperationEntity]
+//            var operations: [OperationEntity]
         }
         
         struct ViewModel {
-            var operations: [OperationPresent]
+//            var operations: [OperationPresent]
+//            var dates: [String]
+//            var operations: [[OperationPresent]]
         }
     }
 	

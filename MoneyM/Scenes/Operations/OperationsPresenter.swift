@@ -42,8 +42,8 @@ class OperationsPresenter {
 extension OperationsPresenter: OperationsPresenterLogic {
     
     func deletedOperation(response: OperationsModel.DeleteOperation.Response) {
-        let operations = beautyOperation(operations: response.operations)
-        let viewModel = OperationsModel.DeleteOperation.ViewModel(operations: operations)
+//        let operations = beautyOperation(operations: response.operations)
+        let viewModel = OperationsModel.DeleteOperation.ViewModel()
         viewController?.deletedOperation(viewModel: viewModel)
     }
 	
@@ -64,10 +64,23 @@ extension OperationsPresenter: OperationsPresenterLogic {
 	
 	func presentOperations(response: OperationsModel.Operations.Response) {
 		
-        let operations = beautyOperation(operations: response.operations)
-		
-		let viewModel = OperationsModel.Operations.ViewModel(operations: operations)
-		viewController?.displayOperation(viewModel: viewModel)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MM yyyy"
+        
+        var dates: [String] = []
+        var operations: [[OperationsModel.OperationPresent]] = []
+        
+        for item in response.operationsGroupedByDate
+        {
+            let date = Calendar.current.date(from: item.date)
+            dates.append(formatter.string(from: date!))
+            
+            operations.append(beautyOperation(operations: item.operations))
+        }
+        
+        let viewModel = OperationsModel.Operations.ViewModel(dates: dates,
+                                                             operations: operations)
+        viewController?.displayOperation(viewModel: viewModel)
 	}
 	
 }
