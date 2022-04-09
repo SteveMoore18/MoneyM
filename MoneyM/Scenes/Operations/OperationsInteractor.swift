@@ -19,6 +19,8 @@ class OperationsInteractor {
     
     private var worker: OperationsWorker!
 	
+    private var sortedOperationsByDate: [OperationsModel.OperationsGroupedByDateModel] = []
+    
     init(account: AccountEntity)
     {
         worker = OperationsWorker(account: account)
@@ -29,9 +31,10 @@ class OperationsInteractor {
 extension OperationsInteractor: OperationsBusinessLogic {
     
     func deleteOperation(request: OperationsModel.DeleteOperation.Request) {
-        worker.deleteOperation(index: request.index)
-
-        let response = OperationsModel.DeleteOperation.Response()
+        let operation = sortedOperationsByDate[request.indexPath.section].operations[request.indexPath.row]
+        worker.deleteOperation(operation: operation)
+        
+        let response = OperationsModel.DeleteOperation.Response(indexPath: request.indexPath)
         presenter?.deletedOperation(response: response)
     }
 	
@@ -60,17 +63,17 @@ extension OperationsInteractor: OperationsBusinessLogic {
         })
         
         // Create array and sort by date
-        var sortedGroupedOperations: [OperationsModel.OperationsGroupedByDateModel] = []
+        sortedOperationsByDate.removeAll()
         groupedOperations.keys.forEach { key in
             let o = OperationsModel.OperationsGroupedByDateModel(date: key, operations: groupedOperations[key]!)
-            sortedGroupedOperations.append(o)
+            sortedOperationsByDate.append(o)
         }
         
-        sortedGroupedOperations = sortedGroupedOperations.sorted { i0, i1 in
+        sortedOperationsByDate = sortedOperationsByDate.sorted { i0, i1 in
             Calendar.current.date(from: i0.date)! > Calendar.current.date(from: i1.date)!
         }
 
-        let response = OperationsModel.Operations.Response(operationsGroupedByDate: sortedGroupedOperations)
+        let response = OperationsModel.Operations.Response(operationsGroupedByDate: sortedOperationsByDate)
 		presenter?.presentOperations(response: response)
 	}
 	

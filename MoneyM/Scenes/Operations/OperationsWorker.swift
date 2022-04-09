@@ -11,20 +11,18 @@ import CoreData
 
 class OperationsWorker {
 	
-	private var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 	
-	private(set) var operations: [OperationEntity] = []
 	
     init(account: AccountEntity) {
-        operations = fetchOperations(account: account)
+        
 	}
     
-    public func deleteOperation(index: Int)
+    public func deleteOperation(operation: OperationEntity)
     {
         do
         {
-            context.delete(operations[index])
-            operations.remove(at: index)
+            context.delete(operation)
             try context.save()
             
         } catch {
@@ -39,6 +37,7 @@ class OperationsWorker {
 		var income: Int = 0
         var balance: Int = Int(account.balance)
 		
+        let operations = fetchOperations(account: account)
 		for operation in operations {
 			let amount = Int(operation.amount)
 			let mode = NewOperationModel.OperationMode(rawValue: Int(operation.mode))
@@ -60,7 +59,7 @@ class OperationsWorker {
 	
     public func fetchOperations(account: AccountEntity) -> [OperationEntity]
     {
-        operations = account.operations?.allObjects as! [OperationEntity]
+        var operations = account.operations?.allObjects as! [OperationEntity]
         operations = operations.sorted { $0.dateOfCreation! > $1.dateOfCreation! }
         return operations
     }

@@ -42,8 +42,7 @@ class OperationsPresenter {
 extension OperationsPresenter: OperationsPresenterLogic {
     
     func deletedOperation(response: OperationsModel.DeleteOperation.Response) {
-//        let operations = beautyOperation(operations: response.operations)
-        let viewModel = OperationsModel.DeleteOperation.ViewModel()
+        let viewModel = OperationsModel.DeleteOperation.ViewModel(indexPath: response.indexPath)
         viewController?.deletedOperation(viewModel: viewModel)
     }
 	

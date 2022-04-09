@@ -153,7 +153,8 @@ class OperationsViewController: UIViewController {
     
     private func updateScrollViewHeight()
     {
-        let tableViewContentHeight = operationsTableView.contentSize.height
+        let sectionsHeight = CGFloat(32 * (viewModel?.operations.count)!)
+        let tableViewContentHeight = operationsTableView.contentSize.height + sectionsHeight
         let height = tableViewContentHeight + statusStackViewHeightConstraint.constant + bottomMargin
         let viewHeight = view.frame.height - statusStackViewHeightConstraint.constant
         scrollViewHeightConstraint.constant = (scrollViewHeightConstraint.constant < viewHeight) ? view.frame.height - 80 : height
@@ -210,14 +211,12 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
         let deleteAction = UIContextualAction(style: .destructive,
                                               title: "Delete")
         { (action, view, complitionHandler) in
-            if let account = self.account
+            if self.account != nil
             {
                 
-                let request = OperationsModel.DeleteOperation.Request(account: account,
-                                                                      index: indexPath.row)
+                let request = OperationsModel.DeleteOperation.Request(indexPath: indexPath)
                 self.interactor?.deleteOperation(request: request)
                 
-                self.operationsTableView.deleteRows(at: [indexPath], with: .automatic)
                 self.updateStatistics()
             }
         }
@@ -231,9 +230,21 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 extension OperationsViewController: DisplayOperations {
     
     func deletedOperation(viewModel: OperationsModel.DeleteOperation.ViewModel) {
-//        self.viewModel?.operations = viewModel.operations
-//        fetchOperations()
-//        operationsTableView.reloadData()
+        let indexPath = viewModel.indexPath
+        
+        self.viewModel?.operations[indexPath.section].remove(at: indexPath.row)
+        self.operationsTableView.deleteRows(at: [indexPath], with: .top)
+
+        if self.viewModel!.operations[indexPath.section].isEmpty
+        {
+            self.viewModel?.operations.remove(at: indexPath.section)
+            self.viewModel?.dates.remove(at: indexPath.section)
+            self.operationsTableView.deleteSections(IndexSet(arrayLiteral: indexPath.section), with: .middle)
+        }
+        
+        self.operationsTableView.beginUpdates()
+        self.operationsTableView.reloadData()
+        self.operationsTableView.endUpdates()
     }
     
 	func displayStatistics(viewModel: OperationsModel.Statistics.ViewModel) {
@@ -247,11 +258,10 @@ extension OperationsViewController: DisplayOperations {
 	
 	func displayOperation(viewModel: OperationsModel.Operations.ViewModel) {
 		
-		DispatchQueue.main.async {
-			self.viewModel = viewModel
-			self.operationsTableView.reloadData()
-		}
-		
+        self.viewModel?.operations.removeAll()
+        self.viewModel = viewModel
+        self.operationsTableView.reloadData()
+        
 	}
 	
 }

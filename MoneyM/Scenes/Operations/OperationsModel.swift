@@ -66,18 +66,15 @@ class OperationsModel {
     {
         struct Request
         {
-            var account: AccountEntity
-            var index: Int
+            var indexPath: IndexPath
         }
         
         struct Response {
-//            var operations: [OperationEntity]
+            var indexPath: IndexPath
         }
         
         struct ViewModel {
-//            var operations: [OperationPresent]
-//            var dates: [String]
-//            var operations: [[OperationPresent]]
+            var indexPath: IndexPath
         }
     }
 	
