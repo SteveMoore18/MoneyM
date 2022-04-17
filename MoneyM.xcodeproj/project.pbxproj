@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E2064E49279833C100EF4917 /* NewOperationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2064E48279833C100EF4917 /* NewOperationRouter.swift */; };
+		E21E9DB0280BE91500196A4A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E21E9DB2280BE91500196A4A /* Localizable.strings */; };
 		E2291664279149C40025FB44 /* UIColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */; };
 		E22916672791660B0025FB44 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22916662791660B0025FB44 /* Constants.swift */; };
 		E229166A2791AC820025FB44 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22916692791AC820025FB44 /* CurrencyViewController.swift */; };
@@ -58,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		E2064E48279833C100EF4917 /* NewOperationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOperationRouter.swift; sourceTree = "<group>"; };
+		E21E9DB1280BE91500196A4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E21E9DB3280BE94B00196A4A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		E22916662791660B0025FB44 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E22916692791AC820025FB44 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +195,7 @@
 				E2A8DCDF278CBD31006BD05B /* Views */,
 				E2A8DCB6278C9DC4006BD05B /* Scenes */,
 				E2A8DCB5278C62C8006BD05B /* MoneyM.entitlements */,
+				E21E9DB2280BE91500196A4A /* Localizable.strings */,
 				E2A8DC9D278C6190006BD05B /* AppDelegate.swift */,
 				E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */,
 				E2A8DCA9278C6192006BD05B /* Assets.xcassets */,
@@ -330,6 +334,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = E2A8DC91278C6190006BD05B;
 			productRefGroup = E2A8DC9B278C6190006BD05B /* Products */;
@@ -351,6 +356,7 @@
 				E2A8DCAD278C6192006BD05B /* LaunchScreen.storyboard in Resources */,
 				E2F3B82B278D812B00220A7B /* SF-Pro-Rounded-Medium.ttf in Resources */,
 				E2A8DCAA278C6192006BD05B /* Assets.xcassets in Resources */,
+				E21E9DB0280BE91500196A4A /* Localizable.strings in Resources */,
 				E2A8DCA5278C6190006BD05B /* Main.storyboard in Resources */,
 				E2A8DCE9278D7127006BD05B /* NewAccount.storyboard in Resources */,
 			);
@@ -409,6 +415,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		E21E9DB2280BE91500196A4A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E21E9DB1280BE91500196A4A /* en */,
+				E21E9DB3280BE94B00196A4A /* ru */,
+			);
+			name = Localizable.strings;
+			path = MoneyM;
+			sourceTree = SOURCE_ROOT;
+		};
 		E2A8DCA3278C6190006BD05B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -432,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -493,6 +510,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

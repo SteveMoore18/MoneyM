@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 protocol DisplayAccounts: AnyObject {
 	func displayAccounts(viewModel: AccountsModel.ViewModel)
@@ -71,7 +72,6 @@ class AccountsViewController: UIViewController {
 		accountsTableView.delegate = self
 		accountsTableView.dataSource = self
 		
-		
 		splitViewController?.minimumPrimaryColumnWidth = accountsTableView.frame.width
 		
 		if !viewModel!.accounts.isEmpty {
@@ -83,6 +83,8 @@ class AccountsViewController: UIViewController {
 		}
         constants = Constants()
         newAccountButton.titleLabel?.font = constants.roundedFont(20)
+        
+        localizeText()
 	}
     
     private func editAccounts()
@@ -91,6 +93,13 @@ class AccountsViewController: UIViewController {
         
         let request = AccountsModel.EditAccounts.Request(isEditing: accountsTableView.isEditing)
         interactor?.editAccounts(request: request)
+    }
+    
+    private func localizeText()
+    {
+        btnEdit.setTitle(NSLocalizedString("edit", comment: ""), for: .normal)
+        btnNewAccount.setTitle(NSLocalizedString("new_account", comment: ""), for: .normal)
+        title = NSLocalizedString("accounts", comment: "")
     }
     
 	// MARK: - Actions

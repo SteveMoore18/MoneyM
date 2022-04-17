@@ -38,7 +38,13 @@ class NewOperationViewController: UIViewController {
 	
 	@IBOutlet weak var createButton: UIButton!
 	
-	// MARK: - Private variables
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    @IBOutlet weak var additionalLabel: UILabel!
+    
+    @IBOutlet weak var btnCreate: UIButton!
+    
+    // MARK: - Private variables
 	private var isCreateButtonEnabled = false
 	
 	private(set) var operationMode = NewOperationModel.OperationMode.Expense
@@ -134,6 +140,8 @@ class NewOperationViewController: UIViewController {
         constants = Constants()
         amountTextField.font = constants.roundedFont(24)
         noteTextField.font = constants.roundedFont(24)
+        
+        localizeText()
 	}
 	
 	private func createButtonEnable(value: Bool) {
@@ -161,6 +169,19 @@ class NewOperationViewController: UIViewController {
 		incomeButton.tintColor = .systemBlue
 	}
 	
+    private func localizeText()
+    {
+        navigationBar.topItem?.title = NSLocalizedString("new_operation", comment: "")
+        amountTextField.placeholder = NSLocalizedString("amount", comment: "")
+        
+        expenseButton.setTitle(NSLocalizedString("expense", comment: ""), for: .normal)
+        incomeButton.setTitle(NSLocalizedString("income", comment: ""), for: .normal)
+        categoryButton.setTitle(NSLocalizedString("category", comment: ""), for: .normal)
+        btnCreate.setTitle(NSLocalizedString("create", comment: ""), for: .normal)
+        
+        additionalLabel.text = NSLocalizedString("additional", comment: "")
+        noteTextField.placeholder = NSLocalizedString("note", comment: "")
+    }
 }
 
 // MARK: - NewOperation Display

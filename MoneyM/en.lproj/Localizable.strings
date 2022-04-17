@@ -1,0 +1,79 @@
+/* 
+  Localizable.strings
+  MoneyM
+
+  Created by Савелий Никулин on 17.04.2022.
+  
+*/
+
+// MARK: - Accounts
+
+"edit" = "Edit";
+
+"accounts" = "Accounts";
+
+"new_account" = "New account";
+
+"done" = "Done";
+
+"delete" = "Delete";
+
+// MARK: - New account
+
+"title" = "Title";
+
+"currency" = "Currency";
+
+"create" = "Create";
+
+// MARK: - Operations
+
+"operations" = "Operations";
+
+"new_operation" = "New operation";
+
+"balance" = "Balance";
+
+"expense" = "Expense";
+
+"income" = "Income";
+
+// MARK: - New operation
+
+"amount" = "Amount";
+
+"category" = "Category";
+
+"additional" = "Additional";
+
+"note" = "Note";
+
+// MARK: - Currencies
+
+"dollar" = "Dollar";
+
+"rouble" = "Russian Rouble";
+
+// MARK: - Categories
+
+// Icome
+"uncategorized" = "Uncategorized";
+"salary" = "Salary";
+"part_time_job" = "Part time job";
+
+// Expense
+"food" = "Food";
+"entertaiment" = "Entertaiment";
+"car" = "Car";
+"transport" = "Transport";
+"health" = "Health";
+"technology" = "Technology";
+"communication" = "Communication";
+"internet" = "Internet";
+"clothes" = "Clothes";
+"pet" = "Pet";
+"house_and_utilities" = "House and utilities";
+"electricity" = "Electricity";
+"gas" = "Gas";
+"payment_of_debts" = "Payment of debts";
+

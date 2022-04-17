@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="dark">
         <simulatedSceneSize key="mac" width="800" height="600"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -376,6 +376,7 @@
                     </view>
                     <connections>
                         <outlet property="balanceTextField" destination="pdu-4W-Eto" id="SIe-ep-8PR"/>
+                        <outlet property="btnCreate" destination="EtG-68-sPA" id="FFT-cL-WZ8"/>
                         <outlet property="colorsCollectionView" destination="DBO-qi-AFh" id="Wc2-3N-2jz"/>
                         <outlet property="currencyButton" destination="gVb-fc-1dp" id="uQM-Z0-i7u"/>
                         <outlet property="iconBackgroundView" destination="8ZT-oa-DNh" id="ZaL-kh-2CG"/>
@@ -463,6 +464,7 @@
                     </view>
                     <connections>
                         <outlet property="currenciesTableView" destination="F2C-DZ-kXa" id="qQ8-Ze-MLo"/>
+                        <outlet property="navigationBar" destination="QQs-mj-NiV" id="rbh-DY-djc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pr-LH-Kcn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

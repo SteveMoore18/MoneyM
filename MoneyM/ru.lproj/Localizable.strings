@@ -1,0 +1,78 @@
+/* 
+  Localizable.strings
+  MoneyM
+
+  Created by Савелий Никулин on 17.04.2022.
+  
+*/
+
+// MARK: - Accounts
+
+"edit" = "Изменить";
+
+"accounts" = "Счета";
+
+"new_account" = "Новый счет";
+
+"done" = "Готово";
+
+"delete" = "Удалить";
+
+// MARK: - New account
+
+"title" = "Название";
+
+"currency" = "Валюта";
+
+"create" = "Создать";
+
+// MARK: - Operations
+
+"operations" = "Операции";
+
+"new_operation" = "Новая операция";
+
+"balance" = "Баланс";
+
+"expense" = "Расходы";
+
+"income" = "Доходы";
+
+// MARK: - New operation
+
+"amount" = "Сумма";
+
+"category" = "Категория";
+
+"additional" = "Дополнительно";
+
+"note" = "Заметка";
+
+// MARK: - Currencies
+
+"dollar" = "Доллар";
+
+"rouble" = "Российский рубль";
+
+// MARK: - Categories
+
+// Icome
+"uncategorized" = "Без категории";
+"salary" = "Зарплата";
+"part_time_job" = "Подработка";
+
+// Expense
+"food" = "Еда";
+"entertaiment" = "Развлечения";
+"car" = "Машина";
+"transport" = "Транспорт";
+"health" = "Здоровье";
+"technology" = "Техника";
+"communication" = "Связь";
+"internet" = "Интернет";
+"clothes" = "Одежда";
+"pet" = "Питомец";
+"house_and_utilities" = "ЖКХ";
+"electricity" = "Электричество";
+"gas" = "Газ";
+"payment_of_debts" = "Оплата долгов";

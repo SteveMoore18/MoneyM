@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -280,12 +280,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="additionalLabel" destination="Q14-ko-UDu" id="YsE-Nv-fQX"/>
                         <outlet property="amountTextField" destination="lhC-fK-oYn" id="B1o-d4-j1t"/>
+                        <outlet property="btnCreate" destination="bks-O4-TJe" id="1B0-MQ-WlE"/>
                         <outlet property="categoryButton" destination="cFN-Lb-KpL" id="zmG-En-htl"/>
                         <outlet property="createButton" destination="bks-O4-TJe" id="dLA-Ho-GMa"/>
                         <outlet property="datePicker" destination="dAm-bO-3Xh" id="3ei-sU-X5T"/>
                         <outlet property="expenseButton" destination="6Xh-Eu-tXo" id="3YQ-ro-gqn"/>
                         <outlet property="incomeButton" destination="ie6-Q9-sTA" id="iRf-Ow-nQZ"/>
+                        <outlet property="navigationBar" destination="P9X-tS-UQ8" id="W2c-gg-mpX"/>
                         <outlet property="noteTextField" destination="usz-qs-CRL" id="BLt-rq-vyq"/>
                     </connections>
                 </viewController>
@@ -410,6 +413,7 @@
                     </view>
                     <connections>
                         <outlet property="categoriesTableView" destination="3bO-7l-Qyh" id="gbf-9T-ymZ"/>
+                        <outlet property="navigationBar" destination="TvD-Uz-Dni" id="ke4-ih-4zM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jM7-Ok-9US" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

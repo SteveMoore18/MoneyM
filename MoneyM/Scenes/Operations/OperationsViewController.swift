@@ -42,6 +42,8 @@ class OperationsViewController: UIViewController {
     
     @IBOutlet weak var balanceView: UIView!
     
+    @IBOutlet weak var btnNewOperation: UIButton!
+    
     var interactor: OperationsBusinessLogic?
 	var router: OperationNavigate?
     var accountViewController: AccountsViewController?
@@ -115,6 +117,7 @@ class OperationsViewController: UIViewController {
         
         newOperationButton.isEnabled = account != nil
         
+        localizeText()
 	}
     
     private func getCurrency() -> CurrencyModel.Model?
@@ -158,6 +161,15 @@ class OperationsViewController: UIViewController {
         let height = tableViewContentHeight + statusStackViewHeightConstraint.constant + bottomMargin
         let viewHeight = view.frame.height - statusStackViewHeightConstraint.constant
         scrollViewHeightConstraint.constant = (scrollViewHeightConstraint.constant < viewHeight) ? view.frame.height - 80 : height
+    }
+    
+    private func localizeText()
+    {
+        title = NSLocalizedString("operations", comment: "")
+        balanceTitleLabel.text = NSLocalizedString("balance", comment: "")
+        incomeTitleLabel.text = NSLocalizedString("income", comment: "")
+        expenseTitleLabel.text = NSLocalizedString("expense", comment: "")
+        btnNewOperation.setTitle(NSLocalizedString("new_operation", comment: ""), for: .normal)
     }
 	
 	// MARK: - Actions

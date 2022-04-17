@@ -21,27 +21,27 @@ class CategoryModel {
 	private(set) var categoryUncategorized: Model!
 	
 	init() {
-		
-		appendCategory(&incomeCategories, "🚫", "Uncategorized")
-		appendCategory(&incomeCategories, "💰", "Salary")
-		appendCategory(&incomeCategories, "🪙", "Part time job")
-		
-		appendCategory(&expenseCategories, "🚫", "Uncategorized")
-		appendCategory(&expenseCategories, "🍉", "Food")
-		appendCategory(&expenseCategories, "🕹", "Entertaiment")
-		appendCategory(&expenseCategories, "🚗", "Car")
-		appendCategory(&expenseCategories, "🚌", "Transport")
-		appendCategory(&expenseCategories, "💊", "Health")
-		appendCategory(&expenseCategories, "🖥", "Technology")
-		appendCategory(&expenseCategories, "📱", "Communication")
-		appendCategory(&expenseCategories, "🌐", "Internet")
-		appendCategory(&expenseCategories, "👕", "Clothes")
-		appendCategory(&expenseCategories, "🐱", "Pet")
-		appendCategory(&expenseCategories, "🏠", "House and utilities")
-		appendCategory(&expenseCategories, "💡", "Electricity")
-		appendCategory(&expenseCategories, "🔥", "Gas")
-		appendCategory(&expenseCategories, "💸", "Payment of debts")
-
+        
+        appendCategory(&incomeCategories, "🚫", NSLocalizedString("uncategorized", comment: ""))
+        appendCategory(&incomeCategories, "💰", NSLocalizedString("salary", comment: ""))
+        appendCategory(&incomeCategories, "🪙", NSLocalizedString("part_time_job", comment: ""))
+        
+        appendCategory(&expenseCategories, "🚫", NSLocalizedString("uncategorized", comment: ""))
+        appendCategory(&expenseCategories, "🍉", NSLocalizedString("food", comment: ""))
+        appendCategory(&expenseCategories, "🕹", NSLocalizedString("entertaiment", comment: ""))
+        appendCategory(&expenseCategories, "🚗", NSLocalizedString("car", comment: ""))
+        appendCategory(&expenseCategories, "🚌", NSLocalizedString("transport", comment: ""))
+        appendCategory(&expenseCategories, "💊", NSLocalizedString("health", comment: ""))
+        appendCategory(&expenseCategories, "🖥", NSLocalizedString("technology", comment: ""))
+        appendCategory(&expenseCategories, "📱", NSLocalizedString("communication", comment: ""))
+        appendCategory(&expenseCategories, "🌐", NSLocalizedString("internet", comment: ""))
+        appendCategory(&expenseCategories, "👕", NSLocalizedString("clothes", comment: ""))
+        appendCategory(&expenseCategories, "🐱", NSLocalizedString("pet", comment: ""))
+        appendCategory(&expenseCategories, "🏠", NSLocalizedString("house_and_utilities", comment: ""))
+        appendCategory(&expenseCategories, "💡", NSLocalizedString("electricity", comment: ""))
+        appendCategory(&expenseCategories, "🔥", NSLocalizedString("gas", comment: ""))
+        appendCategory(&expenseCategories, "💸", NSLocalizedString("payment_of_debts", comment: ""))
+        
 		categoryUncategorized = expenseCategories[0]
 		
 	}

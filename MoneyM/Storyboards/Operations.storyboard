@@ -264,6 +264,7 @@
                         <outlet property="balanceTitleLabel" destination="3AH-4F-gCE" id="kKE-xm-D9C"/>
                         <outlet property="balanceValueLabel" destination="ieY-DY-vN3" id="fWE-c3-9tf"/>
                         <outlet property="balanceView" destination="Vqq-KV-zum" id="UZ7-NF-Ryb"/>
+                        <outlet property="btnNewOperation" destination="umL-xx-qy2" id="kNd-t0-wMZ"/>
                         <outlet property="expenseTitleLabel" destination="LLP-VT-pVS" id="tvS-Ff-4wl"/>
                         <outlet property="expenseValueLabel" destination="PDF-mq-rwL" id="gSJ-xV-zvJ"/>
                         <outlet property="expenseView" destination="IUS-Lm-cq6" id="m41-tO-esV"/>

@@ -37,6 +37,8 @@ class NewAccountViewController: UIViewController {
 	
 	@IBOutlet weak var iconsCollectionViewConstraintHeight: NSLayoutConstraint!
 	
+    @IBOutlet weak var btnCreate: UIButton!
+    
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     // MARK: - Other variables
@@ -97,6 +99,7 @@ class NewAccountViewController: UIViewController {
         selectColor(selectedColorIndex)
         selectIcon(selectedIconIndex)
         
+        localizeText()
 	}
 	
 	private func initCollectionViews() {
@@ -174,6 +177,14 @@ class NewAccountViewController: UIViewController {
     {
         let indexPath = randomIndexPathRow(range: 0..<iconsViewModel!.icons.count - 1)
         selectIcon(indexPath)
+    }
+    
+    private func localizeText()
+    {
+        navigationBar.topItem?.title = NSLocalizedString("new_account", comment: "")
+        titleTextField.placeholder = NSLocalizedString("title", comment: "")
+        balanceTextField.placeholder = NSLocalizedString("balance", comment: "")
+        btnCreate.setTitle(NSLocalizedString("create", comment: ""), for: .normal)
     }
 
 	// MARK: - Actions

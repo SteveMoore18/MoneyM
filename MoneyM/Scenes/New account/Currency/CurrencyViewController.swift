@@ -21,7 +21,9 @@ class CurrencyViewController: UIViewController {
 
 	private var currencyModel: CurrencyModel!
 	
-	override func viewDidLoad() {
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
 		initCurrencies()
 		tableViewInit()
@@ -31,7 +33,7 @@ class CurrencyViewController: UIViewController {
 	private func initCurrencies() {
 		
 		currencyModel = CurrencyModel()
-		
+        localizeText()
 		
 	}
 	
@@ -39,6 +41,11 @@ class CurrencyViewController: UIViewController {
 		currenciesTableView.delegate = self
 		currenciesTableView.dataSource = self
 	}
+    
+    private func localizeText()
+    {
+        navigationBar.topItem?.title = NSLocalizedString("currency", comment: "")
+    }
     
     @IBAction func btnCloseClicked(_ sender: Any) {
         dismiss(animated: true)

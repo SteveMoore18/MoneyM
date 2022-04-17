@@ -22,7 +22,9 @@ class CategoryViewController: UIViewController {
 	// MARK: - Outlets
 	@IBOutlet weak var categoriesTableView: UITableView!
 	
-	// MARK: - Privtae variables
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    // MARK: - Privtae variables
 	private var categories: [CategoryModel.Model] = []
 	
     override func viewDidLoad() {
@@ -42,7 +44,14 @@ class CategoryViewController: UIViewController {
 		}
 		
 		categories = categoryModel.categories(mode: operationMode)
+        
+        localizeText()
 	}
+    
+    private func localizeText()
+    {
+        navigationBar.topItem?.title = NSLocalizedString("category", comment: "")
+    }
     
 	// MARK: - Actions
 	@IBAction func closeButtonClicked(_ sender: Any) {

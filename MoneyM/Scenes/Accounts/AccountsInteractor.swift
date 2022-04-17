@@ -31,8 +31,11 @@ extension AccountsInteractor: AccountsBusinessLogic {
     
     func editAccounts(request: AccountsModel.EditAccounts.Request)
     {
-        let editButtonTitle = request.isEditing ? "Done" : "Edit"
-        let newAccountButtonTitle = request.isEditing ? "Delete" : "New account"
+        let editButtonTitle = request.isEditing ? NSLocalizedString("done", comment: "")
+            : NSLocalizedString("edit", comment: "")
+        
+        let newAccountButtonTitle = request.isEditing ? NSLocalizedString("delete", comment: "")
+            : NSLocalizedString("new_account", comment: "")
         
         let response = AccountsModel.EditAccounts.Response(isEditing: request.isEditing,
                                                            editButtonTitle: editButtonTitle,

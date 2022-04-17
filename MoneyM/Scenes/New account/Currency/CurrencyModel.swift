@@ -41,8 +41,8 @@ class CurrencyModel {
 	
 	// MARK: - private functions
 	private func initCurrencies() {
-        currencies.append(Model(id: 0, symbol: "$", title: "Dollar"))
-        currencies.append(Model(id: 1, symbol: "₽", title: "Russian rouble"))
+        currencies.append(Model(id: 0, symbol: "$", title: NSLocalizedString("dollar", comment: "")))
+        currencies.append(Model(id: 1, symbol: "₽", title: NSLocalizedString("rouble", comment: "")))
 	}
 	
 }
