@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreGraphics
 
 protocol DisplayOperations {
 	func displayOperation(viewModel: OperationsModel.Operations.ViewModel)
@@ -189,9 +190,13 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel?.operations[section].count ?? 0
 	}
-	
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        viewModel?.dates[section]
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIOperationsTableViewHeader(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 28))
+        
+        view.dateLabel.text = viewModel?.dates[section]
+        
+        return view
     }
     
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

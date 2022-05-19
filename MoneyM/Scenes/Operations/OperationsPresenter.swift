@@ -64,7 +64,7 @@ extension OperationsPresenter: OperationsPresenterLogic {
 	func presentOperations(response: OperationsModel.Operations.Response) {
 		
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd MM yyyy"
+        formatter.dateFormat = "dd MMM yyyy"
         
         var dates: [String] = []
         var operations: [[OperationsModel.OperationPresent]] = []

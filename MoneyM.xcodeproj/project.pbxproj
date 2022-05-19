@@ -25,6 +25,7 @@
 		E2367A5A27931FBF002E8ECE /* OperationsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A5927931FBE002E8ECE /* OperationsWorker.swift */; };
 		E2367A5F2795FC35002E8ECE /* NewOperation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2367A5E2795FC35002E8ECE /* NewOperation.storyboard */; };
 		E2367A612796F5BE002E8ECE /* OperationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A602796F5BE002E8ECE /* OperationsRouter.swift */; };
+		E288A70128361D6B0025496C /* UIOperationsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E288A70028361D6A0025496C /* UIOperationsTableViewHeader.swift */; };
 		E2A8DC9E278C6190006BD05B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9D278C6190006BD05B /* AppDelegate.swift */; };
 		E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */; };
 		E2A8DCA5278C6190006BD05B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A8DCA3278C6190006BD05B /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 		E2367A5927931FBE002E8ECE /* OperationsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsWorker.swift; sourceTree = "<group>"; };
 		E2367A5E2795FC35002E8ECE /* NewOperation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewOperation.storyboard; sourceTree = "<group>"; };
 		E2367A602796F5BE002E8ECE /* OperationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsRouter.swift; sourceTree = "<group>"; };
+		E288A70028361D6A0025496C /* UIOperationsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIOperationsTableViewHeader.swift; sourceTree = "<group>"; };
 		E2A8DC9A278C6190006BD05B /* MoneyM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A8DC9D278C6190006BD05B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */,
 				E2367A4E2792F405002E8ECE /* UIOperationTableViewCell.swift */,
 				E2E7A548279829F5000BFC03 /* UICategoryTableViewCell.swift */,
+				E288A70028361D6A0025496C /* UIOperationsTableViewHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			files = (
 				E2E7A5422797FFF0000BFC03 /* NewOperationWorker.swift in Sources */,
 				E2F3B82D278DA7F900220A7B /* NewAccountInteractor.swift in Sources */,
+				E288A70128361D6B0025496C /* UIOperationsTableViewHeader.swift in Sources */,
 				E2367A4B2792A68A002E8ECE /* Colors.swift in Sources */,
 				E2367A522792F4EC002E8ECE /* OperationsViewController.swift in Sources */,
 				E2A8DCE6278D6471006BD05B /* UIView.swift in Sources */,
