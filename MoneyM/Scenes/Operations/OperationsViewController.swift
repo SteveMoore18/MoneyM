@@ -226,7 +226,7 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive,
-                                              title: "Delete")
+                                              title: NSLocalizedString("delete", comment: ""))
         { (action, view, complitionHandler) in
             if self.account != nil
             {

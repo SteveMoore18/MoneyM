@@ -173,7 +173,7 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive,
-                                              title: "Delete")
+                                              title: NSLocalizedString("delete", comment: ""))
         { (action, view, complitionHandler) in
             let indexPaths = [indexPath]
             self.interactor?.deleteAccount(request: AccountsModel.DeleteAccount.Request(indexPaths: indexPaths))
