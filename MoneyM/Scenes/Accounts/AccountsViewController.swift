@@ -76,11 +76,17 @@ class AccountsViewController: UIViewController {
 		splitViewController?.minimumPrimaryColumnWidth = accountsTableView.frame.width
 		
 		if !viewModel!.accounts.isEmpty {
-            selectedAccountIndexPath = IndexPath(row: 0, section: 0)
-			accountsTableView.selectRow(at: selectedAccountIndexPath,
-										animated: true, scrollPosition: .none)
-			let account = (viewModel?.accounts[0])!
-			router?.showOperations(account: account)
+            
+            if let index = loadSelectedIndex() {
+                selectedAccountIndexPath = IndexPath(row: index, section: 0)
+                accountsTableView.selectRow(at: selectedAccountIndexPath,
+                                            animated: true,
+                                            scrollPosition: .none)
+                
+                let account = (viewModel?.accounts[index])!
+                router?.showOperations(account: account)
+            }
+            
 		}
         constants = Constants()
         newAccountButton.titleLabel?.font = constants.roundedFont(20)
@@ -101,6 +107,21 @@ class AccountsViewController: UIViewController {
         btnEdit.setTitle(NSLocalizedString("edit", comment: ""), for: .normal)
         btnNewAccount.setTitle(NSLocalizedString("new_account", comment: ""), for: .normal)
         title = NSLocalizedString("accounts", comment: "")
+    }
+    
+    private func saveSelectedIndex(_ indexPath: IndexPath)
+    {
+        UserDefaults.standard.set(indexPath.row, forKey: "selectedIndex")
+    }
+    
+    private func loadSelectedIndex() -> Int?
+    {
+        UserDefaults.standard.value(forKey: "selectedIndex") as? Int
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UserDefaults.standard.set(nil, forKey: "selectedIndex")
     }
     
 	// MARK: - Actions
@@ -164,6 +185,7 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
         selectedAccountIndexPath = indexPath
 		let account = (viewModel?.accounts[indexPath.row])!
 		router?.showOperations(account: account)
+        saveSelectedIndex(indexPath)
 	}
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
