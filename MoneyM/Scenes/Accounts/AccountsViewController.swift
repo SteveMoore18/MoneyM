@@ -12,6 +12,7 @@ protocol DisplayAccounts: AnyObject {
 	func displayAccounts(viewModel: AccountsModel.ViewModel)
     func deletedAccount(viewModel: AccountsModel.DeleteAccount.ViewModel)
     func displayEditAccounts(viewModel: AccountsModel.EditAccounts.ViewModel)
+    func displaySwapAccounts(viewModel: AccountsModel.SwapAccount.ViewModel)
 }
 
 class AccountsViewController: UIViewController {
@@ -203,6 +204,11 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Display accounts protocol
 extension AccountsViewController: DisplayAccounts {
+    
+    func displaySwapAccounts(viewModel: AccountsModel.SwapAccount.ViewModel) {
+        self.viewModel = viewModel.viewModel
+        accountsTableView.reloadData()
+    }
     
     func displayEditAccounts(viewModel: AccountsModel.EditAccounts.ViewModel) {
         btnEdit.setTitle(viewModel.editButtonTitle, for: .normal)

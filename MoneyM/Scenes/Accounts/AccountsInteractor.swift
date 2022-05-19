@@ -47,6 +47,9 @@ extension AccountsInteractor: AccountsBusinessLogic {
     func swapAccount(request: AccountsModel.SwapAccount.Request) {
         let worker = AccountsWorker()
         worker.swapAccount(request: request)
+        
+        let response = AccountsModel.SwapAccount.Response(source: request.source, destination: request.destination)
+        presenter?.swapAccount(response: response)
     }
     
     func deleteAccount(request: AccountsModel.DeleteAccount.Request) {

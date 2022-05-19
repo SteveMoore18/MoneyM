@@ -12,6 +12,7 @@ protocol AccountsPresentLogic: AnyObject {
 	func presentData(response: AccountsModel.Response)
     func deletedAccount(response: AccountsModel.DeleteAccount.Response)
     func presentEditAccounts(response: AccountsModel.EditAccounts.Response)
+    func swapAccount(response: AccountsModel.SwapAccount.Response)
 }
 
 class AccountsPresenter {
@@ -36,6 +37,22 @@ class AccountsPresenter {
 }
 
 extension AccountsPresenter: AccountsPresentLogic {
+    
+    func swapAccount(response: AccountsModel.SwapAccount.Response) {
+        var viewModel = AccountsModel.SwapAccount.ViewModel(viewModel: (viewController?.viewModel)!)
+        let i = response.source.row
+        let j = response.destination.row
+        
+        viewModel.viewModel.accounts.swapAt(i, j)
+        viewModel.viewModel.accountsBalance.swapAt(i, j)
+        viewModel.viewModel.accountsBalanceColor.swapAt(i, j)
+        viewModel.viewModel.colors.swapAt(i, j)
+        viewModel.viewModel.icons.swapAt(i, j)
+        viewModel.viewModel.dateOfCreations.swapAt(i, j)
+        viewModel.viewModel.currencies.swapAt(i, j)
+        
+        viewController?.displaySwapAccounts(viewModel: viewModel)
+    }
     
     func presentEditAccounts(response: AccountsModel.EditAccounts.Response)
     {

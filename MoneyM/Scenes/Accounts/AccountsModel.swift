@@ -55,9 +55,16 @@ class AccountsModel {
             var destination: IndexPath
         }
         
-        struct Response { }
+        struct Response
+        {
+            var source: IndexPath
+            var destination: IndexPath
+        }
         
-        struct ViewModel { }
+        struct ViewModel
+        {
+            var viewModel: AccountsModel.ViewModel
+        }
     }
     
     struct EditAccounts
