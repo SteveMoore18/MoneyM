@@ -175,7 +175,13 @@ class OperationsViewController: UIViewController {
 	
 	// MARK: - Actions
 	@IBAction func newOperationButtonClicked(_ sender: Any) {
-		router?.navigateToNewOperation()
+//		router?.navigateToNewOperation()
+        let storyboard = UIStoryboard(name: "OperationsPieChart", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "OperationPieChartID") as! OperationsPieChartViewController
+        
+        vc.operationsArray = account?.operations?.allObjects as? [OperationEntity]
+        
+        present(vc, animated: true)
 	}
 	
 }
