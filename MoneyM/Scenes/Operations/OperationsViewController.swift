@@ -178,9 +178,10 @@ class OperationsViewController: UIViewController {
 //		router?.navigateToNewOperation()
         let storyboard = UIStoryboard(name: "OperationsPieChart", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "OperationPieChartID") as! OperationsPieChartViewController
-        
+
         vc.operationsArray = account?.operations?.allObjects as? [OperationEntity]
-        
+        vc.currency = currency
+
         present(vc, animated: true)
 	}
 	

@@ -27,7 +27,15 @@ extension OperationsPieChartPresenter: OperationsPieChartPresenterLogic
         
         let pieChartData = PieChartData()
         let dataSet = PieChartDataSet(entries: response.operations)
-        dataSet.colors = ChartColorTemplates.vordiplom()
+        dataSet.colors = ChartColorTemplates.material()
+        
+        dataSet.valueLinePart1OffsetPercentage = 0.3
+        dataSet.valueLinePart1Length = 0.3
+        dataSet.valueLinePart2Length = 0.3
+        dataSet.yValuePosition = .outsideSlice
+        dataSet.xValuePosition = .outsideSlice
+        dataSet.valueFont = .systemFont(ofSize: 16)
+        dataSet.highlightEnabled = false
         
         pieChartData.append(dataSet)
         
@@ -39,7 +47,7 @@ extension OperationsPieChartPresenter: OperationsPieChartPresenterLogic
         
         let categoryModel = CategoryModel()
         
-        let groupedOperations: [OperationsPieChartModel.OperationPresentModel] = Dictionary(grouping: response.operationsArray) { $0.categoryID }
+        var groupedOperations: [OperationsPieChartModel.OperationPresentModel] = Dictionary(grouping: response.operationsArray) { $0.categoryID }
             .map { (key: Int64, value: [OperationEntity]) in
                 var amount: Int = 0
                 value.forEach { amount += Int($0.amount) }
@@ -51,7 +59,7 @@ extension OperationsPieChartPresenter: OperationsPieChartPresenterLogic
                 
                 return operationPresent
             }
-        
+        groupedOperations = groupedOperations.sorted { Int($0.amount) ?? 0 > Int($1.amount) ?? 0 }
         let viewModel = OperationsPieChartModel.Operations.ViewModel(operations: groupedOperations)
         viewController?.displayOperations(viewModel: viewModel)
         

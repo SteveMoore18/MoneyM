@@ -25,6 +25,7 @@ class OperationsPieChartViewController: UIViewController {
     private var operationsTableViewData: [OperationsPieChartModel.OperationPresentModel] = []
     
     var operationsArray: [OperationEntity]?
+    var currency: CurrencyModel.Model?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,18 @@ class OperationsPieChartViewController: UIViewController {
             interactor?.requestPieChartData(request: OperationsPieChartModel.PieChart.Request(operations: operationsTableViewData))
         }
         
+        pieChartView.holeColor = NSUIColor(named: "Main Background Color")
+        pieChartView.holeRadiusPercent = 0.5
+        pieChartView.data?.setValueTextColor(.label)
+        pieChartView.legend.enabled = false
+
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 0
+        formatter.multiplier = 1
+        formatter.currencySymbol = currency?.symbol
+        
+        pieChartView.data?.setValueFormatter(DefaultValueFormatter(formatter: formatter))
         
     }
     
@@ -78,15 +91,20 @@ extension OperationsPieChartViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UIOperationTableViewCell
         
         let operation = operationsTableViewData[indexPath.row]
         
-        cell.textLabel?.text = operation.categoryIcon + operation.categoryTitle + operation.amount
+        cell.iconLabel.text = operation.categoryIcon
+        cell.categoryLabel.text = operation.categoryTitle
+        cell.amountLabel.text = operation.amount + " " + (currency?.symbol ?? "$")
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
+    }
     
 }
 
