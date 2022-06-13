@@ -24,7 +24,7 @@
                                 <color key="backgroundColor" name="Main Background Color"/>
                                 <color key="barTintColor" name="Main Background Color"/>
                                 <items>
-                                    <navigationItem title="Title" id="gnz-jO-J84">
+                                    <navigationItem title="Chart" id="gnz-jO-J84">
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="z5b-cW-whZ">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sC8-ah-pBD">
                                                 <rect key="frame" x="364" y="7" width="30" height="30"/>
@@ -71,15 +71,28 @@
                                                 <rect key="frame" x="0.0" y="333" width="414" height="467"/>
                                                 <color key="backgroundColor" name="Main Background Color"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="60" id="lJa-Gu-QP6" customClass="UIOperationTableViewCell" customModule="MoneyM" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="60" id="lJa-Gu-QP6" customClass="UIOperationWithColorTableViewCell" customModule="MoneyM" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="55.5" width="374" height="60"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lJa-Gu-QP6" id="f6Z-ae-z3z">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vZ3-42-QTB" userLabel="ColorView">
+                                                                    <rect key="frame" x="16" y="15" width="30" height="30"/>
+                                                                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="uPd-Gc-51N"/>
+                                                                        <constraint firstAttribute="height" constant="30" id="z9u-YA-bsL"/>
+                                                                    </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                                                            <real key="value" value="14"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1p-fl-OUV">
-                                                                    <rect key="frame" x="16" y="10" width="40" height="40"/>
+                                                                    <rect key="frame" x="54" y="10" width="40" height="40"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpd-o7-T29">
                                                                             <rect key="frame" x="16.5" y="2" width="7.5" height="36"/>
@@ -90,10 +103,10 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" name="Table View Cell Background"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="Cpd-o7-T29" firstAttribute="centerX" secondItem="v1p-fl-OUV" secondAttribute="centerX" id="JKC-9e-fHL"/>
-                                                                        <constraint firstAttribute="height" constant="40" id="YeU-bA-dm2"/>
-                                                                        <constraint firstAttribute="width" constant="40" id="dEJ-Vj-GfJ"/>
-                                                                        <constraint firstItem="Cpd-o7-T29" firstAttribute="centerY" secondItem="v1p-fl-OUV" secondAttribute="centerY" id="rvx-e7-tWk"/>
+                                                                        <constraint firstAttribute="width" constant="40" id="2ah-3Q-ZWy"/>
+                                                                        <constraint firstAttribute="height" constant="40" id="Izx-up-v9z"/>
+                                                                        <constraint firstItem="Cpd-o7-T29" firstAttribute="centerY" secondItem="v1p-fl-OUV" secondAttribute="centerY" id="dqQ-7V-6SY"/>
+                                                                        <constraint firstItem="Cpd-o7-T29" firstAttribute="centerX" secondItem="v1p-fl-OUV" secondAttribute="centerX" id="gOD-Tk-XgY"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
@@ -102,7 +115,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0a-Il-wuk">
-                                                                    <rect key="frame" x="72" y="19.5" width="74" height="21.5"/>
+                                                                    <rect key="frame" x="110" y="19.5" width="74" height="21.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -116,11 +129,13 @@
                                                             </subviews>
                                                             <color key="backgroundColor" name="UIView Background Color"/>
                                                             <constraints>
-                                                                <constraint firstItem="b0a-Il-wuk" firstAttribute="leading" secondItem="v1p-fl-OUV" secondAttribute="trailing" constant="16" id="3Vu-Vr-VBz"/>
-                                                                <constraint firstItem="v1p-fl-OUV" firstAttribute="leading" secondItem="f6Z-ae-z3z" secondAttribute="leading" constant="16" id="R6O-B3-9LO"/>
-                                                                <constraint firstItem="v1p-fl-OUV" firstAttribute="centerY" secondItem="f6Z-ae-z3z" secondAttribute="centerY" id="Zd3-pL-N8o"/>
+                                                                <constraint firstItem="vZ3-42-QTB" firstAttribute="leading" secondItem="f6Z-ae-z3z" secondAttribute="leading" constant="16" id="6QE-9w-k2c"/>
+                                                                <constraint firstItem="vZ3-42-QTB" firstAttribute="centerY" secondItem="f6Z-ae-z3z" secondAttribute="centerY" id="6qF-J8-gg7"/>
+                                                                <constraint firstItem="v1p-fl-OUV" firstAttribute="leading" secondItem="vZ3-42-QTB" secondAttribute="trailing" constant="8" id="MUm-nx-gkA"/>
+                                                                <constraint firstItem="v1p-fl-OUV" firstAttribute="centerY" secondItem="f6Z-ae-z3z" secondAttribute="centerY" id="ew6-tR-7sG"/>
                                                                 <constraint firstAttribute="trailing" secondItem="YRI-cL-a8k" secondAttribute="trailing" constant="16" id="fEh-A5-kc4"/>
                                                                 <constraint firstItem="YRI-cL-a8k" firstAttribute="centerY" secondItem="f6Z-ae-z3z" secondAttribute="centerY" id="faM-4q-wAg"/>
+                                                                <constraint firstItem="b0a-Il-wuk" firstAttribute="leading" secondItem="v1p-fl-OUV" secondAttribute="trailing" constant="16" id="vpx-ej-Axz"/>
                                                                 <constraint firstItem="b0a-Il-wuk" firstAttribute="centerY" secondItem="f6Z-ae-z3z" secondAttribute="centerY" id="wTF-EN-yyg"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
@@ -128,6 +143,7 @@
                                                         <connections>
                                                             <outlet property="amountLabel" destination="YRI-cL-a8k" id="o86-6h-bcP"/>
                                                             <outlet property="categoryLabel" destination="b0a-Il-wuk" id="GzB-82-OkW"/>
+                                                            <outlet property="colorView" destination="vZ3-42-QTB" id="fE1-mv-KXw"/>
                                                             <outlet property="iconBackgrundView" destination="v1p-fl-OUV" id="HjR-61-X9B"/>
                                                             <outlet property="iconLabel" destination="Cpd-o7-T29" id="AcF-6d-Fje"/>
                                                         </connections>
@@ -170,8 +186,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="bh5-gU-Lcc" id="nn6-G5-GO8"/>
                         <outlet property="operationsTableView" destination="CwI-y4-B5k" id="rkn-mW-IWG"/>
                         <outlet property="pieChartView" destination="clW-UQ-qcX" id="LcJ-il-HD3"/>
+                        <outlet property="scrollViewHeightConstraint" destination="ReQ-KI-trc" id="7xX-ft-t3j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -195,6 +213,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

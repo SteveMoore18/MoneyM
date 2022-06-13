@@ -31,6 +31,7 @@
 		E2367A5A27931FBF002E8ECE /* OperationsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A5927931FBE002E8ECE /* OperationsWorker.swift */; };
 		E2367A5F2795FC35002E8ECE /* NewOperation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2367A5E2795FC35002E8ECE /* NewOperation.storyboard */; };
 		E2367A612796F5BE002E8ECE /* OperationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A602796F5BE002E8ECE /* OperationsRouter.swift */; };
+		E26BC19128571FE70052A3B0 /* UIOperationWithColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26BC19028571FE70052A3B0 /* UIOperationWithColorTableViewCell.swift */; };
 		E288A70128361D6B0025496C /* UIOperationsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E288A70028361D6A0025496C /* UIOperationsTableViewHeader.swift */; };
 		E2A8DC9E278C6190006BD05B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9D278C6190006BD05B /* AppDelegate.swift */; };
 		E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8DC9F278C6190006BD05B /* SceneDelegate.swift */; };
@@ -92,6 +93,7 @@
 		E2367A5927931FBE002E8ECE /* OperationsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsWorker.swift; sourceTree = "<group>"; };
 		E2367A5E2795FC35002E8ECE /* NewOperation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewOperation.storyboard; sourceTree = "<group>"; };
 		E2367A602796F5BE002E8ECE /* OperationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsRouter.swift; sourceTree = "<group>"; };
+		E26BC19028571FE70052A3B0 /* UIOperationWithColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIOperationWithColorTableViewCell.swift; sourceTree = "<group>"; };
 		E288A70028361D6A0025496C /* UIOperationsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIOperationsTableViewHeader.swift; sourceTree = "<group>"; };
 		E2A8DC9A278C6190006BD05B /* MoneyM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A8DC9D278C6190006BD05B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				E2367A4E2792F405002E8ECE /* UIOperationTableViewCell.swift */,
 				E2E7A548279829F5000BFC03 /* UICategoryTableViewCell.swift */,
 				E288A70028361D6A0025496C /* UIOperationsTableViewHeader.swift */,
+				E26BC19028571FE70052A3B0 /* UIOperationWithColorTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -339,7 +342,6 @@
 				C3C25E825FC934C882898B6F /* Pods-MoneyM.debug.xcconfig */,
 				B5CF9F97E6CFC3F486DB6153 /* Pods-MoneyM.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -504,6 +506,7 @@
 				E2367A472791C275002E8ECE /* CurrencyModel.swift in Sources */,
 				E2A8DCA0278C6190006BD05B /* SceneDelegate.swift in Sources */,
 				E2E7A5452798292D000BFC03 /* CategoryViewController.swift in Sources */,
+				E26BC19128571FE70052A3B0 /* UIOperationWithColorTableViewCell.swift in Sources */,
 				E2A8DCEE278D7342006BD05B /* NewAccountViewController.swift in Sources */,
 				E2E7A54727982941000BFC03 /* CategoryModel.swift in Sources */,
 				E221C55A283BA2F0003F7C19 /* OperationsPieChartInteractor.swift in Sources */,

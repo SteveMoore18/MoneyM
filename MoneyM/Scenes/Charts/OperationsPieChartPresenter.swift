@@ -10,8 +10,7 @@ import Charts
 
 protocol OperationsPieChartPresenterLogic
 {
-    func presentGroupedOperations(response: OperationsPieChartModel.Operations.Response)
-    func presentPieChartData(response: OperationsPieChartModel.PieChart.Response)
+    func presentData(response: OperationsPieChartModel.Operations.Response)
 }
 
 class OperationsPieChartPresenter
@@ -19,48 +18,64 @@ class OperationsPieChartPresenter
     
     var viewController: OperationsPieChartViewController?
     
-}
-
-extension OperationsPieChartPresenter: OperationsPieChartPresenterLogic
-{
-    func presentPieChartData(response: OperationsPieChartModel.PieChart.Response) {
-        
-        let pieChartData = PieChartData()
-        let dataSet = PieChartDataSet(entries: response.operations)
-        dataSet.colors = ChartColorTemplates.material()
-        
-        dataSet.valueLinePart1OffsetPercentage = 0.3
-        dataSet.valueLinePart1Length = 0.3
-        dataSet.valueLinePart2Length = 0.3
-        dataSet.yValuePosition = .outsideSlice
-        dataSet.xValuePosition = .outsideSlice
-        dataSet.valueFont = .systemFont(ofSize: 16)
-        dataSet.highlightEnabled = false
-        
-        pieChartData.append(dataSet)
-        
-        let viewModel = OperationsPieChartModel.PieChart.ViewModel(pieChartData: pieChartData)
-        viewController?.displayPieChart(viewModel: viewModel)
-    }
-    
-    func presentGroupedOperations(response: OperationsPieChartModel.Operations.Response) {
-        
+    private func groupOperation(operations: [OperationEntity]) -> [OperationsPieChartModel.OperationPresentModel]
+    {
         let categoryModel = CategoryModel()
-        
-        var groupedOperations: [OperationsPieChartModel.OperationPresentModel] = Dictionary(grouping: response.operationsArray) { $0.categoryID }
+        return Dictionary(grouping: operations) { $0.categoryID }
             .map { (key: Int64, value: [OperationEntity]) in
                 var amount: Int = 0
                 value.forEach { amount += Int($0.amount) }
                 
-                let category = categoryModel.categoryBy(id: Int(key))
-                let operationPresent = OperationsPieChartModel.OperationPresentModel(categoryIcon: category!.emojiIcon,
-                                                                                     categoryTitle: category!.title,
-                                                                                     amount: "\(amount)")
+                let category = categoryModel.categoryBy(id: Int(key)) ?? categoryModel.categoryUncategorized!
+                let operationPresent = OperationsPieChartModel.OperationPresentModel(categoryIcon: category.emojiIcon, categoryTitle: category.title, amount: "\(amount)", color: .blue)
                 
                 return operationPresent
             }
+    }
+    
+    private func createDataSet(entries: [PieChartDataEntry]) -> PieChartDataSet
+    {
+        let dataSet = PieChartDataSet(entries: entries)
+        dataSet.colors = ChartColorTemplates.material()
+
+        dataSet.valueLinePart1OffsetPercentage = 0.3
+        dataSet.valueLinePart1Length = 0.3
+        dataSet.valueLinePart2Length = 0.3
+        dataSet.yValuePosition = .insideSlice
+        dataSet.xValuePosition = .insideSlice
+        dataSet.valueFont = .systemFont(ofSize: 16)
+        dataSet.highlightEnabled = false
+        
+        return dataSet
+    }
+    
+}
+
+extension OperationsPieChartPresenter: OperationsPieChartPresenterLogic
+{
+    
+    func presentData(response: OperationsPieChartModel.Operations.Response) {
+        
+        var groupedOperations = groupOperation(operations: response.operationsArray)
+        
+        let pieChartDataEntityArray = groupedOperations.map { operation -> PieChartDataEntry in
+            let label = operation.categoryIcon + " " + operation.categoryTitle
+            return PieChartDataEntry(value: Double(operation.amount) ?? 0, label: label)
+        }
+        
+        let pieChartData = PieChartData()
+        let dataSet = createDataSet(entries: pieChartDataEntityArray)
+
+        pieChartData.append(dataSet)
+
+        for i in 0..<dataSet.entries.count
+        {
+            let color = dataSet.color(atIndex: i)
+            groupedOperations[i].color = color
+        }
+        
         groupedOperations = groupedOperations.sorted { Int($0.amount) ?? 0 > Int($1.amount) ?? 0 }
-        let viewModel = OperationsPieChartModel.Operations.ViewModel(operations: groupedOperations)
+        let viewModel = OperationsPieChartModel.Operations.ViewModel(operations: groupedOperations, pieChartData: pieChartData)
         viewController?.displayOperations(viewModel: viewModel)
         
     }

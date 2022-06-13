@@ -63,6 +63,9 @@ class OperationsViewController: UIViewController {
     private var constants: Constants!
     
     private var currency: CurrencyModel.Model!
+    
+    private let animationDuration: CGFloat = 0.3
+    private var canOpenStatisticView = true
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,12 +123,15 @@ class OperationsViewController: UIViewController {
         
         newOperationButton.isEnabled = account != nil
         
-        let expenseGesture = UITapGestureRecognizer(target: self, action: #selector(expenseViewClicked(_:)))
-        expenseView.addGestureRecognizer(expenseGesture)
+        let expenseLongGesture = UILongPressGestureRecognizer(target: self,
+                                                              action: #selector(expenseViewClicked(_:)))
+        expenseLongGesture.minimumPressDuration = 0
+        expenseView.addGestureRecognizer(expenseLongGesture)
         
-        let incomeGesture = UITapGestureRecognizer(target: self,
+        let incomeLongGesture = UILongPressGestureRecognizer(target: self,
                                                    action: #selector(incomeViewClicked(_:)))
-        incomeView.addGestureRecognizer(incomeGesture)
+        incomeLongGesture.minimumPressDuration = 0
+        incomeView.addGestureRecognizer(incomeLongGesture)
         
         localizeText()
 	}
@@ -184,18 +190,64 @@ class OperationsViewController: UIViewController {
 	
 	// MARK: - Actions
     @objc
-    func expenseViewClicked(_ sender: UITapGestureRecognizer)
+    func expenseViewClicked(_ sender: UIGestureRecognizer)
     {
-        guard let operations = account?.operations?.allObjects as? [OperationEntity] else { return }
-        interactor?.expenseViewClicked(requst: OperationsModel.ChartsData.Request(operations: operations))
+        
+        if sender.state == .began
+        {
+            UIView.animate(withDuration: animationDuration) {
+                self.expenseView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            }
+            canOpenStatisticView = true
+        }
+        else if sender.state == .changed
+        {
+            canOpenStatisticView = false
+            UIView.animate(withDuration: animationDuration) {
+                self.expenseView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+        }
+        else if sender.state == .ended && canOpenStatisticView
+        {
+            guard let operations = account?.operations?.allObjects as? [OperationEntity] else { return }
+            
+            interactor?.expenseViewClicked(requst: OperationsModel.ChartsData.Request(operations: operations))
+            
+            UIView.animate(withDuration: animationDuration) {
+                self.expenseView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+            canOpenStatisticView = true
+        }
         
     }
     
     @objc
     func incomeViewClicked(_ sender: UITapGestureRecognizer)
     {
-        guard let operations = account?.operations?.allObjects as? [OperationEntity] else { return }
-        interactor?.incomeViewClicked(request: OperationsModel.ChartsData.Request(operations: operations))
+        if sender.state == .began
+        {
+            UIView.animate(withDuration: animationDuration) {
+                self.incomeView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            }
+            canOpenStatisticView = true
+        }
+        else if sender.state == .changed
+        {
+            canOpenStatisticView = false
+            UIView.animate(withDuration: animationDuration) {
+                self.incomeView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+        }
+        else if sender.state == .ended && canOpenStatisticView
+        {
+            guard let operations = account?.operations?.allObjects as? [OperationEntity] else { return }
+            interactor?.incomeViewClicked(request: OperationsModel.ChartsData.Request(operations: operations))
+            
+            UIView.animate(withDuration: animationDuration) {
+                self.incomeView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+            canOpenStatisticView = true
+        }
     }
     
 	@IBAction func newOperationButtonClicked(_ sender: Any) {

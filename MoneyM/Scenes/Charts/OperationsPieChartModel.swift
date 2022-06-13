@@ -22,6 +22,7 @@ struct OperationsPieChartModel
         var categoryIcon: String
         var categoryTitle: String
         var amount: String
+        var color: NSUIColor
     }
     
     struct Operations
@@ -39,23 +40,6 @@ struct OperationsPieChartModel
         struct ViewModel
         {
             var operations: [OperationPresentModel]
-        }
-    }
-    
-    struct PieChart
-    {
-        struct Request
-        {
-            var operations: [OperationPresentModel]
-        }
-        
-        struct Response
-        {
-            var operations: [PieChartDataEntry]
-        }
-        
-        struct ViewModel
-        {
             var pieChartData: PieChartData
         }
     }

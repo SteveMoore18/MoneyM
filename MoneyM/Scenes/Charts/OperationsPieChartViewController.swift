@@ -11,7 +11,6 @@ import Charts
 protocol DisplayOperationsPieChart
 {
     func displayOperations(viewModel: OperationsPieChartModel.Operations.ViewModel)
-    func displayPieChart(viewModel: OperationsPieChartModel.PieChart.ViewModel)
 }
 
 class OperationsPieChartViewController: UIViewController {
@@ -20,12 +19,14 @@ class OperationsPieChartViewController: UIViewController {
     
     @IBOutlet weak var operationsTableView: UITableView!
     
+    @IBOutlet weak var scrollViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     private var interactor: OperationsPieChartInteractor?
     
     private var operationsTableViewData: [OperationsPieChartModel.OperationPresentModel] = []
     
-//    var operationsArray: [OperationEntity]?
-//    var currency: CurrencyModel.Model?
     public var data: OperationsPieChartModel.Data?
     
     override func viewDidLoad() {
@@ -58,14 +59,16 @@ class OperationsPieChartViewController: UIViewController {
         operationsTableView.dataSource = self
         
         if let data = data {
-            interactor?.groupOperations(request: OperationsPieChartModel.Operations.Request(operationsArray: data.operationsArray))
-            interactor?.requestPieChartData(request: OperationsPieChartModel.PieChart.Request(operations: operationsTableViewData))
+            interactor?.requestData(request: OperationsPieChartModel.Operations.Request(operationsArray: data.operationsArray))
         }
         
         pieChartView.holeColor = NSUIColor(named: "Main Background Color")
         pieChartView.holeRadiusPercent = 0.5
         pieChartView.data?.setValueTextColor(.label)
         pieChartView.legend.enabled = false
+        pieChartView.drawEntryLabelsEnabled = false
+        pieChartView.sliceTextDrawingThreshold = 20
+        pieChartView.rotationEnabled = false
 
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -75,6 +78,9 @@ class OperationsPieChartViewController: UIViewController {
         
         pieChartView.data?.setValueFormatter(DefaultValueFormatter(formatter: formatter))
         
+        scrollViewHeightConstraint.constant = view.frame.height
+        
+        navigationBar.topItem?.title = NSLocalizedString("chart_title", comment: "")
     }
     
     // MARK: - Actions
@@ -92,13 +98,19 @@ extension OperationsPieChartViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UIOperationTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UIOperationWithColorTableViewCell
         
         let operation = operationsTableViewData[indexPath.row]
         
         cell.iconLabel.text = operation.categoryIcon
         cell.categoryLabel.text = operation.categoryTitle
         cell.amountLabel.text = operation.amount + " " + (data?.currency.symbol ?? "$")
+        cell.colorView.backgroundColor = operation.color
+        
+        let pieChartHeight = pieChartView.frame.height
+        let tableViewHeight = operationsTableView.frame.height
+        let contentHeight = operationsTableView.contentSize.height
+        scrollViewHeightConstraint.constant = pieChartHeight + tableViewHeight + contentHeight
         
         return cell
     }
@@ -112,12 +124,10 @@ extension OperationsPieChartViewController: UITableViewDelegate, UITableViewData
 // MARK: - Display OpeationsPieChart
 extension OperationsPieChartViewController: DisplayOperationsPieChart
 {
-    func displayPieChart(viewModel: OperationsPieChartModel.PieChart.ViewModel) {
-        pieChartView.data = viewModel.pieChartData
-    }
     
     func displayOperations(viewModel: OperationsPieChartModel.Operations.ViewModel) {
         operationsTableViewData = viewModel.operations
+        pieChartView.data = viewModel.pieChartData
     }
     
 }

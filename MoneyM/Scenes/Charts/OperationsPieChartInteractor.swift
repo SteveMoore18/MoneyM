@@ -10,8 +10,7 @@ import Charts
 
 protocol OperationsPieChartLogic
 {
-    func groupOperations(request: OperationsPieChartModel.Operations.Request)
-    func requestPieChartData(request: OperationsPieChartModel.PieChart.Request)
+    func requestData(request: OperationsPieChartModel.Operations.Request)
 }
 
 class OperationsPieChartInteractor
@@ -23,20 +22,9 @@ class OperationsPieChartInteractor
 
 extension OperationsPieChartInteractor: OperationsPieChartLogic
 {
-    func requestPieChartData(request: OperationsPieChartModel.PieChart.Request) {
-        
-        let pieChartDataEntityArray = request.operations.map { operation -> PieChartDataEntry in
-            let label = operation.categoryIcon + " " + operation.categoryTitle
-            return PieChartDataEntry(value: Double(operation.amount) ?? 0, label: label)
-        }
-        
-        let response = OperationsPieChartModel.PieChart.Response(operations: pieChartDataEntityArray)
-        presenter?.presentPieChartData(response: response)
-    }
-
-    func groupOperations(request: OperationsPieChartModel.Operations.Request) {
+    func requestData(request: OperationsPieChartModel.Operations.Request) {
         let response = OperationsPieChartModel.Operations.Response(operationsArray: request.operationsArray)
-        presenter?.presentGroupedOperations(response: response)
+        presenter?.presentData(response: response)
     }
     
     

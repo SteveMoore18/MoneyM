@@ -76,3 +76,6 @@
 "electricity" = "Электричество";
 "gas" = "Газ";
 "payment_of_debts" = "Оплата долгов";
+
+// MARK: - Charts
+"chart_title" = "Круговая диаграмма";
