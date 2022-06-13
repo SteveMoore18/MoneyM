@@ -12,6 +12,8 @@ protocol OperationsPresenterLogic {
 	func presentOperations(response: OperationsModel.Operations.Response)
 	func presentStatistics(response: OperationsModel.Statistics.Response)
     func deletedOperation(response: OperationsModel.DeleteOperation.Response)
+    func presentExpenseChart(response: OperationsModel.ChartsData.Response)
+    func presentIncomeChart(response: OperationsModel.ChartsData.Response)
 }
 
 class OperationsPresenter {
@@ -40,6 +42,18 @@ class OperationsPresenter {
 
 // MARK: - Operations presenter logic
 extension OperationsPresenter: OperationsPresenterLogic {
+    
+    func presentIncomeChart(response: OperationsModel.ChartsData.Response)
+    {
+        let viewModel = OperationsModel.ChartsData.ViewModel(operations: response.operations)
+        viewController?.displayIncomeChart(viewModel: viewModel)
+    }
+    
+    func presentExpenseChart(response: OperationsModel.ChartsData.Response)
+    {
+        let viewModel = OperationsModel.ChartsData.ViewModel(operations: response.operations)
+        viewController?.displayExpenseChart(viewModel: viewModel)
+    }
     
     func deletedOperation(response: OperationsModel.DeleteOperation.Response) {
         let viewModel = OperationsModel.DeleteOperation.ViewModel(indexPath: response.indexPath)

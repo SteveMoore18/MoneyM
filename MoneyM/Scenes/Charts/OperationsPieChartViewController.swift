@@ -24,8 +24,9 @@ class OperationsPieChartViewController: UIViewController {
     
     private var operationsTableViewData: [OperationsPieChartModel.OperationPresentModel] = []
     
-    var operationsArray: [OperationEntity]?
-    var currency: CurrencyModel.Model?
+//    var operationsArray: [OperationEntity]?
+//    var currency: CurrencyModel.Model?
+    public var data: OperationsPieChartModel.Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +57,8 @@ class OperationsPieChartViewController: UIViewController {
         operationsTableView.delegate = self
         operationsTableView.dataSource = self
         
-        if let operationsArray = operationsArray {
-            interactor?.groupOperations(request: OperationsPieChartModel.Operations.Request(operationsArray: operationsArray))
+        if let data = data {
+            interactor?.groupOperations(request: OperationsPieChartModel.Operations.Request(operationsArray: data.operationsArray))
             interactor?.requestPieChartData(request: OperationsPieChartModel.PieChart.Request(operations: operationsTableViewData))
         }
         
@@ -70,7 +71,7 @@ class OperationsPieChartViewController: UIViewController {
         formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 0
         formatter.multiplier = 1
-        formatter.currencySymbol = currency?.symbol
+        formatter.currencySymbol = data?.currency.symbol
         
         pieChartView.data?.setValueFormatter(DefaultValueFormatter(formatter: formatter))
         
@@ -97,7 +98,7 @@ extension OperationsPieChartViewController: UITableViewDelegate, UITableViewData
         
         cell.iconLabel.text = operation.categoryIcon
         cell.categoryLabel.text = operation.categoryTitle
-        cell.amountLabel.text = operation.amount + " " + (currency?.symbol ?? "$")
+        cell.amountLabel.text = operation.amount + " " + (data?.currency.symbol ?? "$")
         
         return cell
     }

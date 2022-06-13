@@ -12,6 +12,8 @@ protocol DisplayOperations {
 	func displayOperation(viewModel: OperationsModel.Operations.ViewModel)
 	func displayStatistics(viewModel: OperationsModel.Statistics.ViewModel)
     func deletedOperation(viewModel: OperationsModel.DeleteOperation.ViewModel)
+    func displayExpenseChart(viewModel: OperationsModel.ChartsData.ViewModel)
+    func displayIncomeChart(viewModel: OperationsModel.ChartsData.ViewModel)
 }
 
 class OperationsViewController: UIViewController {
@@ -118,6 +120,13 @@ class OperationsViewController: UIViewController {
         
         newOperationButton.isEnabled = account != nil
         
+        let expenseGesture = UITapGestureRecognizer(target: self, action: #selector(expenseViewClicked(_:)))
+        expenseView.addGestureRecognizer(expenseGesture)
+        
+        let incomeGesture = UITapGestureRecognizer(target: self,
+                                                   action: #selector(incomeViewClicked(_:)))
+        incomeView.addGestureRecognizer(incomeGesture)
+        
         localizeText()
 	}
     
@@ -174,15 +183,23 @@ class OperationsViewController: UIViewController {
     }
 	
 	// MARK: - Actions
+    @objc
+    func expenseViewClicked(_ sender: UITapGestureRecognizer)
+    {
+        guard let operations = account?.operations?.allObjects as? [OperationEntity] else { return }
+        interactor?.expenseViewClicked(requst: OperationsModel.ChartsData.Request(operations: operations))
+        
+    }
+    
+    @objc
+    func incomeViewClicked(_ sender: UITapGestureRecognizer)
+    {
+        guard let operations = account?.operations?.allObjects as? [OperationEntity] else { return }
+        interactor?.incomeViewClicked(request: OperationsModel.ChartsData.Request(operations: operations))
+    }
+    
 	@IBAction func newOperationButtonClicked(_ sender: Any) {
-//		router?.navigateToNewOperation()
-        let storyboard = UIStoryboard(name: "OperationsPieChart", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "OperationPieChartID") as! OperationsPieChartViewController
-
-        vc.operationsArray = account?.operations?.allObjects as? [OperationEntity]
-        vc.currency = currency
-
-        present(vc, animated: true)
+		router?.navigateToNewOperation()
 	}
 	
 }
@@ -252,6 +269,20 @@ extension OperationsViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Display Operations
 extension OperationsViewController: DisplayOperations {
+    
+    func displayIncomeChart(viewModel: OperationsModel.ChartsData.ViewModel)
+    {
+        let data = OperationsPieChartModel.Data(operationsArray: viewModel.operations,
+                                                currency: currency)
+        router?.navigateToOperationsChart(data: data)
+    }
+    
+    func displayExpenseChart(viewModel: OperationsModel.ChartsData.ViewModel)
+    {
+        let data = OperationsPieChartModel.Data(operationsArray: viewModel.operations,
+                                                currency: currency)
+        router?.navigateToOperationsChart(data: data)
+    }
     
     func deletedOperation(viewModel: OperationsModel.DeleteOperation.ViewModel) {
         let indexPath = viewModel.indexPath

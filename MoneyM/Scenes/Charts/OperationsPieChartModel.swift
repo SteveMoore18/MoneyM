@@ -11,6 +11,12 @@ import Charts
 struct OperationsPieChartModel
 {
     
+    struct Data
+    {
+        var operationsArray: [OperationEntity]
+        var currency: CurrencyModel.Model
+    }
+    
     struct OperationPresentModel
     {
         var categoryIcon: String

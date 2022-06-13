@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		82B2C09D5B5D83DC373EBC70 /* Pods_MoneyM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7E84A507654E8462BB1A963 /* Pods_MoneyM.framework */; };
+		D957D28CA39EC5F3381C5760 /* Pods_MoneyM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE826E772DB6718B1BB02ACB /* Pods_MoneyM.framework */; };
 		E2064E49279833C100EF4917 /* NewOperationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2064E48279833C100EF4917 /* NewOperationRouter.swift */; };
 		E21E9DB0280BE91500196A4A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E21E9DB2280BE91500196A4A /* Localizable.strings */; };
 		E221C554283B5E04003F7C19 /* OperationsPieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221C553283B5E04003F7C19 /* OperationsPieChartViewController.swift */; };
@@ -65,9 +65,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		889CD39F75BACAA16ED24F73 /* Pods-MoneyM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyM.debug.xcconfig"; path = "Target Support Files/Pods-MoneyM/Pods-MoneyM.debug.xcconfig"; sourceTree = "<group>"; };
-		A8D335A11B328674CF1CF5F8 /* Pods-MoneyM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyM.release.xcconfig"; path = "Target Support Files/Pods-MoneyM/Pods-MoneyM.release.xcconfig"; sourceTree = "<group>"; };
-		D7E84A507654E8462BB1A963 /* Pods_MoneyM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5CF9F97E6CFC3F486DB6153 /* Pods-MoneyM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyM.release.xcconfig"; path = "Target Support Files/Pods-MoneyM/Pods-MoneyM.release.xcconfig"; sourceTree = "<group>"; };
+		C3C25E825FC934C882898B6F /* Pods-MoneyM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyM.debug.xcconfig"; path = "Target Support Files/Pods-MoneyM/Pods-MoneyM.debug.xcconfig"; sourceTree = "<group>"; };
+		CE826E772DB6718B1BB02ACB /* Pods_MoneyM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2064E48279833C100EF4917 /* NewOperationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOperationRouter.swift; sourceTree = "<group>"; };
 		E21E9DB1280BE91500196A4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E21E9DB3280BE94B00196A4A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -133,26 +133,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82B2C09D5B5D83DC373EBC70 /* Pods_MoneyM.framework in Frameworks */,
+				D957D28CA39EC5F3381C5760 /* Pods_MoneyM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		98F18704B00AE07DFDD01ACD /* Pods */ = {
+		42E6758F19B82C39B26F2931 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				889CD39F75BACAA16ED24F73 /* Pods-MoneyM.debug.xcconfig */,
-				A8D335A11B328674CF1CF5F8 /* Pods-MoneyM.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		D5203BEC31DDBA868D063F70 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D7E84A507654E8462BB1A963 /* Pods_MoneyM.framework */,
+				CE826E772DB6718B1BB02ACB /* Pods_MoneyM.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,8 +210,8 @@
 			children = (
 				E2A8DC9C278C6190006BD05B /* MoneyM */,
 				E2A8DC9B278C6190006BD05B /* Products */,
-				98F18704B00AE07DFDD01ACD /* Pods */,
-				D5203BEC31DDBA868D063F70 /* Frameworks */,
+				42E6758F19B82C39B26F2931 /* Frameworks */,
+				F36BB13A80283064209683AD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -342,6 +333,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		F36BB13A80283064209683AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3C25E825FC934C882898B6F /* Pods-MoneyM.debug.xcconfig */,
+				B5CF9F97E6CFC3F486DB6153 /* Pods-MoneyM.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -349,11 +350,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2A8DCB1278C6192006BD05B /* Build configuration list for PBXNativeTarget "MoneyM" */;
 			buildPhases = (
-				A08160387EDCBE1B5DBB5CBF /* [CP] Check Pods Manifest.lock */,
+				707674C71AD9AF71E2FC756A /* [CP] Check Pods Manifest.lock */,
 				E2A8DC96278C6190006BD05B /* Sources */,
 				E2A8DC97278C6190006BD05B /* Frameworks */,
 				E2A8DC98278C6190006BD05B /* Resources */,
-				F4F0BC648BC6CD1064465439 /* [CP] Embed Pods Frameworks */,
+				D45DEE98D45C809826A5DB22 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -418,7 +419,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A08160387EDCBE1B5DBB5CBF /* [CP] Check Pods Manifest.lock */ = {
+		707674C71AD9AF71E2FC756A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -440,7 +441,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F4F0BC648BC6CD1064465439 /* [CP] Embed Pods Frameworks */ = {
+		D45DEE98D45C809826A5DB22 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -664,12 +665,13 @@
 		};
 		E2A8DCB2278C6192006BD05B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 889CD39F75BACAA16ED24F73 /* Pods-MoneyM.debug.xcconfig */;
+			baseConfigurationReference = C3C25E825FC934C882898B6F /* Pods-MoneyM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = MoneyM/MoneyM.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8BPKDD8276;
@@ -688,7 +690,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.savikapps.MoneyM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -697,12 +701,13 @@
 		};
 		E2A8DCB3278C6192006BD05B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8D335A11B328674CF1CF5F8 /* Pods-MoneyM.release.xcconfig */;
+			baseConfigurationReference = B5CF9F97E6CFC3F486DB6153 /* Pods-MoneyM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = MoneyM/MoneyM.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8BPKDD8276;
@@ -721,7 +726,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.savikapps.MoneyM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

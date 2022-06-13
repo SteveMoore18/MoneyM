@@ -10,6 +10,7 @@ import UIKit
 
 protocol OperationNavigate: AnyObject {
 	func navigateToNewOperation()
+    func navigateToOperationsChart(data: OperationsPieChartModel.Data)
 }
 
 class OperationsRouter {
@@ -20,6 +21,15 @@ class OperationsRouter {
 
 // MARK: - Operations Navigate
 extension OperationsRouter: OperationNavigate {
+    
+    func navigateToOperationsChart(data: OperationsPieChartModel.Data) {
+        let storyboard = UIStoryboard(name: "OperationsPieChart", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "OperationPieChartID") as! OperationsPieChartViewController
+
+        vc.data = data
+
+        viewController?.present(vc, animated: true)
+    }
 	
 	func navigateToNewOperation() {
 		

@@ -78,4 +78,22 @@ class OperationsModel {
         }
     }
 	
+    struct ChartsData
+    {
+        struct Request
+        {
+            var operations: [OperationEntity]
+        }
+        
+        struct Response
+        {
+            var operations: [OperationEntity]
+        }
+        
+        struct ViewModel
+        {
+            var operations: [OperationEntity]
+        }
+    }
+    
 }

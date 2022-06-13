@@ -11,6 +11,8 @@ protocol OperationsBusinessLogic {
 	func requestOperations(request: OperationsModel.Operations.Request)
 	func requestStatistics(request: OperationsModel.Statistics.Request)
     func deleteOperation(request: OperationsModel.DeleteOperation.Request)
+    func expenseViewClicked(requst: OperationsModel.ChartsData.Request)
+    func incomeViewClicked(request: OperationsModel.ChartsData.Request)
 }
 
 class OperationsInteractor {
@@ -29,6 +31,28 @@ class OperationsInteractor {
 
 // MARK: - Operations business logic
 extension OperationsInteractor: OperationsBusinessLogic {
+    
+    func incomeViewClicked(request: OperationsModel.ChartsData.Request)
+    {
+        let operationsWithoutExpenses = request.operations.filter { operation in
+            let mode = NewOperationModel.OperationMode(rawValue: Int(operation.mode))
+            return mode == .Income
+        }
+        
+        let response = OperationsModel.ChartsData.Response(operations: operationsWithoutExpenses)
+        presenter?.presentIncomeChart(response: response)
+    }
+    
+    func expenseViewClicked(requst: OperationsModel.ChartsData.Request)
+    {
+        let operationsWithoutIncomes = requst.operations.filter { operation in
+            let mode = NewOperationModel.OperationMode(rawValue: Int(operation.mode))
+            return mode == .Expense
+        }
+        
+        let response = OperationsModel.ChartsData.Response(operations: operationsWithoutIncomes)
+        presenter?.presentExpenseChart(response: response)
+    }
     
     func deleteOperation(request: OperationsModel.DeleteOperation.Request) {
         let operation = sortedOperationsByDate[request.indexPath.section].operations[request.indexPath.row]
