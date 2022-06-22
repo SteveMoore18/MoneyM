@@ -42,19 +42,20 @@ class NewAccountViewController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     // MARK: - Other variables
-	var interactor: NewAccountBusinesslogic?
+	private var interactor: NewAccountBusinesslogic?
 	var router: NewAccountNavigate?
 	
 	private var colorsViewModel: NewAccountModel.Colors.ViewModel?
 	private var iconsViewModel: NewAccountModel.Icons.ViewModel?
     
-    private var selectedColorIndex = IndexPath(row: 0, section: 0)
-    private var selectedIconIndex = IndexPath(row: 0, section: 0)
-    private var selectedCurrencyID = 0
+	internal var selectedColorIndex: IndexPath?
+	internal var selectedIconIndex: IndexPath?
+    internal var selectedCurrencyID = 0
+	internal var currencyButtonTitle: String?
 	
 	private var constants = Constants()
 	
-	public var delegate: NewAccountDelegate?
+	public var newAccountDelegate: NewAccountDelegate?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,24 +81,21 @@ class NewAccountViewController: UIViewController {
 		router = newAccountRouter
 	}
 	
-	private func otherInit() {
+	internal func otherInit() {
 		
 		interactor?.requestColors()
 		interactor?.requestIcons()
 		
 		initCollectionViews()
+		settingCollectionView()
 		
 		settingFonts()
 		
 		dropShadow(iconBackgroundView)
 		
-		settingCurrencyButton()
         currencyButton.titleLabel?.font = constants.roundedFont(20)
-        
+		
         navigationBar.shadowImage = UIImage()
-        
-        selectColor(selectedColorIndex)
-        selectIcon(selectedIconIndex)
         
         localizeText()
 	}
@@ -113,6 +111,34 @@ class NewAccountViewController: UIViewController {
         iconsCollectionView.allowsMultipleSelection = false
 	}
 	
+	private func settingCollectionView()
+	{
+		if selectedColorIndex == nil
+		{
+			selectedColorIndex = randomIndexPath(range: 0..<(colorsViewModel?.colors.count)! - 1)
+		}
+		
+		if selectedIconIndex == nil
+		{
+			selectedIconIndex = randomIndexPath(range: 0..<(iconsViewModel?.icons.count)! - 1)
+		}
+		
+		if currencyButtonTitle == nil
+		{
+			currencyButtonTitle = constants.defaultCurrency().all
+		}
+		currencyButton.setTitle(currencyButtonTitle, for: .normal)
+		
+		
+		colorsCollectionView.performBatchUpdates {
+			selectColor(selectedColorIndex!)
+		}
+		
+		iconsCollectionView.performBatchUpdates {
+			selectIcon(selectedIconIndex!)
+		}
+	}
+	
 	private func settingFonts() {
 		titleTextField.font = constants.roundedFont(24)
 		balanceTextField.font = constants.roundedFont(24)
@@ -126,11 +152,7 @@ class NewAccountViewController: UIViewController {
 		view.layer.shadowRadius = 15
 	}
 	
-	private func settingCurrencyButton() {
-		currencyButton.setTitle(constants.defaultCurrency().all, for: .normal)
-	}
-	
-	private func selectIcon(_ indexPath: IndexPath) {
+	internal func selectIcon(_ indexPath: IndexPath) {
 		if let cell = iconsCollectionView.cellForItem(at: indexPath) as? UIIconsCollectionViewCell {
             iconsCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
 			cell.selectCell()
@@ -145,7 +167,7 @@ class NewAccountViewController: UIViewController {
 		}
 	}
 	
-	private func selectColor(_ indexPath: IndexPath) {
+	internal func selectColor(_ indexPath: IndexPath) {
 		if let cell = colorsCollectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell {
             colorsCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
 			iconBackgroundView.backgroundColor = cell.contentView.backgroundColor
@@ -161,25 +183,13 @@ class NewAccountViewController: UIViewController {
 		}
 	}
     
-    private func randomIndexPathRow(range: Range<Int>) -> IndexPath
+    private func randomIndexPath(range: Range<Int>) -> IndexPath
     {
         let r = Int.random(in: range)
         return IndexPath(row: r, section: 0)
     }
     
-    private func selectRandomColor()
-    {
-        let indexPath = randomIndexPathRow(range: 0..<colorsViewModel!.colors.count - 1)
-        selectColor(indexPath)
-    }
-    
-    private func selectRandomIcon()
-    {
-        let indexPath = randomIndexPathRow(range: 0..<iconsViewModel!.icons.count - 1)
-        selectIcon(indexPath)
-    }
-    
-    private func localizeText()
+    internal func localizeText()
     {
         navigationBar.topItem?.title = NSLocalizedString("new_account", comment: "")
         titleTextField.placeholder = NSLocalizedString("title", comment: "")
@@ -195,8 +205,8 @@ class NewAccountViewController: UIViewController {
 	@IBAction func createButtonClicked(_ sender: Any) {
 		let title = titleTextField.text!
 		let balance = Int(balanceTextField.text!) ?? 0
-        let iconID = selectedIconIndex.row
-        let colorID = selectedColorIndex.row
+        let iconID = selectedIconIndex?.row ?? 0
+        let colorID = selectedColorIndex?.row ?? 0
 		
 		let request = NewAccountModel.CreateAccount.Request(title: title,
 															balance: balance,
@@ -205,7 +215,8 @@ class NewAccountViewController: UIViewController {
                                                             currencyID: selectedCurrencyID)
 		
 		interactor?.createAccount(request: request)
-		delegate?.accountDidCreate()
+		newAccountDelegate?.accountDidCreate()
+        
 		dismiss(animated: true)
 	}
 	
@@ -239,11 +250,6 @@ extension NewAccountViewController: UICollectionViewDelegate, UICollectionViewDa
 			cell.contentView.backgroundColor = color
 			cell.selectedColorView.backgroundColor = color
             
-            if indexPath.row == (colorsViewModel?.colors.count)! - 1
-            {
-                selectRandomColor()
-            }
-            
 			return cell
 			
 		} else if collectionView == iconsCollectionView {
@@ -251,12 +257,6 @@ extension NewAccountViewController: UICollectionViewDelegate, UICollectionViewDa
 			let image = iconsViewModel?.icons[indexPath.row]
 			
 			cell.iconImage.image = image
-			iconsCollectionViewConstraintHeight.constant = iconsCollectionView.contentSize.height + 40
-			
-            if indexPath.row == (iconsViewModel?.icons.count)! - 1
-            {
-                selectRandomIcon()
-            }
 			
 			return cell
 		}

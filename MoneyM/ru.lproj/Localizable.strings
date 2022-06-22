@@ -79,3 +79,6 @@
 
 // MARK: - Charts
 "chart_title" = "Круговая диаграмма";
+
+// MARK: - Edit account
+"edit.account" = "Изменить счет";

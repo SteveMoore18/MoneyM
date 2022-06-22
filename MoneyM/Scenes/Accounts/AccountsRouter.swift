@@ -11,6 +11,7 @@ import UIKit
 protocol AccountsNavigate: AnyObject {
 	func navigateToNewAccount()
 	func showOperations(account: AccountEntity?)
+    func navigateToEditAccount(account: AccountEntity)
 }
 
 class AccountsRouter {
@@ -20,7 +21,18 @@ class AccountsRouter {
 }
 
 extension AccountsRouter: AccountsNavigate {
-	
+    func navigateToEditAccount(account: AccountEntity) {
+        
+        let storyboard = UIStoryboard(name: "NewAccount", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "EditAccountID") as! EditAccountViewController
+        
+        vc.account = account
+        vc.editAccountDelegate = viewController
+        
+        viewController?.present(vc, animated: true)
+        
+    }
+    
 	func showOperations(account: AccountEntity?) {
 		let storyboard = UIStoryboard(name: "Operations", bundle: nil)
 		let operationsViewController = storyboard.instantiateViewController(withIdentifier: "Operations") as? OperationsViewController
@@ -38,7 +50,7 @@ extension AccountsRouter: AccountsNavigate {
 		let storyboard = UIStoryboard(name: "NewAccount", bundle: nil)
 		let newAccountViewController = storyboard.instantiateViewController(withIdentifier: "NewAccountID") as? NewAccountViewController
 		
-		newAccountViewController?.delegate = viewController
+		newAccountViewController?.newAccountDelegate = viewController
 		
 		viewController?.present(newAccountViewController!, animated: true)
 	}

@@ -194,6 +194,17 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
+        let editAction = UIContextualAction(style: .normal,
+                                            title: NSLocalizedString("edit", comment: ""))
+		{ (action, view, complitionHandler) in
+            
+            let account = self.viewModel?.accounts[indexPath.row]
+            self.router?.navigateToEditAccount(account: account!)
+            
+        }
+        editAction.backgroundColor = .systemBlue
+        
+        
         let deleteAction = UIContextualAction(style: .destructive,
                                               title: NSLocalizedString("delete", comment: ""))
         { (action, view, complitionHandler) in
@@ -206,7 +217,7 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 	
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -259,4 +270,14 @@ extension AccountsViewController: NewAccountDelegate {
             tableView(accountsTableView, didSelectRowAt: selectedAccountIndexPath)
         }
 	}
+}
+
+// MARK: - EditAccount delegate
+extension AccountsViewController: EditAccountDelegate
+{
+    func accountDidEdit() {
+        interactor?.requestAccounts()
+        accountsTableView.reloadData()
+    }
+    
 }

@@ -18,6 +18,10 @@
 		E2291664279149C40025FB44 /* UIColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */; };
 		E22916672791660B0025FB44 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22916662791660B0025FB44 /* Constants.swift */; };
 		E229166A2791AC820025FB44 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22916692791AC820025FB44 /* CurrencyViewController.swift */; };
+		E232448D285AFEC900CCCCAE /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E232448C285AFEC900CCCCAE /* EditAccountViewController.swift */; };
+		E232448F285B048700CCCCAE /* EditAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E232448E285B048700CCCCAE /* EditAccountModel.swift */; };
+		E2324491285B049E00CCCCAE /* EditAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2324490285B049E00CCCCAE /* EditAccountInteractor.swift */; };
+		E2324493285B04B400CCCCAE /* EditAccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2324492285B04B400CCCCAE /* EditAccountPresenter.swift */; };
 		E2367A452791AF5F002E8ECE /* NewAccountsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A442791AF5F002E8ECE /* NewAccountsRouter.swift */; };
 		E2367A472791C275002E8ECE /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A462791C275002E8ECE /* CurrencyModel.swift */; };
 		E2367A492792A63D002E8ECE /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2367A482792A63D002E8ECE /* Icons.swift */; };
@@ -80,6 +84,10 @@
 		E2291663279149C40025FB44 /* UIColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		E22916662791660B0025FB44 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E22916692791AC820025FB44 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		E232448C285AFEC900CCCCAE /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
+		E232448E285B048700CCCCAE /* EditAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountModel.swift; sourceTree = "<group>"; };
+		E2324490285B049E00CCCCAE /* EditAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountInteractor.swift; sourceTree = "<group>"; };
+		E2324492285B04B400CCCCAE /* EditAccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountPresenter.swift; sourceTree = "<group>"; };
 		E2367A442791AF5F002E8ECE /* NewAccountsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountsRouter.swift; sourceTree = "<group>"; };
 		E2367A462791C275002E8ECE /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		E2367A482792A63D002E8ECE /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
@@ -180,6 +188,17 @@
 			path = Currency;
 			sourceTree = "<group>";
 		};
+		E232448B285AFEA800CCCCAE /* Edit account */ = {
+			isa = PBXGroup;
+			children = (
+				E232448E285B048700CCCCAE /* EditAccountModel.swift */,
+				E232448C285AFEC900CCCCAE /* EditAccountViewController.swift */,
+				E2324490285B049E00CCCCAE /* EditAccountInteractor.swift */,
+				E2324492285B04B400CCCCAE /* EditAccountPresenter.swift */,
+			);
+			path = "Edit account";
+			sourceTree = "<group>";
+		};
 		E2367A502792F49A002E8ECE /* Operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +271,7 @@
 				E221C552283B5CFC003F7C19 /* Charts */,
 				E2A8DCB7278C9DCD006BD05B /* Accounts */,
 				E2A8DCEA278D71A0006BD05B /* New account */,
+				E232448B285AFEA800CCCCAE /* Edit account */,
 				E2367A502792F49A002E8ECE /* Operations */,
 				E2367A622796F737002E8ECE /* NewOperation */,
 			);
@@ -476,6 +496,7 @@
 				E2F3B833278DA8AB00220A7B /* NewAccountWorker.swift in Sources */,
 				E2A8DCD8278CA52B006BD05B /* AccountsInteractor.swift in Sources */,
 				E2F3B831278DA89C00220A7B /* NewAccountPresenter.swift in Sources */,
+				E232448D285AFEC900CCCCAE /* EditAccountViewController.swift in Sources */,
 				E2A8DCDA278CA6A1006BD05B /* AccountsModel.swift in Sources */,
 				E2367A562792F6DD002E8ECE /* OperationsPresenter.swift in Sources */,
 				E2F3B835278DC36F00220A7B /* UIIconsCollectionViewCell.swift in Sources */,
@@ -485,8 +506,10 @@
 				E2367A5A27931FBF002E8ECE /* OperationsWorker.swift in Sources */,
 				E2367A612796F5BE002E8ECE /* OperationsRouter.swift in Sources */,
 				E221C558283BA2D9003F7C19 /* OperationsPieChartModel.swift in Sources */,
+				E2324491285B049E00CCCCAE /* EditAccountInteractor.swift in Sources */,
 				E22916672791660B0025FB44 /* Constants.swift in Sources */,
 				E2E7A5402797FD6A000BFC03 /* NewOperationModel.swift in Sources */,
+				E232448F285B048700CCCCAE /* EditAccountModel.swift in Sources */,
 				E229166A2791AC820025FB44 /* CurrencyViewController.swift in Sources */,
 				E2367A542792F5A0002E8ECE /* OperationsInteractor.swift in Sources */,
 				E2A8DCE2278CBD60006BD05B /* UIAccountTableViewCell.swift in Sources */,
@@ -508,6 +531,7 @@
 				E2E7A5452798292D000BFC03 /* CategoryViewController.swift in Sources */,
 				E26BC19128571FE70052A3B0 /* UIOperationWithColorTableViewCell.swift in Sources */,
 				E2A8DCEE278D7342006BD05B /* NewAccountViewController.swift in Sources */,
+				E2324493285B04B400CCCCAE /* EditAccountPresenter.swift in Sources */,
 				E2E7A54727982941000BFC03 /* CategoryModel.swift in Sources */,
 				E221C55A283BA2F0003F7C19 /* OperationsPieChartInteractor.swift in Sources */,
 				E2367A452791AF5F002E8ECE /* NewAccountsRouter.swift in Sources */,

@@ -79,3 +79,6 @@
 
 // MARK: - Charts
 "chart_title" = "PieChart";
+
+// MARK: - Edit account
+"edit.account" = "Edit account";
