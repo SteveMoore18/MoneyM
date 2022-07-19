@@ -26,6 +26,8 @@
 
 "create" = "Create";
 
+"back" = "Back";
+
 // MARK: - Operations
 
 "operations" = "Operations";

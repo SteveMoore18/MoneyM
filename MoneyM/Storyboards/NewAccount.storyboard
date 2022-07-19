@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMx-kB-5vD">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1165"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3F-Qd-pWZ">
                                                 <rect key="frame" x="16" y="16" width="382" height="340"/>
@@ -279,7 +279,7 @@
                                             <constraint firstItem="c3F-Qd-pWZ" firstAttribute="top" secondItem="gMx-kB-5vD" secondAttribute="top" constant="16" id="12s-eQ-8iK"/>
                                             <constraint firstItem="DLp-TO-Xmw" firstAttribute="leading" secondItem="gMx-kB-5vD" secondAttribute="leading" constant="20" id="5cU-Kf-67k"/>
                                             <constraint firstAttribute="trailing" secondItem="DLp-TO-Xmw" secondAttribute="trailing" constant="20" id="Lfg-HD-J3J"/>
-                                            <constraint firstAttribute="height" constant="1100" id="Yxo-ta-rwn"/>
+                                            <constraint firstAttribute="height" constant="1165" id="Yxo-ta-rwn"/>
                                             <constraint firstItem="nLu-KE-142" firstAttribute="leading" secondItem="gMx-kB-5vD" secondAttribute="leading" constant="20" id="c3D-2g-Gq8"/>
                                             <constraint firstItem="nLu-KE-142" firstAttribute="top" secondItem="DLp-TO-Xmw" secondAttribute="bottom" constant="20" id="jh2-Ht-DJF"/>
                                             <constraint firstItem="DLp-TO-Xmw" firstAttribute="top" secondItem="c3F-Qd-pWZ" secondAttribute="bottom" constant="20" id="oLB-h6-Fw0"/>
@@ -337,7 +337,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtG-68-sPA">
-                                <rect key="frame" x="32" y="656" width="350" height="50"/>
+                                <rect key="frame" x="20" y="656" width="374" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KdE-Xh-DgZ"/>
@@ -361,8 +361,8 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Main Background Color"/>
                         <constraints>
-                            <constraint firstItem="EtG-68-sPA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" priority="750" constant="32" id="0a2-f3-0ke"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EtG-68-sPA" secondAttribute="trailing" priority="750" constant="32" id="3c5-GK-049"/>
+                            <constraint firstItem="EtG-68-sPA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" priority="750" constant="20" id="0a2-f3-0ke"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EtG-68-sPA" secondAttribute="trailing" priority="750" constant="20" id="3c5-GK-049"/>
                             <constraint firstItem="ds2-VA-JMi" firstAttribute="top" secondItem="VQ8-qS-UQY" secondAttribute="bottom" id="FPl-rc-h4j"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="EtG-68-sPA" secondAttribute="bottom" constant="30" id="IJb-t8-bxE"/>
                             <constraint firstItem="VQ8-qS-UQY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="J1J-av-LHz"/>

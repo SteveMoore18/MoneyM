@@ -96,8 +96,38 @@ class NewAccountViewController: UIViewController {
         currencyButton.titleLabel?.font = constants.roundedFont(20)
 		
         navigationBar.shadowImage = UIImage()
+		
+		titleTextField.delegate = self
+		titleTextField.returnKeyType = .next
+		
+		balanceTextField.delegate = self
+		
+		balanceTextField.inputAccessoryView = addDoneBackToKeyboard()
+		
+		titleTextField.becomeFirstResponder()
         
         localizeText()
+	}
+	
+	private func addDoneBackToKeyboard() -> UIToolbar
+	{
+		let toolBar = UIToolbar()
+		toolBar.sizeToFit()
+		
+		let btnDone = UIBarButtonItem(barButtonSystemItem: .done,
+									  target: self,
+									  action: #selector(balanceTextFieldDoneButtonClicked(_:)))
+		
+		let btnBack = UIBarButtonItem(title: NSLocalizedString("back", comment: ""),
+									  style: .plain,
+									  target: self,
+									  action: #selector(balanceTextFieldBackButtonClicked(_:)))
+		
+		let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+		
+		toolBar.items = [btnBack, flexibleSpace, btnDone]
+		
+		return toolBar
 	}
 	
 	private func initCollectionViews() {
@@ -224,6 +254,16 @@ class NewAccountViewController: UIViewController {
 		router?.navigateToCurrency()
 	}
 	
+	@objc private func balanceTextFieldDoneButtonClicked(_ sender: Any)
+	{
+		balanceTextField.endEditing(true)
+	}
+	
+	@objc private func balanceTextFieldBackButtonClicked(_ sender: Any)
+	{
+		balanceTextField.endEditing(true)
+		titleTextField.becomeFirstResponder()
+	}
 }
 
 // MARK: - NewAccount Collection view delegate
@@ -307,4 +347,18 @@ extension NewAccountViewController: CurrencyDelegate {
         selectedCurrencyID = currency.id
 	}
 	
+}
+
+// MARK: - TextField delegate
+extension NewAccountViewController: UITextFieldDelegate
+{
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		
+		if textField == titleTextField
+		{
+			balanceTextField.becomeFirstResponder()
+		}
+		
+		return true
+	}
 }
