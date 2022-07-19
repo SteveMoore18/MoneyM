@@ -22,6 +22,7 @@ class NewAccountViewController: UIViewController {
 
 	// MARK: - Outlets
 	@IBOutlet weak var iconBackgroundView: UIView!
+	@IBOutlet weak var iconBackgroundViewForAnimation: UIView!
 	
 	@IBOutlet weak var iconImage: UIImageView!
 	
@@ -200,8 +201,17 @@ class NewAccountViewController: UIViewController {
 	internal func selectColor(_ indexPath: IndexPath) {
 		if let cell = colorsCollectionView.cellForItem(at: indexPath) as? UIColorCollectionViewCell {
             colorsCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
-			iconBackgroundView.backgroundColor = cell.contentView.backgroundColor
-			dropShadow(iconBackgroundView)
+			
+			iconBackgroundViewForAnimation.transform = CGAffineTransform(scaleX: 0, y: 0)
+			iconBackgroundViewForAnimation.backgroundColor = cell.contentView.backgroundColor
+			
+			UIView.animate(withDuration: 0.25) {
+				self.iconBackgroundViewForAnimation.transform = CGAffineTransform(scaleX: 1, y: 1)
+			} completion: { _ in
+				self.iconBackgroundView.backgroundColor = cell.contentView.backgroundColor
+				self.dropShadow(self.iconBackgroundView)
+			}
+			
 			cell.selectCell()
             selectedColorIndex = indexPath
 		}
