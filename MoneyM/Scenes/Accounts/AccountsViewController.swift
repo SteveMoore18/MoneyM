@@ -122,6 +122,11 @@ class AccountsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         UserDefaults.standard.set(nil, forKey: "selectedIndex")
+		
+		if let indexPath = accountsTableView.indexPathForSelectedRow
+		{
+			accountsTableView.deselectRow(at: indexPath, animated: false)
+		}
     }
     
 	// MARK: - Actions
