@@ -67,6 +67,9 @@ class OperationsViewController: UIViewController {
     private let animationDuration: CGFloat = 0.3
     private var canOpenStatisticView = true
 	
+	private let maxDistanceToCancelAnimation: CGFloat = 30
+	private var touchStartedPosition: CGPoint = .zero
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -188,6 +191,16 @@ class OperationsViewController: UIViewController {
         btnNewOperation.setTitle(NSLocalizedString("new_operation", comment: ""), for: .normal)
     }
 	
+	private func distance(from: CGPoint, to: CGPoint) -> CGFloat
+	{
+		let x = from.x - to.x
+		let y = from.y - to.y
+		
+		let result = sqrt(pow(x, 2) + pow(y, 2))
+		
+		return CGFloat(result)
+	}
+	
 	// MARK: - Actions
     @objc
     func expenseViewClicked(_ sender: UIGestureRecognizer)
@@ -199,13 +212,7 @@ class OperationsViewController: UIViewController {
                 self.expenseView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             }
             canOpenStatisticView = true
-        }
-        else if sender.state == .changed
-        {
-            canOpenStatisticView = false
-            UIView.animate(withDuration: animationDuration) {
-                self.expenseView.transform = CGAffineTransform(scaleX: 1, y: 1)
-            }
+			touchStartedPosition = sender.location(in: self.view)
         }
         else if sender.state == .ended && canOpenStatisticView
         {
@@ -219,6 +226,16 @@ class OperationsViewController: UIViewController {
             canOpenStatisticView = true
         }
         
+		let currentPosition = sender.location(in: self.view)
+		if distance(from: currentPosition, to: touchStartedPosition) > maxDistanceToCancelAnimation
+		{
+			canOpenStatisticView = false
+            UIView.animate(withDuration: animationDuration) {
+                self.expenseView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+			touchStartedPosition = .zero
+		}
+		
     }
     
     @objc
@@ -230,13 +247,7 @@ class OperationsViewController: UIViewController {
                 self.incomeView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             }
             canOpenStatisticView = true
-        }
-        else if sender.state == .changed
-        {
-            canOpenStatisticView = false
-            UIView.animate(withDuration: animationDuration) {
-                self.incomeView.transform = CGAffineTransform(scaleX: 1, y: 1)
-            }
+			touchStartedPosition = sender.location(in: self.view)
         }
         else if sender.state == .ended && canOpenStatisticView
         {
@@ -248,6 +259,16 @@ class OperationsViewController: UIViewController {
             }
             canOpenStatisticView = true
         }
+		
+		let currentPosition = sender.location(in: self.view)
+		if distance(from: currentPosition, to: touchStartedPosition) > maxDistanceToCancelAnimation
+		{
+			canOpenStatisticView = false
+            UIView.animate(withDuration: animationDuration) {
+                self.incomeView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+			touchStartedPosition = .zero
+		}
     }
     
 	@IBAction func newOperationButtonClicked(_ sender: Any) {
