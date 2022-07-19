@@ -26,6 +26,8 @@ class NewOperationViewController: UIViewController {
 	// MARK: - Outlets
 	@IBOutlet weak var amountTextField: UITextField!
 	
+	@IBOutlet weak var scrollView: UIScrollView!
+	
 	@IBOutlet weak var expenseButton: UIButton!
 	
 	@IBOutlet weak var incomeButton: UIButton!
@@ -116,6 +118,12 @@ class NewOperationViewController: UIViewController {
 		createButtonEnable(value: isEmpty)
 	}
 	
+	@objc private func switchToNoteTextField(_ sender: Any)
+	{
+		noteTextField.becomeFirstResponder()
+		scrollView.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
+	}
+	
 	// MARK: - Private functions
 	private func setup() {
 		let viewController = self
@@ -141,7 +149,30 @@ class NewOperationViewController: UIViewController {
         amountTextField.font = constants.roundedFont(24)
         noteTextField.font = constants.roundedFont(24)
         
+		amountTextField.becomeFirstResponder()
+		amountTextField.inputAccessoryView = addButtonToKeyboard()
+		
+		noteTextField.returnKeyType = .done
+		noteTextField.delegate = self
+		
         localizeText()
+	}
+	
+	private func addButtonToKeyboard() -> UIToolbar
+	{
+		let toolBar = UIToolbar()
+		toolBar.sizeToFit()
+		
+		let btnToNoteTextField = UIBarButtonItem(title: NSLocalizedString("to_note", comment: ""),
+												 style: .plain,
+									  target: self,
+									  action: #selector(switchToNoteTextField(_:)))
+		
+		let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+		
+		toolBar.items = [flexibleSpace, btnToNoteTextField]
+		
+		return toolBar
 	}
 	
 	private func createButtonEnable(value: Bool) {
@@ -204,4 +235,23 @@ extension NewOperationViewController: CategoryDelegate {
 		selectedCategory = category
 	}
 	
+}
+
+// MARK: - TextField delegare
+extension NewOperationViewController: UITextFieldDelegate
+{
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		
+		if textField == amountTextField
+		{
+			noteTextField.becomeFirstResponder()
+		}
+		
+		if textField == noteTextField
+		{
+			noteTextField.endEditing(true)
+		}
+		
+		return true
+	}
 }

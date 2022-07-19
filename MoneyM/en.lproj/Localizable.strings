@@ -50,6 +50,8 @@
 
 "note" = "Note";
 
+"to_note" = "To Note";
+
 // MARK: - Currencies
 
 "dollar" = "Dollar";

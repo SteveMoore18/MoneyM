@@ -152,10 +152,10 @@ class OperationsViewController: UIViewController {
     private func dropShadowOf(view: UIView)
     {
         view.layer.masksToBounds = false
-        view.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        view.layer.shadowOpacity = 0.1
-        view.layer.shadowRadius = 9
-        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowColor = #colorLiteral(red: 0.1525953627, green: 0.1525953627, blue: 0.1525953627, alpha: 1)
+        view.layer.shadowOpacity = 0.05
+        view.layer.shadowRadius = 3
+        view.layer.shadowOffset = CGSize(width: 0, height: 4)
     }
 	
 	private func fetchOperations() {
