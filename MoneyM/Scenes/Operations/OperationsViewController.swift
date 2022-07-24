@@ -70,6 +70,8 @@ class OperationsViewController: UIViewController {
 	private let maxDistanceToCancelAnimation: CGFloat = 30
 	private var touchStartedPosition: CGPoint = .zero
 	
+	private let shadowOpacity: Float = 0.05
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -114,9 +116,9 @@ class OperationsViewController: UIViewController {
         
         newOperationButton.titleLabel?.font = constants.roundedFont(20)
         
-        dropShadowOf(view: expenseView)
-        dropShadowOf(view: incomeView)
-        dropShadowOf(view: balanceView)
+		makeShadow(view: expenseView, opacity: shadowOpacity)
+		makeShadow(view: incomeView, opacity: shadowOpacity)
+		makeShadow(view: balanceView, opacity: shadowOpacity)
         
         currency = getCurrency()
         
@@ -149,11 +151,11 @@ class OperationsViewController: UIViewController {
         return result
     }
     
-    private func dropShadowOf(view: UIView)
+	private func makeShadow(view: UIView, opacity: Float)
     {
         view.layer.masksToBounds = false
         view.layer.shadowColor = #colorLiteral(red: 0.1525953627, green: 0.1525953627, blue: 0.1525953627, alpha: 1)
-        view.layer.shadowOpacity = 0.05
+        view.layer.shadowOpacity = opacity
         view.layer.shadowRadius = 3
         view.layer.shadowOffset = CGSize(width: 0, height: 4)
     }
@@ -210,6 +212,7 @@ class OperationsViewController: UIViewController {
         {
             UIView.animate(withDuration: animationDuration) {
                 self.expenseView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+				self.makeShadow(view: self.expenseView, opacity: 0.005)
             }
             canOpenStatisticView = true
 			touchStartedPosition = sender.location(in: self.view)
@@ -222,6 +225,7 @@ class OperationsViewController: UIViewController {
             
             UIView.animate(withDuration: animationDuration) {
                 self.expenseView.transform = CGAffineTransform(scaleX: 1, y: 1)
+				self.makeShadow(view: self.expenseView, opacity: self.shadowOpacity)
             }
             canOpenStatisticView = true
         }
@@ -232,6 +236,7 @@ class OperationsViewController: UIViewController {
 			canOpenStatisticView = false
             UIView.animate(withDuration: animationDuration) {
                 self.expenseView.transform = CGAffineTransform(scaleX: 1, y: 1)
+				self.makeShadow(view: self.expenseView, opacity: self.shadowOpacity)
             }
 			touchStartedPosition = .zero
 		}
@@ -245,6 +250,7 @@ class OperationsViewController: UIViewController {
         {
             UIView.animate(withDuration: animationDuration) {
                 self.incomeView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+				self.makeShadow(view: self.incomeView, opacity: 0.005)
             }
             canOpenStatisticView = true
 			touchStartedPosition = sender.location(in: self.view)
@@ -256,6 +262,7 @@ class OperationsViewController: UIViewController {
             
             UIView.animate(withDuration: animationDuration) {
                 self.incomeView.transform = CGAffineTransform(scaleX: 1, y: 1)
+				self.makeShadow(view: self.incomeView, opacity: self.shadowOpacity)
             }
             canOpenStatisticView = true
         }
@@ -266,6 +273,7 @@ class OperationsViewController: UIViewController {
 			canOpenStatisticView = false
             UIView.animate(withDuration: animationDuration) {
                 self.incomeView.transform = CGAffineTransform(scaleX: 1, y: 1)
+				self.makeShadow(view: self.incomeView, opacity: self.shadowOpacity)
             }
 			touchStartedPosition = .zero
 		}
