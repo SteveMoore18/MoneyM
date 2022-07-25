@@ -118,6 +118,16 @@ class NewOperationViewController: UIViewController {
 		createButtonEnable(value: isEmpty)
 	}
 	
+	@IBAction func previousDayClicked(_ sender: Any)
+	{
+		changeDayBy(offset: -1, datePicker: self.datePicker)
+	}
+	
+	@IBAction func nextDayClicked(_ sender: Any)
+	{
+		changeDayBy(offset: 1, datePicker: self.datePicker)
+	}
+	
 	@objc private func switchToNoteTextField(_ sender: Any)
 	{
 		noteTextField.becomeFirstResponder()
@@ -154,6 +164,8 @@ class NewOperationViewController: UIViewController {
 		
 		noteTextField.returnKeyType = .done
 		noteTextField.delegate = self
+		
+		datePicker.contentHorizontalAlignment = .center
 		
         localizeText()
 	}
@@ -198,6 +210,15 @@ class NewOperationViewController: UIViewController {
 	private func deselectIncomeButton() {
 		incomeButton.backgroundColor = .systemGray5
 		incomeButton.tintColor = .systemBlue
+	}
+	
+	private func changeDayBy(offset: Int, datePicker: UIDatePicker)
+	{
+		let calendar = Calendar.current
+		var dateComponents = calendar.dateComponents([.day, .month, .year, .hour, .minute], from: datePicker.date)
+		dateComponents.day! += offset
+		
+		datePicker.date = calendar.date(from: dateComponents)!
 	}
 	
     private func localizeText()

@@ -181,25 +181,64 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <datePicker contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="dAm-bO-3Xh">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXI-PY-gaE">
                                                         <rect key="frame" x="16" y="86" width="311" height="50"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ai-3e-i2H">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <color key="backgroundColor" name="UITextField Background Color"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="50" id="EVz-2P-kDh"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="Ibj-bO-W2s"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="chevron.left" catalog="system"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                                                        <real key="value" value="25"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="previousDayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PPz-Zc-a2j"/>
+                                                                </connections>
+                                                            </button>
+                                                            <datePicker contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="dAm-bO-3Xh">
+                                                                <rect key="frame" x="50" y="0.0" width="211" height="50"/>
+                                                            </datePicker>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yF9-Q5-jYh">
+                                                                <rect key="frame" x="261" y="0.0" width="50" height="50"/>
+                                                                <color key="backgroundColor" name="UITextField Background Color"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="U1r-tl-l93"/>
+                                                                    <constraint firstAttribute="width" constant="50" id="bwR-4S-h4L"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="chevron.right" catalog="system"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                                                        <real key="value" value="25"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="nextDayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QCz-jA-8HH"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="RH7-wU-vql"/>
-                                                            <constraint firstAttribute="height" constant="50" id="Urg-1B-SKQ"/>
+                                                            <constraint firstAttribute="height" constant="50" id="mtb-n8-Te9"/>
                                                         </constraints>
-                                                    </datePicker>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" name="UIView Background Color"/>
                                                 <constraints>
+                                                    <constraint firstItem="RXI-PY-gaE" firstAttribute="leading" secondItem="Jsp-Kv-7a0" secondAttribute="leading" constant="16" id="1mB-3a-r1K"/>
                                                     <constraint firstAttribute="height" constant="156" id="43I-Bf-tCK"/>
                                                     <constraint firstItem="usz-qs-CRL" firstAttribute="centerX" secondItem="Jsp-Kv-7a0" secondAttribute="centerX" id="7nC-qK-vC3"/>
-                                                    <constraint firstItem="dAm-bO-3Xh" firstAttribute="top" secondItem="usz-qs-CRL" secondAttribute="bottom" constant="16" id="CZN-5y-4s4"/>
-                                                    <constraint firstItem="dAm-bO-3Xh" firstAttribute="leading" secondItem="Jsp-Kv-7a0" secondAttribute="leading" priority="750" constant="16" id="Mvh-5O-7XR"/>
                                                     <constraint firstItem="usz-qs-CRL" firstAttribute="leading" secondItem="Jsp-Kv-7a0" secondAttribute="leading" priority="750" constant="16" id="QvI-f6-Zyp"/>
+                                                    <constraint firstItem="RXI-PY-gaE" firstAttribute="top" secondItem="usz-qs-CRL" secondAttribute="bottom" constant="16" id="WE3-GD-d3H"/>
                                                     <constraint firstAttribute="trailing" secondItem="usz-qs-CRL" secondAttribute="trailing" priority="750" constant="16" id="Zh4-OP-oE5"/>
-                                                    <constraint firstItem="dAm-bO-3Xh" firstAttribute="centerX" secondItem="Jsp-Kv-7a0" secondAttribute="centerX" id="h9N-N9-6cb"/>
                                                     <constraint firstItem="usz-qs-CRL" firstAttribute="top" secondItem="Jsp-Kv-7a0" secondAttribute="top" constant="20" id="k3K-Oe-Ewj"/>
-                                                    <constraint firstAttribute="trailing" secondItem="dAm-bO-3Xh" secondAttribute="trailing" priority="750" constant="16" id="zq0-Kj-fbd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RXI-PY-gaE" secondAttribute="trailing" constant="16" id="plB-pp-Jok"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
@@ -357,7 +396,7 @@
                                                     <rect key="frame" x="16" y="10" width="40" height="40"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRs-nO-Xk9">
-                                                            <rect key="frame" x="16.5" y="2" width="7.5" height="36"/>
+                                                            <rect key="frame" x="16.5" y="2" width="7" height="36"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -423,6 +462,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="Main Background Color">
             <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
